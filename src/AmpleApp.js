@@ -14,7 +14,7 @@ class AmpleApp extends Component {
         <Provider store={ampleStore}>
             <Router>
                 <Grid fluid="true">
-                    <Row><Header /></Row>
+                    <Row><Col sm="12"><Header /></Col></Row>
                     <Row>
                         <Col sm="3">
                             <Treeview />
@@ -23,7 +23,7 @@ class AmpleApp extends Component {
                             <MainContent />
                         </Col>
                     </Row>
-                    <Row><Footer /></Row>
+                    <Row><Col sm="12"><Footer /></Col></Row>
                 </Grid>
             </Router>
         </Provider>
