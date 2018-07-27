@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import DashBoard from '../DashBoard';
 
 class MainContent extends Component{
     render(){
         return(
-            <h2>Main Content</h2>
+            
+                    <Row>
+                        <h1>Maincontent</h1>
+                        <Col sm="9">
+                            <DashBoard />
+                        </Col>
+                    </Row>
+                
         );
     }
 }
