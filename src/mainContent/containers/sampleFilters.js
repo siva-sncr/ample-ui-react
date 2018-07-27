@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Input from '../components/ui/inputs/input';
-import Button from '../components/ui/buttons/button';
+import Filter from '../components/filter';
 import UnitConversion from '../../filters/unitConversion';
 
 class SampleFilter extends Component {
@@ -28,17 +27,7 @@ class SampleFilter extends Component {
         return (
             <div>
                 <h4>Sample Filter</h4>
-                 {/* inputElement is UI component, dynamically we can use it*/}
-                <Input
-                    elementType='input'
-                    elementConfig={{
-                        type: 'number',
-                        placeholder: 'Enter number to convert in Celcius'
-                    }}
-                    value=''
-                    changed={(event) => this.inputChangedHandler(event)} />
-                {/* Button is UI component, dynamically we can use it*/}
-                <Button clicked={this.displayValue} >Convert</Button>
+                <Filter displayValue={this.displayValue} inputChangedHandler = {this.inputChangedHandler} />
                 <h5>{this.state.convertedValue}</h5>
             </div>
         )
