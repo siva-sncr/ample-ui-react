@@ -1,0 +1,69 @@
+.col-sm-12{
+    padding: 0px;
+}
+.navigation {
+    float: left;
+    height: 45px;
+    min-height: 45px;
+    min-width: 1048px;
+    width: 100%;
+    position: fixed;
+    border-color: transparent;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    z-index: 1045;
+}
+.navbar {
+    border-radius: 0px !important;
+    height: 36px;
+    min-height: 36px;
+}
+.navbar-inverse{
+    background-color : #333;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 768px){
+    .container {
+       width:100% !important;
+    }
+  }
+
+.container {
+    min-width: 1024px !important;
+    padding: 0px 10px;
+}
+.navigation .navbar-inverse .header-holder .logo-wrapper .logo, .navigation .navbar-inverse .header-holder .logo-wrapper .login-wrap {
+    background-position: 0 0;
+    width: 130px;
+    height: 28px;
+    margin-top: 2px;
+    margin-left: 0;
+}
+ .navigation .navbar-inverse .header-holder .logo-wrapper .logo, .navigation .navbar-inverse .header-holder .logo-wrapper .login-wrap{
+    background-image: url(images/logo.png);
+    background-repeat: no-repeat;
+}
+.navigation .navbar-inverse .header-holder .menu-wrapper .nav.navbar-nav {
+    float: left;
+    margin: 0px auto;
+    position: relative;
+    font-size: 13px;
+    left: 2%;
+}
+.logo-wrapper {
+    /* height: 45px; */
+    float: left;
+}
+.menu-wrapper {
+    height: 36px;
+    left: 0;
+}
+
+.menu-wrapper {
+    height: 45px;
+    left: 200px;
+    width: 60%;
+    float: left;
+    position: relative;
+}
