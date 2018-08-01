@@ -23,6 +23,9 @@ export class LoginComponent extends Component {
       this.setState({ password: evt.target.value });
     }
 
+    handleClick = () => {
+      this.props.history.push('/amplemanage/');
+    };
     canBeSubmitted() {
       const { username, password } = this.state;
       return (
@@ -67,6 +70,7 @@ export class LoginComponent extends Component {
                             </Button>
                         </FormGroup>
                         <Button bsStyle="link">Forgot Password ?</Button>
+                        <Button bsStyle="link"  onClick={this.handleClick} >Navigato home</Button>
                     </Form>
                 </div>
             </div>
