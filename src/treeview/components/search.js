@@ -1,10 +1,9 @@
 import React from 'react';
-import { Form, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Form, Button, FormGroup, FormControl } from 'react-bootstrap';
 
 const search = (props) => (
     <Form inline>
         <FormGroup controlId="formInlineName">
-            <ControlLabel>Search: </ControlLabel>
             <FormControl onChange={(evt) => props.inputChangedHandler(evt)} type="text" placeholder="Search" />
             <Button disabled={!props.searchFoundCount} onClick={props.selectPrevMatch}>&lt;</Button>
             <Button disabled={!props.searchFoundCount} onClick={props.selectNextMatch}>&gt;</Button>

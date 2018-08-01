@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SortableTree from 'react-sortable-tree';
 import FileExplorerTheme from 'react-sortable-tree-theme-file-explorer';
 
 import 'react-sortable-tree/style.css';
-
+import * as treeBuilderActions from '../actions/index';
 import Search from '../components/search';
+import axios from '../../services/index';
+import withErrorHandler from '../../hoc/withErrorHandler';
 
 class Tree extends Component {
+  componentDidMount() {
+    this.props.onInitTree();
+  }
+
   state = {
-    treeData: [{ title: 'Region', children: [{ title: 'Substation' }, { title: 'Substation1' }] }],
     searchString: null,
     searchFocusIndex: 0,
     searchFoundCount: 0
@@ -39,13 +45,13 @@ class Tree extends Component {
           selectPrevMatch={this.selectPrevMatch}
           selectNextMatch={this.selectNextMatch}
           searchFocusIndex={this.state.searchFocusIndex}
-          inputChangedHandler={evt => this.setState({ searchString: evt.target.value })} 
+          inputChangedHandler={evt => this.setState({ searchString: evt.target.value })}
         />
 
         <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
           <SortableTree
-            treeData={this.state.treeData}
-            onChange={treeData => this.setState({ treeData })}
+            treeData={this.props.tree}
+            onChange={treeData => treeData}
             theme={FileExplorerTheme}
             searchQuery={this.state.searchString}
             searchFocusOffset={this.state.searchFocusIndex}
@@ -57,10 +63,22 @@ class Tree extends Component {
             }
           />
         </div>
-        
+
       </div>
     );
   }
 }
 
-export default Tree;
+const mapStateToProps = state => {
+  return {
+    tree: state.treeviewData.tree
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onInitTree: () => dispatch(treeBuilderActions.initTree())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Tree, axios));
