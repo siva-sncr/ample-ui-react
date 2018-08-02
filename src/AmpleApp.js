@@ -13,8 +13,8 @@ class AmpleApp extends Component {
             <div>
                 <Router>
                     <div>
-                        <Route path="/login" component={LoginComponent} />
-                        <Route path="/amplemanage" component={HomeComponent} />
+                        <Route exact path="/login" component={LoginComponent} />
+                        <Route exact  path="/amplemanage" component={HomeComponent} />
                         <Route exact path="/" component={HomeComponent} />
                     </div>
                 </Router>

@@ -13,13 +13,13 @@ class HomeComponent extends Component{
         super(props);
     }
     render(){
-        
+        console.log(this.props.match.path);
         return(
            
             <div>
                 <Router>
                     <Grid fluid={true}>
-                        <Row><Col sm={12}><Header  data={this.props}/></Col></Row>
+                        <Row><Col sm={12}><Header  /></Col></Row>
                         <Row>
                             <Col sm={3}>
                                 <Treeview />

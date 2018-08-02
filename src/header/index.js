@@ -3,15 +3,28 @@ import { Navbar, Nav, NavItem, NavDropdown,MenuItem } from "react-bootstrap";
 import "./header.css";
 import  SubHeader  from './subHeader';
 import { LinkContainer } from 'react-router-bootstrap';
+import { Redirect } from "react-router";
+
 class Header extends Component{
-    
-      componentWillReceiveProps(nextProps) {
-        console.log(this.props.match.path);
-      }
+    constructor(props){
+        super(props);
+        this.state = {
+          isLoggedIn: false,
+        }
+       }
       
+      handleLogout(){
+        this.setState({isLoggedIn: !this.state.isLoggedIn,});
+      }
+
     render(){
         return(
+       
         <div>
+            {
+            (this.state.isLoggedIn) &&
+               <Redirect to="/login" />
+           }
             <div className="navigation">
                 <div className="navbar navbar-inverse" role="navigation">
                     <div className="container padding-0">
@@ -25,9 +38,7 @@ class Header extends Component{
                                         <LinkContainer to="/login">
                                             <NavItem eventKey={1}>login</NavItem>
                                         </LinkContainer>
-                                        <LinkContainer to="/amplemanage/">
-                                            <NavItem eventKey={1}>Home</NavItem>
-                                        </LinkContainer>
+                                       
                                         <LinkContainer to="dashboard">
                                             <NavItem eventKey={2} href="#">Dashboard</NavItem>
                                         </LinkContainer>
@@ -49,7 +60,7 @@ class Header extends Component{
                                                 <MenuItem eventKey={3.1}>Device Configuration</MenuItem>
                                                 <MenuItem eventKey={3.2}>Firm Ware Upgrade</MenuItem>
                                                 <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                                                <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                                                <MenuItem onClick={() => this.handleLogout()} eventKey={3.3}>Logout</MenuItem>
                                             </NavDropdown>
 
                                             <li className="dropdown user-menu" >
