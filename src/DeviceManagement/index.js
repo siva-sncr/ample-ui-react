@@ -1,114 +1,174 @@
 
 import React from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import Pagination from "react-js-pagination";
+import { BootstrapTable, TableHeaderColumn, SizePerPageDropDown} from 'react-bootstrap-table';
+import '../../node_modules/bootstrap-table/dist/bootstrap-table.min.css';
 
-class Products extends React.Component{
+
+let order = 'desc';
+class Datatable extends React.Component{
   constructor(){
-    super();
+    super(); 
 
-
+//Checkbox in data table
+  const onSelectAll = (isSelected) => {
+      if (isSelected) {
+         return this.state.dataObject.map(row => row.id);
+       } else {
+         return [];
+       }
+    }
+  // shorting by asc or desc
+    const handleBtnClick = () => {
+      if (order === 'desc') {
+        this.refs.table.handleSort('asc', 'name');
+        order = 'asc';
+      } else {
+        this.refs.table.handleSort('desc', 'name');
+        order = 'desc';
+      }
+    }
     //json format
     this.dataObject = [
       {
-        id: 1,
-        name: 'NodeJS js',
-        price : "10.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:1,
+        SerialNumber: 'RE08170009',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 2,
-        name: 'React js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:2,
+        SerialNumber: 'RE08170009',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 3,
-        name: 'Angular 1.x js' ,
-        price : "10.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:3,
+        SerialNumber: 'RE08170009',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 4,
-        name: 'Backbone js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:4,
+        SerialNumber: 'RE081700010',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 5,
-        name: 'VU Js',
-        price : "10.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:5,
+        SerialNumber: 'RE081700011',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 7,
-        name: 'Extension Js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:6,
+        SerialNumber: 'RE08170009',
+        Phase : "C",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 8,
-        name: 'Extension Js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:7,
+        SerialNumber: 'RE08170009',
+        Phase : "D",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 9,
-        name: 'Extension Js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
+        Id:8,
+        SerialNumber: 'RE08170009',
+        Phase : "P",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
       },
       {
-        id: 10,
-        name: 'Extension Js',
-        price : "15.0",
-        tag:"UI",
-        email:"UI@Setient",
-        number:"US-12345"
-      }
+        Id:9,
+        SerialNumber: 'RE08170009',
+        Phase : "R",
+        DeviceStatus:"Offline",
+        DeviceState:"production",
+        fwVersion:"2.4",
+        CommunicationType:"MM3",
+        NetworkGroup:"sgw-host8-comm1-group"
+      },
     ]
   }
 
   render(){
-    return (
-      <div>
 
-      <BootstrapTable data={ this.dataObject }striped
-      hover>
-          <TableHeaderColumn dataField='id' isKey={ true }>Product ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
-          <TableHeaderColumn dataField='tag'>Product Tag</TableHeaderColumn>
-          <TableHeaderColumn dataField='email'>Product Email</TableHeaderColumn>
-          <TableHeaderColumn dataField='number'>Product Number</TableHeaderColumn>
-      </BootstrapTable>
-      <Pagination
-      itemsCountPerPage={10}
-      totalItemsCount={20}
-      pageRangeDisplayed={5}
-      
-    />
-      </div>
-     
+    const selectRowProp = {
+      mode: 'checkbox',
+      onSelectAll: this.onSelectAll
+    };
+    // pagination properties
 
-      
+    const options = {
+      paginationSize: 4,
+      pageStartIndex: 0,
+      firstPageText: 'First',
+      prePageText: 'Back',
+      nextPageText: 'Next',
+      lastPageText: 'Last',
+      nextPageTitle: 'First page',
+      prePageTitle: 'Pre page',
+      firstPageTitle: 'Next page',
+      lastPageTitle: 'Last page',
+      showTotal: true,
+      paginationTotalRenderer: this.customTotal,
+      sizePerPageList: [{
+        text: '5', value: 5
+      }, {
+        text: '10', value: 10
+      }, {
+        text: 'All', value: this.dataObject.length
+      }]
+    };
+         return ( 
+          <div>
+          <BootstrapTable data={ this.dataObject }striped 
+          options={ this.options }
+          selectRow={ selectRowProp }
+          pagination
+           hover
+           >
+           <TableHeaderColumn dataField='Id' dataSort={ true } isKey={ true }>Id</TableHeaderColumn>
+          <TableHeaderColumn dataField='SerialNumber' dataSort={ true }>SerialNumber</TableHeaderColumn>
+          <TableHeaderColumn dataField='Phase' dataSort={ true }>Phase</TableHeaderColumn>
+          <TableHeaderColumn dataField='DeviceStatus' dataSort={ true }>DeviceStatus</TableHeaderColumn>
+          <TableHeaderColumn dataField='DeviceState' dataSort={ true }>DeviceState</TableHeaderColumn>
+          <TableHeaderColumn dataField='fwVersion' dataSort={ true }>fwVersion</TableHeaderColumn>
+          <TableHeaderColumn dataField='CommunicationType' dataSort={ true }>CommunicationType</TableHeaderColumn>
+          <TableHeaderColumn dataField='NetworkGroup' dataSort={ true }>NetworkGroup</TableHeaderColumn>
+          </BootstrapTable>  </div>
     );
   }
 }
-export default Products
+export default Datatable

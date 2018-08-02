@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import DashBoard from '../DashBoard';
 import DeviceManagement from '../DeviceManagement';
 
-
 class MainContent extends Component {
     render() {
         return (
@@ -15,7 +14,7 @@ class MainContent extends Component {
                 </Col>
 
                 <Col sm="10">
-                    <h1>ReactBootstrapDatatable</h1>
+                    <h1>DeviceManagement</h1>
                     <DeviceManagement />
                 </Col>
             </Row>
