@@ -1,6 +1,6 @@
 
-
-let baseUrl = 'https://172.18.2.45/ample'
+import { config } from '../../config';
+let baseUrl = config.apiUrl;
 
 function loginAmple(loginInfo){
     let newPost = {

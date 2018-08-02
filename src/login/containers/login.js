@@ -4,7 +4,7 @@ import "../Login.css";
 import { connect } from 'react-redux';
 import  {loginActions}  from '../actions';
 import { bindActionCreators } from 'redux';
-
+import { config } from '../../config';
 export class LoginView extends Component {
   
     constructor(props) {
@@ -35,7 +35,7 @@ export class LoginView extends Component {
       );
     }
   render() {
-    const loginURL = 'https://172.18.2.45/ample/j_spring_security_check';
+    const loginURL = config.apiUrl+'ample/j_spring_security_check';
     const isEnabled = this.canBeSubmitted();
     return (
         <div className="login-view">

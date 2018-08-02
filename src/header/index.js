@@ -4,6 +4,11 @@ import "./header.css";
 import  SubHeader  from './subHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 class Header extends Component{
+    
+      componentWillReceiveProps(nextProps) {
+        console.log(this.props.match.path);
+      }
+      
     render(){
         return(
         <div>
