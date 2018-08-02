@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import headerReducer from './headerReducer';
 import treeviewReducer from './treeviewReducer';
-import loginReducer from './loginReducer';
+import loginReducer from '../login/reducers/loginReducer';
 
 const ampleReducer = combineReducers({
     headerData: headerReducer,

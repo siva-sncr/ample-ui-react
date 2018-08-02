@@ -18,7 +18,7 @@ class HomeComponent extends Component{
            
             <div>
                 <Grid fluid={true}>
-                    <Row><Col sm={12}><Header /></Col></Row>
+                    <Row><Col sm={12}><Header  /></Col></Row>
                     <Row>
                         <Col sm={3}>
                             <Treeview />

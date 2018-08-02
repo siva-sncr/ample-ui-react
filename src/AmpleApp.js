@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
-import  LoginComponent  from './login';
+import  LoginComponent  from './login/containers/login';
 import  HomeComponent  from './home';
 
 import ampleStore from './store';

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown,MenuItem } from "react-bootstrap";
 import "./header.css";
+import  SubHeader  from './subHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 class Header extends Component{
     render(){
@@ -40,13 +41,22 @@ class Header extends Component{
                                     <ul className="nav navbar-nav navbar-text-white pull-right nav-settings">
                                             
                                              <NavDropdown eventKey={3} title="Current Jobs" id="basic-nav-dropdown">
-                                                <MenuItem eventKey={3.1}>Action</MenuItem>
-                                                <MenuItem eventKey={3.2}>Another action</MenuItem>
+                                                <MenuItem eventKey={3.1}>Device Configuration</MenuItem>
+                                                <MenuItem eventKey={3.2}>Firm Ware Upgrade</MenuItem>
                                                 <MenuItem eventKey={3.3}>Something else here</MenuItem>
                                                 <MenuItem eventKey={3.3}>Separated link</MenuItem>
                                             </NavDropdown>
-                                        
-                                            
+
+                                            <li className="dropdown user-menu" >
+                                                <a href="javascript:" draggable="false" className="icon-button"  role="button" >
+                                                    <span href="javascript:" className="ion ion-ios-person" ></span>
+                                                    <span className="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                                                </a>
+                                                <ul className="dropdown-menu dropdown-menu-right" role="menu" >
+                                                    <li><a href="javascript:" className="menu-item"  >menuqq</a></li>
+                                                </ul>
+                                            </li>
+
                                             <li className="dropdown user-menu" >
                                                 <a href="javascript:" draggable="false" className="icon-button"  role="button" >
                                                     <span href="javascript:" className="ion ion-ios-person" ></span>
@@ -63,22 +73,9 @@ class Header extends Component{
                         </div>
                 </div>
             </div>
-            <div className="navbar navbar-inverse sub-navigation" role="navigation">      
-                <div className="container padding-0">
-                    <div className="">
-                        <div className="row">
-                          <div className="col-xs-12 col-md-12 sub-menu-wrapper padding-0">
-                                <ul className="dashboard-subnav nav navbar-nav">
-                                    <li><a>ssssub nav</a></li>
-                                    <NavItem eventKey={2} href="#">
-                                        Reports
-                                    </NavItem>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <SubHeader />
+
         </div>
         );
     }
