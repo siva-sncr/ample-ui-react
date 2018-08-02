@@ -14,7 +14,7 @@ class Header extends Component{
        }
       
       handleLogout(){
-        this.setState({isLoggedIn: !this.state.isLoggedIn,});
+        window.location.href = "http://localhost:3000/login";
       }
 
     render(){
@@ -35,9 +35,6 @@ class Header extends Component{
                                 </div>
                                 <div className="menu-wrapper">
                                     <ul className="nav navbar-nav">
-                                        <LinkContainer to="/login">
-                                            <NavItem eventKey={1}>login</NavItem>
-                                        </LinkContainer>
                                        
                                         <LinkContainer to="dashboard">
                                             <NavItem eventKey={2} href="#">Dashboard</NavItem>

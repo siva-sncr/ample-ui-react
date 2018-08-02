@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Header from '../header';
 import Treeview from '../treeview';
@@ -25,9 +25,11 @@ class HomeComponent extends Component{
                                 <Treeview />
                             </Col>
                             <Col sm={9}>
-                                <Route exact path="/" component={DashboardComponent} />
-                                <Route exact path={`${this.props.match.path}/dashboard`} component={DashboardComponent} />
-                                <Route exact path={`${this.props.match.path}/devicemanagement`} component={DeviceManagementComponent} />
+                                <Switch>
+                                    <Route exact path="/" component={DashboardComponent} />
+                                    <Route exact path={`${this.props.match.path}/dashboard`} component={DashboardComponent} />
+                                    <Route exact path={`${this.props.match.path}/devicemanagement`} component={DeviceManagementComponent} />
+                                </Switch>
                             </Col>
                         </Row>
                         <Row><Col sm={12}><Footer /></Col></Row>
