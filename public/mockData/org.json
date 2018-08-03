@@ -1,0 +1,40 @@
+{
+    "status": "OK",
+    "message": "success",
+    "data": [
+        {
+            "id": null,
+            "name": "SENTIENT-ENERGY",
+            "type": "ORGANIZATION",
+            "desc": null,
+            "currentFaultCount": null,
+            "tempFaultCount": null,
+            "parentId": null,
+            "createdBy": null,
+            "createdOn": null,
+            "onlineDevicesCount": null,
+            "devicesCount": null,
+            "subscribedForAlerts": false,
+            "selectionIntermediate": false,
+            "subscribedForWatchlist": false,
+            "position": null
+        },
+        {
+            "id": null,
+            "name": "GROUPNODE",
+            "type": "ORGANIZATION",
+            "desc": null,
+            "currentFaultCount": null,
+            "tempFaultCount": null,
+            "parentId": null,
+            "createdBy": null,
+            "createdOn": null,
+            "onlineDevicesCount": null,
+            "devicesCount": null,
+            "subscribedForAlerts": false,
+            "selectionIntermediate": false,
+            "subscribedForWatchlist": false,
+            "position": null
+        }
+    ]
+}
