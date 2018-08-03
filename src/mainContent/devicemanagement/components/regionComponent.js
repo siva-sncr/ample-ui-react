@@ -9,7 +9,7 @@ class RegionLevelComponent extends Component{
 
                 <ul>
                     <li>
-                        <Link to='/amplemanage/devicemanagement/region'>Navigate to sub level</Link>
+                        <Link to='/amplemanage/devicemanagement/region/sub'>Navigate to sub level</Link>
                     </li>
                     
                 </ul>
