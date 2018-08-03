@@ -1,2 +1,0 @@
-export const LOAD_INTIAL_TREE = 'LOAD_INTIAL_TREE';
-export const FETCH_TREE_FAILED = 'FETCH_TREE_FAILED';

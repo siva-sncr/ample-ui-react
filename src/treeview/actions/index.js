@@ -1,3 +1,5 @@
 export {
-    initTree
-} from './treeBuilder';
+    initTree,
+    dropTree,
+    expandNode
+} from './treeViewBuilderAction';

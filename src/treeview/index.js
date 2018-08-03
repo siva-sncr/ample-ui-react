@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Tree from './containers/tree';
+import Tree from './containers/treeContainer';
 
 class Treeview extends Component {
 

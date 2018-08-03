@@ -5,7 +5,7 @@ import FileExplorerTheme from 'react-sortable-tree-theme-file-explorer';
 
 import 'react-sortable-tree/style.css';
 import * as treeBuilderActions from '../actions/index';
-import Search from '../components/search';
+import Search from '../components/searchComponent';
 import axios from '../../services/index';
 import withErrorHandler from '../../hoc/withErrorHandler';
 
@@ -36,6 +36,10 @@ class Tree extends Component {
           : 0,
     });
 
+  disableOrEnableDrag = (data) => {
+    return data.node.type === 'REGION'
+  }
+
   render() {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -51,16 +55,21 @@ class Tree extends Component {
         <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
           <SortableTree
             treeData={this.props.tree}
-            onChange={treeData => treeData}
+            onChange={treeData => this.props.onDropTree(treeData)}
             theme={FileExplorerTheme}
             searchQuery={this.state.searchString}
             searchFocusOffset={this.state.searchFocusIndex}
+            canDrag={(clickedNode) => this.disableOrEnableDrag(clickedNode)}
+            onClick={(clickedNode) => { this.props.onExpandNode(clickedNode) }}
             searchFinishCallback={matches =>
               this.setState({
                 searchFoundCount: matches.length,
                 searchFocusIndex: matches.length > 0 ? this.state.searchFocusIndex % matches.length : 0
               })
             }
+            generateNodeProps={clickedNode => ({
+              onClick: () => this.props.onExpandNode(clickedNode),
+            })}
           />
         </div>
 
@@ -77,7 +86,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onInitTree: () => dispatch(treeBuilderActions.initTree())
+    onInitTree: () => dispatch(treeBuilderActions.initTree()),
+    onDropTree: (tree) => dispatch(treeBuilderActions.dropTree(tree)),
+    onExpandNode: (clickedNode) => dispatch(treeBuilderActions.expandNode(clickedNode))
   }
 }
 
