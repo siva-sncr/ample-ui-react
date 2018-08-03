@@ -5,9 +5,8 @@ import Header from '../header';
 import Treeview from '../treeview';
 import MainContent from '../mainContent';
 import DashboardComponent from '../mainContent/dashboard';
-import DeviceManagementComponent from '../mainContent/devicemanagement';
 import Footer from '../footer';
-
+import deviceRoutes from '../mainContent/devicemanagement/routes';
 class HomeComponent extends Component{
     constructor(props){
         super(props);
@@ -28,7 +27,7 @@ class HomeComponent extends Component{
                                 <Switch>
                                     <Route exact path="/" component={DashboardComponent} />
                                     <Route exact path={`${this.props.match.path}/dashboard`} component={DashboardComponent} />
-                                    <Route exact path={`${this.props.match.path}/devicemanagement`} component={DeviceManagementComponent} />
+                                    {deviceRoutes}
                                 </Switch>
                             </Col>
                         </Row>

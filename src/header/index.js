@@ -35,7 +35,6 @@ class Header extends Component{
                                 </div>
                                 <div className="menu-wrapper">
                                     <ul className="nav navbar-nav">
-                                       
                                         <LinkContainer to="dashboard">
                                             <NavItem eventKey={2} href="#">Dashboard</NavItem>
                                         </LinkContainer>

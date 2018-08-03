@@ -1,12 +1,12 @@
-
-import DeviceManagementComponent from '../devicemanagement';
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Route } from 'react-router-dom';
-
-const deviceManagementRoutes = (
-    <Route exact path={`${this.props.match.path}/devicemanagement`} component={DeviceManagementComponent}>
-      <Route path={`${this.props.match.path}/devicemanagement/region`} component={DeviceManagementComponent} />
+import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import DashboardComponent from '../dashboard';
+import DeviceManagementComponent from '../devicemanagement/containers';
+import RegionLevelComponent from '../devicemanagement/components/regionComponent';
+const deviceRoutes = (
+    <Route exact path="/amplemanage/devicemanagement" component={DeviceManagementComponent}>
+        <Route  path="/amplemanage/devicemanagement/:regionId" component={RegionLevelComponent} />
+        <Route exact path="/devicemanagement/:region/:sub" component={DashboardComponent} />
     </Route>
-  )
-   
-  export default deviceManagementRoutes
+)
+export default deviceRoutes;
