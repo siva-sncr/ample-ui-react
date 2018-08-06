@@ -3,10 +3,7 @@ import { config } from '../../config';
 let baseUrl = config.apiUrl;
 
 function loginAmple(loginInfo){
-    let newPost = {
-        j_username : "ampleadmin",
-        j_password : "yourpass"
-    };
+    
     const requestOptions = {
         method: 'POST',
         'Accept': 'application/json',

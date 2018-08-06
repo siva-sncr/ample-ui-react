@@ -3,10 +3,7 @@
 let baseUrl = 'https://172.18.2.45/ample'
 
 function loginAmple(loginInfo){
-    let newPost = {
-        j_username : "ampleadmin",
-        j_password : "yourpass"
-    };
+    
     const requestOptions = {
         method: 'POST',
         'Accept': 'application/json',

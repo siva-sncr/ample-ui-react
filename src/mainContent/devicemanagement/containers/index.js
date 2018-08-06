@@ -9,7 +9,7 @@ class DeviceManagementComponent extends Component{
 
                 <ul>
                     <li>
-                        <Link to='/amplemanage/devicemanagement/region'>Navigate to region level</Link>
+                        <Link to='/devicemanagement/region'>Navigate to region level</Link>
                     </li>
                     
                 </ul>

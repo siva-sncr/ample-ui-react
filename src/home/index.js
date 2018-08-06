@@ -6,13 +6,12 @@ import Treeview from '../treeview';
 import MainContent from '../mainContent';
 import DashboardComponent from '../mainContent/dashboard';
 import Footer from '../footer';
-import deviceRoutes from '../mainContent/devicemanagement/routes';
+import allRoutes from '../mainContent/allRoutes';
 class HomeComponent extends Component{
     constructor(props){
         super(props);
     }
     render(){
-        console.log(this.props.match.path);
         return(
            
             <div>
@@ -24,11 +23,8 @@ class HomeComponent extends Component{
                                 <Treeview />
                             </Col>
                             <Col sm={9}>
-                                <Switch>
-                                    <Route exact path="/" component={DashboardComponent} />
-                                    <Route exact path={`${this.props.match.path}/dashboard`} component={DashboardComponent} />
-                                    {deviceRoutes}
-                                </Switch>
+                                {allRoutes.dashRoutes}
+                                {allRoutes.deviceRoutes}
                             </Col>
                         </Row>
                         <Row><Col sm={12}><Footer /></Col></Row>

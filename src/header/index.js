@@ -18,6 +18,7 @@ class Header extends Component{
       }
 
     render(){
+        
         return(
        
         <div>
@@ -35,17 +36,18 @@ class Header extends Component{
                                 </div>
                                 <div className="menu-wrapper">
                                     <ul className="nav navbar-nav">
-                                        <LinkContainer to="dashboard">
+                                       
+                                        <LinkContainer to="/dashboard">
                                             <NavItem eventKey={2} href="#">Dashboard</NavItem>
                                         </LinkContainer>
-                                        <LinkContainer to="devicemanagement">
+                                        <LinkContainer to="/devicemanagement">
                                             <NavItem eventKey={2} href="#">Device Management</NavItem>
                                         </LinkContainer>
                                         <NavItem eventKey={2} href="#">
                                             Line Monitoring
                                         </NavItem>
                                         <NavItem eventKey={2} href="#">
-                                            Reports
+                                            Reports 
                                         </NavItem>
                                     </ul>
                                 </div>

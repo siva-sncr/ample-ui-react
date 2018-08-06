@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 import  LoginComponent  from './login/containers/login';
 import  HomeComponent  from './home';
-
+import DashboardComponent from './mainContent/dashboard';
+import deviceRoutes from './mainContent/devicemanagement/routes';
 import ampleStore from './store';
 
 class AmpleApp extends Component {
@@ -13,11 +14,8 @@ class AmpleApp extends Component {
             <div>
                 <Router>
                     <div>
-                        <Switch>
-                            <Route exact path="/login" component={LoginComponent} />
-                            <Route exact  path="/amplemanage" component={HomeComponent} />
-                            <Route exact path="/" component={HomeComponent} />
-                        </Switch>
+                        <Route path="/login" component={LoginComponent}/>
+                        <Route path="/" component={HomeComponent} />
                     </div>
                 </Router>
             </div>
