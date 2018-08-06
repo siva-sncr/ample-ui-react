@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../devicemanagement.css';
 class RegionLevelComponent extends Component{
     render(){
@@ -9,7 +9,7 @@ class RegionLevelComponent extends Component{
 
                 <ul>
                     <li>
-                        <Link to='/amplemanage/devicemanagement/region/sub'>Navigate to sub level</Link>
+                        <Link to='/devicemanagement/region/sub'>Navigate to sub level</Link>
                     </li>
                     
                 </ul>

@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Header from '../header';
 import Treeview from '../treeview';
-import MainContent from '../mainContent';
-import DashboardComponent from '../mainContent/dashboard';
 import Footer from '../footer';
 import allRoutes from '../mainContent/allRoutes';
 class HomeComponent extends Component{
-    constructor(props){
-        super(props);
-    }
+   
     render(){
         return(
            
