@@ -6,14 +6,18 @@ import Treeview from '../treeview';
 import Footer from '../footer';
 import allRoutes from '../mainContent/allRoutes';
 class HomeComponent extends Component{
-   
+    constructor(props){
+        super(props);
+    }
+    
     render(){
+        
         return(
            
             <div>
                 <Router>
                     <Grid fluid={true}>
-                        <Row><Col sm={12}><Header  /></Col></Row>
+                        <Row><Col sm={12}><Header   /></Col></Row>
                         <Row>
                             <Col sm={3}>
                                 <Treeview />

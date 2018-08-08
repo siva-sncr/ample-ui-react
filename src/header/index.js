@@ -3,7 +3,7 @@ import { Navbar, Nav, NavItem, NavDropdown,MenuItem } from "react-bootstrap";
 import "./header.css";
 import  SubHeader  from './subHeader';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Redirect } from "react-router";
+import { Redirect,withRouter } from "react-router";
 
 class Header extends Component{
     constructor(props){
@@ -16,11 +16,9 @@ class Header extends Component{
       handleLogout(){
         window.location.href = "http://localhost:3000/login";
       }
-
+     
     render(){
-        
         return(
-       
         <div>
             {
             (this.state.isLoggedIn) &&
@@ -88,11 +86,11 @@ class Header extends Component{
                 </div>
             </div>
 
-            <SubHeader />
+            <SubHeader node={this.props.location.pathname}/>
 
         </div>
         );
     }
 }
 
-export default Header;
+export default withRouter(Header);
