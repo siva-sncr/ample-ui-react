@@ -1,6 +1,6 @@
 import React from 'react'
 import HighchartsReact from 'highcharts-react-official'
-import HighCharts from '../highCharts/highcharts'
+import HighCharts from '../../highcharts/highcharts'
 
 const options = {
   title: {
@@ -11,9 +11,9 @@ const options = {
   }]
 }
 
-const MyHighChart = () => <HighchartsReact
+const MyHighCharts = () => <HighchartsReact
   highcharts={HighCharts}
   options={options}
 />
 
-export default MyHighChart
+export default MyHighCharts

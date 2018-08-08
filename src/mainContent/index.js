@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import DashBoard from '../DashBoard';
-import DeviceManagement from '../DeviceManagement';
+import DashBoard from './dashboard';
+// import DeviceManagement from './devicemanagement/devicemanagement';
 
 class MainContent extends Component {
     render() {
@@ -13,10 +13,10 @@ class MainContent extends Component {
                     <DashBoard />
                 </Col>
 
-                <Col sm="10">
+                {/* <Col sm="10">
                     <h1>DeviceManagement</h1>
                     <DeviceManagement />
-                </Col>
+                </Col> */}
             </Row>
 
         );

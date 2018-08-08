@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn, SizePerPageDropDown} from 'react-bootstrap-table';
 import '../../node_modules/bootstrap-table/dist/bootstrap-table.min.css';
@@ -29,96 +28,6 @@ class Datatable extends React.Component{
     }
     //json format
     this.dataObject = [
-      {
-        Id:1,
-        SerialNumber: 'RE08170009',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:2,
-        SerialNumber: 'RE08170009',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:3,
-        SerialNumber: 'RE08170009',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:4,
-        SerialNumber: 'RE081700010',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:5,
-        SerialNumber: 'RE081700011',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:6,
-        SerialNumber: 'RE08170009',
-        Phase : "C",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:7,
-        SerialNumber: 'RE08170009',
-        Phase : "D",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:8,
-        SerialNumber: 'RE08170009',
-        Phase : "P",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
-      {
-        Id:9,
-        SerialNumber: 'RE08170009',
-        Phase : "R",
-        DeviceStatus:"Offline",
-        DeviceState:"production",
-        fwVersion:"2.4",
-        CommunicationType:"MM3",
-        NetworkGroup:"sgw-host8-comm1-group"
-      },
     ]
   }
 
