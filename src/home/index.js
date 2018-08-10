@@ -8,15 +8,19 @@ import allRoutes from '../mainContent/allRoutes';
 class HomeComponent extends Component{
     
     render(){
-        
+        const pStyle = {
+            marginTop:'100px'
+          };
+
+          
         return(
-           
+
             <div>
                 <Router>
                     <Grid fluid={true}>
                         <Row><Col sm={12}><Header   /></Col></Row>
                         <Row>
-                            <Col sm={3}>
+                            <Col sm={3} style={pStyle}>
                                 <Treeview />
                             </Col>
                             <Col sm={9}>
