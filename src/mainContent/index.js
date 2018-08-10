@@ -1,20 +1,48 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
-import Aux from '../hoc/aux';
-import SampleFilter from './containers/sampleFilters';
-import SampleService from './containers/sampleService';
+import Treeview from '../treeview';
+import Routes from '../routes';
+import * as headerActions from '../header/actions';
 
-class MainContent extends Component{
-    render(){
-        return(
-            // Auxillary higher order component help us to avoid creating uncessary html element. 
-            <Aux>
-                <h2>Main Content</h2>
-                <SampleFilter />
-                <SampleService />
-            </Aux>
+class MainContent extends Component {
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            this.onRouteChanged(this.props.location);
+        }
+    }
+
+    onRouteChanged(location) {
+        this.props.onRouteChange(location.pathname)
+    }
+
+    render() {
+        return (
+            <Row>
+                <Col style={this.props.currentRoute === '/' ? { display: 'none' } : null} sm={3}>
+                    <Treeview />
+                </Col>
+                <Col sm={this.props.currentRoute === '/' ? 12 : 9}>
+                    <Routes />
+                </Col>
+            </Row>
         );
     }
 }
 
-export default MainContent;
+const mapStateToProps = state => {
+    return {
+        currentRoute: state.headerData.currentRoute
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+      onRouteChange: (route) => dispatch(headerActions.onRouteChange(route))
+    }
+  }
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainContent));

@@ -1,6 +1,4 @@
 import * as actionTypes from './treeViewActionTypes';
-import { initialTree } from '../services/treeService';
-import { initRegions } from '../services/treeService';
 
 export const setTree = (tree) => {
     //map response tree name to title - since tree view library needs tittle. 
@@ -45,33 +43,3 @@ export const onExpandNode = (nextLevelNodes, clickedNode) => {
         updatedNode: [updatedNode]
     }
 }
-
-export const initTree = () => {
-    return dispatch => {
-        initialTree()
-            .then(response => {
-                dispatch(setTree(response.data.data));
-            })
-            .catch(error => {
-                dispatch(fetchTreeFailed());
-            });
-    };
-};
-
-export const dropTree = (tree) => {
-    return dispatch => {
-        dispatch(onDropTree(tree));
-    };
-};
-
-export const expandNode = (clickedNode) => {
-    return dispatch => {
-        initRegions(clickedNode)
-            .then(response => {
-                dispatch(onExpandNode(response.data.data, clickedNode));
-            })
-            .catch(error => {
-                dispatch(fetchTreeFailed());
-            });
-    };
-};
