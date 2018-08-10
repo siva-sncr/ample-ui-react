@@ -6,9 +6,6 @@ import Treeview from '../treeview';
 import Footer from '../footer';
 import allRoutes from '../mainContent/allRoutes';
 class HomeComponent extends Component{
-    constructor(props){
-        super(props);
-    }
     
     render(){
         

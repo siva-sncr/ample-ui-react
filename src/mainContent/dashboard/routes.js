@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch,Route } from 'react-router-dom';
-import DashboardComponent from '../dashboard';
+import DashboardComponent from '../dashboard/containers';
 const dashRoutes = (
     <Switch>
         <Route path="/dashboard" component={DashboardComponent} />

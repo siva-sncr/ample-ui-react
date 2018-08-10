@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch,Route } from 'react-router-dom';
-import DashboardComponent from '../dashboard';
+import DashboardComponent from '../dashboard/containers';
 import DeviceManagementComponent from '../devicemanagement/containers';
 import RegionLevelComponent from '../devicemanagement/components/regionComponent';
 

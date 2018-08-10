@@ -11,8 +11,8 @@ const SubHeader = (props) => {
     }
     let menuItems =  getSubmenu(props.node);
     let menus = menuItems.map((menu, index) => (
-        <li>
-            <Link to={menu.link}>{menu.name}</Link>
+        <li key={index}>
+            <Link to={menu.link} >{menu.name}</Link>
         </li>
     ));
     return (

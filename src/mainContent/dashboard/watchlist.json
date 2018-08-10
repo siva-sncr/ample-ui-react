@@ -1,0 +1,105 @@
+{
+  "status": "OK",
+  "message": "success",
+  "data": [
+    {
+      "region": "California",
+      "substation": "d",
+      "feeder": "ff",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "California",
+      "substation": "dD",
+      "feeder": "ff",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "California",
+      "substation": "Santa Clara",
+      "feeder": "Great America",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "California",
+      "substation": "Santa Clara",
+      "feeder": "Levis Stadium",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "MyRegion",
+      "substation": "MSub",
+      "feeder": "MF",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "MyRegion",
+      "substation": "MSub",
+      "feeder": "MF1",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "Shree1",
+      "substation": "Sub-Station1",
+      "feeder": "*feeder1",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "Sree Cell",
+      "substation": "California",
+      "feeder": "SC",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    },
+    {
+      "region": "this",
+      "substation": "is",
+      "feeder": "a",
+      "sustainedCount": 0,
+      "momentaryCount": 0,
+      "maxDisturbanceSite": "",
+      "maxDisturbanceCount": 0,
+      "maxLoad": 0.0,
+      "maxUnbalance": 0.0
+    }
+  ]
+}
