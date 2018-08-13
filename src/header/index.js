@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
-class Header extends Component{
-    render(){
-        return(
-            <h2>Header</h2>
+import Navigations from './navigation/navigations';
+
+class Header extends Component {
+    render() {
+        return (
+            <header>
+                <nav>
+                    <Navigations />
+                </nav>
+            </header>
         );
     }
 }

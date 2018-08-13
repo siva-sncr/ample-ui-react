@@ -2,4 +2,4 @@ export {
     initTree,
     dropTree,
     expandNode
-} from './treeViewBuilderAction';
+} from './treeViewActionBuilder';
