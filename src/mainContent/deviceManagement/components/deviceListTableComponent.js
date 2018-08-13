@@ -1,7 +1,5 @@
 import React from 'react';
-import { BootstrapTable, TableHeaderColumn, SizePerPageDropDown } from 'react-bootstrap-table';
-//import '../../../../node_modules/bootstrap-table/dist/'
-//'../../../node_modules/bootstrap-table/dist/bootstrap-table.min.css';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 const deviceListTable = (props) => {
     return (
