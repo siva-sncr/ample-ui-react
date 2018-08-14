@@ -1,4 +1,4 @@
-import axios from './index';
+import axios from '../../../services/index';
 
 const deviceService = () => {
     return axios.get('/device.json');

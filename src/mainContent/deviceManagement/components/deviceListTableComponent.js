@@ -7,9 +7,10 @@ const deviceListTable = (props) => {
             <BootstrapTable striped
                 options={props.options}
                 selectRow={props.selectRow}
+                data={props.deviceData}
                 pagination
                 hover >
-                <TableHeaderColumn dataField='Id' dataSort={true} isKey={true}>Id</TableHeaderColumn>
+                <TableHeaderColumn dataField='Id' dataSort={true} isKey>Id</TableHeaderColumn>
                 <TableHeaderColumn dataField='SerialNumber' dataSort={true}>SerialNumber</TableHeaderColumn>
                 <TableHeaderColumn dataField='Phase' dataSort={true}>Phase</TableHeaderColumn>
                 <TableHeaderColumn dataField='DeviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
