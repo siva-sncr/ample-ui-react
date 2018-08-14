@@ -1,0 +1,126 @@
+{
+    "status": "OK",
+    "message": "success",
+    "data": [
+        {
+            "Id": 1,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 2,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 3,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 4,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 5,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 6,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 7,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 8,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 9,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 10,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 11,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        },
+        {
+            "Id": 12,
+            "SerialNumber": "RE08170009",
+            "Phase": "C",
+            "DeviceStatus": "Offline",
+            "DeviceState": "production",
+            "fwVersion": "2.4",
+            "CommunicationType": "MM3",
+            "NetworkGroup": "sgw-host8-comm1-group"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ export const setTree = (tree) => {
     const mapedTree = tree.map(node => {
        return {
            ...node,
-           ['title']: node.name
+           title: node.name
        }
     })
     return {
@@ -31,12 +31,12 @@ export const onExpandNode = (nextLevelNodes, clickedNode) => {
     const mapedTree = nextLevelNodes.map(node => {
         return {
             ...node,
-            ['title']: node.name
+            title: node.name
         }
      })
     const updatedNode = {
         ...clickedNode.node,
-        ['children']: mapedTree
+        children: mapedTree
     }
     return {
         type: actionTypes.EXPAND_NODE,
