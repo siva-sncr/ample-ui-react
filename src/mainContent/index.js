@@ -21,7 +21,7 @@ class MainContent extends Component {
 
     render() {
         return (
-            <Row>
+            <Row style={{'margin-top': '50px'}}>
                 <Col style={this.props.currentRoute === '/' ? { display: 'none' } : null} sm={3}>
                     <Treeview />
                 </Col>

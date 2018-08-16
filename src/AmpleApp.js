@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import Home from './home';
 import Header from './header';
 import Footer from './footer';
 import ampleStore from './store';
@@ -13,11 +15,7 @@ class AmpleApp extends Component {
         return (
             <Provider store={ampleStore}>
                 <Router>
-                    <Grid fluid={true}>
-                        <Row><Col sm={12}><Header /></Col></Row>
-                        <MainContent />
-                        <Row><Col sm={12}><Footer /></Col></Row>
-                    </Grid>
+                    <Home />
                 </Router>
             </Provider>
         );
