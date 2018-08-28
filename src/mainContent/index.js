@@ -9,23 +9,22 @@ import * as headerActions from '../header/actions';
 
 class MainContent extends Component {
 
-    componentDidUpdate(prevProps) {
-        if (this.props.location !== prevProps.location) {
-            this.onRouteChanged(this.props.location);
-        }
+    componentWillMount() {
+        this.unlisten = this.props.history.listen((location) => {
+            this.props.onRouteChange(location.pathname)
+        });
     }
-
-    onRouteChanged(location) {
-        this.props.onRouteChange(location.pathname)
+    componentWillUnmount() {
+        this.unlisten();
     }
 
     render() {
         return (
-            <Row style={{'margin-top': '50px'}}>
-                <Col style={this.props.currentRoute === '/' ? { display: 'none' } : null} sm={3}>
+            <Row>
+                <Col style={this.props.currentRoute === '/dashboard' ? { display: 'none' } : null} sm={3}>
                     <Treeview />
                 </Col>
-                <Col sm={this.props.currentRoute === '/' ? 12 : 9}>
+                <Col sm={this.props.currentRoute === '/dashboard' ? 12 : 9}>
                     <Routes />
                 </Col>
             </Row>
@@ -41,8 +40,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      onRouteChange: (route) => dispatch(headerActions.onRouteChange(route))
+        onRouteChange: (route) => dispatch(headerActions.onRouteChange(route))
     }
-  }
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainContent));

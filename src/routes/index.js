@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import dashboard from '../mainContent/dashboard';
-import deviceManagement from '../mainContent/deviceManagement';
-import lineMonitoring from '../mainContent/lineMonitoring';
-import reports from '../mainContent/reports';
+import asyncRoute from './asyncRoute';
+
 
 class Routes extends Component {
-    
+
     render() {
         return (
             <Switch>
-                <Route path="/reports" component={reports} />
-                <Route path="/line-monitoring" component={lineMonitoring} />
-                <Route path="/device-management" component={deviceManagement} />
-                <Route path="/" exact component={dashboard} />
+                <Route path="/reports" component={asyncRoute('reports')} />
+                <Route path="/line-monitoring" component={asyncRoute('lineMonitoring')} />
+                <Route path="/device-management" component={asyncRoute('deviceManagement')} />
+                <Route path="/dashboard" component={dashboard} />
+                <Route exact path='/' render={() => (<Redirect to='/dashboard' />)} />
             </Switch>
         );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import '../devicemanagement.css';
+
 class DeviceManagementComponent extends Component{
     render(){
         return(

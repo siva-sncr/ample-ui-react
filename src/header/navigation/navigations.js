@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
 import NavigationItem from './navigationItem';
+import Aux from '../../hoc/aux';
+import Menus from '../../config/menus.json';
 
 class NavigationItems extends Component {
 
     render() {
+        let menus = Menus.map(menu => { 
+            return <NavigationItem link={`/${menu.link}`} exact>{menu.value}</NavigationItem> 
+        })
+        
         return (
-            <ul className="dashboard-subnav nav navbar-nav">
-                <NavigationItem link="/" exact>Dashboard</NavigationItem>
-                <NavigationItem link="/device-management">Device Management</NavigationItem>
-                <NavigationItem link="/line-monitoring">Line Monitoring</NavigationItem>
-                <NavigationItem link="/reports">Reports</NavigationItem>
-            </ul>
+            <Aux>
+                {menus}
+            </Aux >
         )
     }
 }

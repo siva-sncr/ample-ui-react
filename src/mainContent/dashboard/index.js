@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router } from "react-router-dom";
 
-import LineChart from './containers/lineContainer';
-
+import DashboardNavigations from '../../header/navigation/dashboard/dashboardNavigations';
+import DashboardRoutes from '../../routes/dashboardRoutes';
 
 class Dashboard extends Component {
-
     render() {
         return (
-            <div>
-                <h2>I am dashboard</h2>
-                <LineChart />
-            </div>
+            <Router>
+                <div>
+                    <DashboardNavigations />
+                    <DashboardRoutes />
+                </div>
+            </Router>
         );
     }
 }
