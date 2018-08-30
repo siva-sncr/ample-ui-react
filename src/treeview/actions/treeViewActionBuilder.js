@@ -1,16 +1,10 @@
 
-import { initialTree, initRegions } from '../services/treeService';
-import { setTree, onDropTree, onExpandNode, fetchTreeFailed} from './treeViewActionDispatch';
+import { initRegions } from '../services/treeService';
+import { setTree, onDropTree, onExpandNode, fetchTreeFailed } from './treeViewActionDispatch';
 
-export const initTree = () => {
+export const initTree = (data) => {
     return dispatch => {
-        initialTree()
-            .then(response => {
-                dispatch(setTree(response.data.data));
-            })
-            .catch(error => {
-                dispatch(fetchTreeFailed());
-            });
+        dispatch(setTree(data.data));
     };
 };
 

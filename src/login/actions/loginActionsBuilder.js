@@ -7,7 +7,7 @@ export const logIn = (postData) => {
 };
 
 export const logOut = () => {
-	return dispatch => {
+    return dispatch => {
         dispatch(loginDispatch.onLogOut());
     }
 

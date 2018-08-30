@@ -1,13 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavItem } from 'react-bootstrap';
 
-const navigationItem = ( props ) => (
-    <NavItem>
-        <NavLink 
-            to={props.link}
-            exact={props.exact}
-            >{props.children}</NavLink>
+const navigationItem = (props) => (
+    <NavItem
+        componentClass={Link}
+        to={props.link}
+        href={props.link}
+        exact={props.exact}
+    >{props.children}
     </NavItem>
 );
 

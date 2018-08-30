@@ -3,7 +3,7 @@ import { Form, Button, FormGroup, FormControl } from "react-bootstrap";
 
 const loginForm = (props) => {
     return (
-        <Form horizontal >
+        <Form horizontal action={props.loginURL} method="POST">
             <h3 className="login-title">Grid Analytics System</h3>
             <FormGroup controlId="formHorizontalEmail">
                 <FormControl
@@ -25,14 +25,14 @@ const loginForm = (props) => {
 
             <FormGroup>
                 <Button
+                    type="submit"
                     disabled={(props.username && props.password) ? false : true}
                     block
                     bsStyle="warning"
-                    onClick={(evt) => props.clicked(evt)}>
+                    >
                     Login
                 </Button>
             </FormGroup>
-
             <Button bsStyle="link">Forgot Password ?</Button>
         </Form>
     )

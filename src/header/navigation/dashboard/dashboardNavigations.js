@@ -9,7 +9,7 @@ class DashboardNavigations extends Component {
         return (
             <Navbar>
                 <Nav>
-                    <DashboardNavigationItem link="/dashboard/home" exact>Home</DashboardNavigationItem>
+                    <DashboardNavigationItem link="/dashboard/home" exact="true">Home</DashboardNavigationItem>
                     <DashboardNavigationItem link="/dashboard/map-view">Map View</DashboardNavigationItem>
                 </Nav>
             </Navbar>

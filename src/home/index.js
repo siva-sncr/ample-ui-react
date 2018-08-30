@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Header from '../header';
 import Footer from '../footer';
 import MainContent from '../mainContent';
 import Login from '../login';
+import * as actionBuilder from "./actions";
+import * as treeBuilderActions from '../treeview/actions';
 
 
 class HomeComponent extends Component {
+
+    componentDidMount() {
+        this.props.onCheckSession()
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.loggedIn)
+            this.props.onInitTree(newProps.sessionData.data);
+    }
+
     render() {
         let content = null;
         if (this.props.loggedIn) {
@@ -31,9 +44,19 @@ class HomeComponent extends Component {
     }
 }
 
+
 const mapStateToProps = (state) => {
     return {
-        loggedIn: state.loginData.loggedIn
+        loggedIn: state.loginData.loggedIn,
+        sessionData: state.loginData.sessionData
     }
 }
-export default connect(mapStateToProps)(HomeComponent);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onCheckSession: () => dispatch(actionBuilder.setSession()),
+        onInitTree: (data) => dispatch(treeBuilderActions.initTree(data))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeComponent));

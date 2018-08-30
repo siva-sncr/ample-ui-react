@@ -8,7 +8,7 @@ class NavigationItems extends Component {
 
     render() {
         let menus = Menus.map(menu => { 
-            return <NavigationItem link={`/${menu.link}`} exact>{menu.value}</NavigationItem> 
+            return <NavigationItem key={menu.value} link={`/${menu.link}`} exact="true">{menu.value}</NavigationItem> 
         })
         
         return (

@@ -10,9 +10,6 @@ import axios from '../../services/index';
 import withErrorHandler from '../../hoc/withErrorHandler';
 
 class Tree extends Component {
-  componentDidMount() {
-    this.props.onInitTree();
-  }
 
   state = {
     searchString: null,
@@ -86,7 +83,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onInitTree: () => dispatch(treeBuilderActions.initTree()),
     onDropTree: (tree) => dispatch(treeBuilderActions.dropTree(tree)),
     onExpandNode: (clickedNode) => dispatch(treeBuilderActions.expandNode(clickedNode))
   }

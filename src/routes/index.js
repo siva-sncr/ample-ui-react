@@ -14,6 +14,7 @@ class Routes extends Component {
                 <Route path="/line-monitoring" component={asyncRoute('lineMonitoring')} />
                 <Route path="/device-management" component={asyncRoute('deviceManagement')} />
                 <Route path="/dashboard" component={dashboard} />
+                <Route exact path='/amplemanage' render={() => (<Redirect to='/dashboard' />)} />
                 <Route exact path='/' render={() => (<Redirect to='/dashboard' />)} />
             </Switch>
         );

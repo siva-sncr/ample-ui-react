@@ -8,7 +8,7 @@ class ModalWindow extends Component {
     }
 
     componentWillUpdate () {
-        console.log('[Modal] WillUpdate', this.props);
+        // console.log('[Modal] WillUpdate', this.props);
     }
 
     render () {

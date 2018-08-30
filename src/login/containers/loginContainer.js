@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 import "../css/login.css";
-import * as actionBuilder from "../actions/loginActionsBuilder";
+import * as actionBuilder from "../actions";
 import FormComponent from '../components/loginFormComponent';
+import { getURL } from '../../providers/configProvider';
 
 class LoginView extends Component {
 
   state = {
     username: '',
     password: '',
+    loginURL: getURL('login', 'checkSession', [], true)
   };
 
   render() {
@@ -18,11 +21,12 @@ class LoginView extends Component {
         <div className="login-content">
           <div className="login-wrap">
             <FormComponent
+              loginURL={this.state.loginURL}
               username={this.state.username}
               password={this.state.password}
               changeUsername={(evt) => this.setState({ username: evt.target.value })}
               changePassword={(evt) => this.setState({ password: evt.target.value })}
-              clicked={(evt) => evt.preventDefault & this.props.logIn(this.state)}
+              clicked={(evt) => evt.preventDefault & this.props.onLogIn(this.state)}
             />
           </div>
         </div>
@@ -39,8 +43,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logIn: (state) => dispatch(actionBuilder.logIn(state))
+    onLogIn: (state) => dispatch(actionBuilder.logIn(state))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginView);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginView));

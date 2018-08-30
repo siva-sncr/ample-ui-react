@@ -1,1 +1,4 @@
-export * from './loginActions';
+export {
+    logIn,
+    logOut
+} from './loginActionsBuilder';
