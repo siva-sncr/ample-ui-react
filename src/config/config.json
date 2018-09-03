@@ -1,0 +1,19 @@
+{
+    "restapi": {
+        "host": "172.18.2.121",
+        "protocol": "https",
+        "contextPath": "em/rest/"
+    },
+    "api": {
+        "login": {
+            "customerInfo": "orgDetails",
+            "ipInfo": "ample/rest/usermanagement/user/ip",
+            "checkSession": "ample/j_spring_security_check",
+            "clearSession": "em/em/j_spring_security_logout",
+            "productInfo": "build/details",
+            "resetpassword": "ample/rest/usermanagement/changepassword",
+            "userinfo": "ample/rest/usermanagement/profile/details",
+            "timezonelist": "ample/rest/usermanagement/timezones/list"
+        }
+    }
+}
