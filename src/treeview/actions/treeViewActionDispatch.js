@@ -3,10 +3,10 @@ import * as actionTypes from './treeViewActionTypes';
 export const setTree = (tree) => {
     //map response tree name to title - since tree view library needs tittle. 
     const mapedTree = tree.map(node => {
-       return {
-           ...node,
-           title: node.name
-       }
+        return {
+            ...node,
+            title: node.name
+        }
     })
     return {
         type: actionTypes.LOAD_INITIAL_TREE,
@@ -27,19 +27,21 @@ export const fetchTreeFailed = () => {
     };
 };
 
-export const onExpandNode = (nextLevelNodes, clickedNode) => {
+export const onExpandNode = (nextLevelNodes, clickedNode, routeParams) => {
     const mapedTree = nextLevelNodes.map(node => {
         return {
             ...node,
             title: node.name
         }
-     })
+    })
     const updatedNode = {
         ...clickedNode.node,
+        expanded: true,
         children: mapedTree
     }
     return {
         type: actionTypes.EXPAND_NODE,
-        updatedNode: [updatedNode]
+        updatedNode: [updatedNode],
+        routeParams: routeParams
     }
 }

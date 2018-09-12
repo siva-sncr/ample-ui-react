@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import DeviceListTable from './containers/deviceListTableContainer';
+import '../../resources/css/devicemgmt.css'
 
 class DeviceManagement extends Component{
     render(){

@@ -1,7 +1,8 @@
 import * as actionTypes from '../treeview/actions/treeViewActionTypes';
 
 const initialState = {
-    tree: []
+    tree: [],
+    routeParams: ["ROOTNODE"]
 };
 
 const treeviewReducer = function(currentState=initialState, action){
@@ -19,7 +20,8 @@ const treeviewReducer = function(currentState=initialState, action){
         case actionTypes.EXPAND_NODE:
             return {
                 ...currentState,
-                tree: Object.assign([], currentState.tree, action.updatedNode)
+                tree: Object.assign([], currentState.tree, action.updatedNode),
+                routeParams: action.routeParams
             }
 
         default:

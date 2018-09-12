@@ -1,0 +1,330 @@
+/* button color variables */
+/*   Header Right align -start  */
+@font-face {
+  font-family: myFont;
+  src: url(../fonts/RawengulkSans-094.ttf); }
+
+/*   Header Right align -end  */
+html, body {
+  height: 100%; }
+
+body {
+  /* font-family: $fontfamily !important; */
+  font-family: 'Open Sans', sans-serif;
+  -ms-overflow-style: scrollbar; }
+
+/* Device Mgmt */
+/* Main Navigation */
+.navigation {
+  float: left;
+  height: 45px;
+  min-height: 45px;
+  min-width: 1048px;
+  width: 100%;
+  position: fixed;
+  border-color: transparent;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  z-index: 1045;
+  /*   Header Right align -start  */
+  /*   Header Right align -end  */ }
+  .navigation .navbar-inverse {
+    background-color: #333333;
+    border-color: #333333;
+    margin-bottom: 0px;
+    min-height: 40px !important;
+    height: 45px !important;
+    border-radius: 0px !important; }
+    .navigation .navbar-inverse .header-holder {
+      height: 100%; }
+      .navigation .navbar-inverse .header-holder .logo-wrapper {
+        height: 45px;
+        float: left; }
+        .navigation .navbar-inverse .header-holder .logo-wrapper .logo {
+          background-image: url("../images/logo.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          background-position: -2px,0;
+          width: 108px;
+          height: 54%;
+          margin-left: 10px;
+          margin-top: 10px; }
+      .navigation .navbar-inverse .header-holder .menu-wrapper {
+        height: 45px;
+        left: 200px;
+        width: 60%;
+        float: left;
+        position: relative; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .nav.navbar-nav {
+          float: left;
+          margin: 0px auto;
+          position: relative;
+          font-size: 13px;
+          left: 2%; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .navbar li a {
+          color: #D98C15;
+          background-color: #333333;
+          line-height: 15px !important; }
+          .navigation .navbar-inverse .header-holder .menu-wrapper .navbar li a:hover {
+            background-color: #D98C15;
+            color: #333333 !important; }
+          .navigation .navbar-inverse .header-holder .menu-wrapper .navbar li a:focus {
+            outline: none !important;
+            -moz-outline-style: none !important; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .navbar-nav > li > a:focus {
+          outline: none !important;
+          -moz-outline-style: none !important; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .navbar-nav > li > a:hover {
+          color: #333333 !important;
+          background-color: #D98C15; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .navbar-nav > .active > a {
+          color: #333333 !important;
+          background-color: #D98C15; }
+        .navigation .navbar-inverse .header-holder .menu-wrapper .settings-wrapper {
+          margin-right: -10px; }
+  .navigation .navbar-nav > li > a {
+    line-height: 14px !important;
+    font-size: 15px;
+    font-weight: bold;
+    color: #D98C15; }
+  .navigation .settings, .navigation .navigation {
+    float: right;
+    text-align: right;
+    margin-top: 12px;
+    cursor: pointer; }
+    .navigation .settings .current-task, .navigation .navigation .current-task {
+      display: block;
+      /*color:$buttontextcolor;*/
+      width: 100px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 13px;
+      position: absolute;
+      top: 0;
+      right: 134px;
+      text-align: center; }
+    .navigation .settings .more-btn, .navigation .navigation .more-btn {
+      display: block;
+      color: #ffffff;
+      padding: 4px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 10px;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 130px; }
+    .navigation .settings .icon-settings, .navigation .navigation .icon-settings {
+      display: block;
+      color: #ffffff;
+      font-size: 28px;
+      width: 37px;
+      height: 44px;
+      line-height: 44px;
+      padding-right: 30px;
+      position: absolute;
+      top: 0;
+      right: 80px; }
+    .navigation .settings .settings-down-arrow, .navigation .navigation .settings-down-arrow {
+      display: block;
+      color: #ffffff;
+      padding: 4px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 10px;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0px; }
+    .navigation .settings .logged-user, .navigation .navigation .logged-user {
+      display: block;
+      color: #ffffff;
+      font-size: 28px;
+      width: 40px;
+      height: 44px;
+      line-height: 44px;
+      padding-right: 15px;
+      position: absolute;
+      top: 0;
+      right: 30px; }
+    .navigation .settings .person-down-arrow, .navigation .navigation .person-down-arrow {
+      display: block;
+      color: #ffffff;
+      padding: 4px;
+      height: 44px;
+      line-height: 44px;
+      font-size: 10px;
+      width: 30px;
+      position: absolute;
+      top: 0;
+      right: 0px; }
+    .navigation .settings .settings-option, .navigation .navigation .settings-option {
+      width: 140px;
+      float: left;
+      background-color: #333333;
+      padding: 5px 0px;
+      font-family: "Open Sans", sans-serif;
+      position: relative;
+      right: 90px;
+      z-index: 100; }
+      .navigation .settings .settings-option a, .navigation .navigation .settings-option a {
+        margin: 0px auto;
+        display: block;
+        text-align: right;
+        padding: 5px;
+        color: #D7D7D7;
+        font-size: 11px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 15px; }
+        .navigation .settings .settings-option a:hover, .navigation .navigation .settings-option a:hover {
+          background: #000000; }
+    .navigation .settings .more-option, .navigation .navigation .more-option {
+      width: 100px;
+      float: left;
+      background-color: #333333;
+      padding: 5px 0px;
+      font-family: "Open Sans", sans-serif;
+      position: relative;
+      right: 60px;
+      z-index: 100; }
+      .navigation .settings .more-option a, .navigation .navigation .more-option a {
+        margin: 0px auto;
+        display: block;
+        text-align: right;
+        padding: 5px;
+        color: #D7D7D7;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 11px;
+        text-decoration: none;
+        cursor: pointer;
+        line-height: 15px; }
+        .navigation .settings .more-option a:hover, .navigation .navigation .more-option a:hover {
+          background: #000000; }
+
+/* Sub Navigation */
+.sub-navigation {
+  width: 100%;
+  min-width: 1024px;
+  float: left;
+  height: 26px;
+  min-height: 26px;
+  position: fixed;
+  background: #E5E5E5;
+  border-color: transparent;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  z-index: 1043;
+  margin-top: 35px; }
+  .sub-navigation .row {
+    height: 26px; }
+    .sub-navigation .row .col-sm-2, .sub-navigation .row col-xs-2 {
+      height: 26px; }
+    .sub-navigation .row .sub-menu-wrapper {
+      height: 26px;
+      float: left;
+      position: relative;
+      /*
+			.navbar-nav>.sub-active>a{
+				color: $sub-nav-font;
+				background-color: $sub-nav-active-bg;
+
+				&:hover{
+					color: $sub-nav-font;
+					background-color: $sub-nav-active-bg;
+				}
+
+				&:after{
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					border-bottom: 5px solid $sub-nav-bg-triangle;
+					border-top: none;
+					height: 0;
+					width: 0;
+					bottom: 0;
+					content: "";
+					left: 50%;
+					margin-left: -5px;
+					position: absolute;
+				}
+			}
+
+			.job-status-btn{
+				float: right;
+				margin-top: 9px;
+				display:none;
+			}
+*/ }
+      .sub-navigation .row .sub-menu-wrapper .navbar-nav {
+        float: none;
+        font-size: 13px;
+        margin: 0px auto; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav.device-management-subnav {
+          margin-left: 418px; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav.dashboard-subnav {
+          margin-left: 156px; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav.line-monitoring-subnav {
+          margin-left: 264px; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav.ample-reports-subnav {
+          margin-left: 320px; }
+      .sub-navigation .row .sub-menu-wrapper .navbar-nav li {
+        margin-right: 4px; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav li a {
+          color: #333333;
+          font-size: 13px;
+          font-weight: bold;
+          background-color: #E5E5E5;
+          line-height: 5px;
+          padding: 9px 10px; }
+          .sub-navigation .row .sub-menu-wrapper .navbar-nav li a:focus {
+            outline: none !important;
+            -moz-outline-style: none !important; }
+        .sub-navigation .row .sub-menu-wrapper .navbar-nav li:hover, .sub-navigation .row .sub-menu-wrapper .navbar-nav li.sub-active {
+          box-shadow: 0px 0px 3px 2px #A8A6A6; }
+
+/* Main Navigation Overrides - needs to be merged with above styles block */
+.navigation {
+  min-height: 36px;
+  height: 36px; }
+  .navigation .navbar-inverse {
+    min-height: 36px !important;
+    height: 36px !important;
+    border: none; }
+    .navigation .navbar-inverse .header-holder .logo-wrapper {
+      height: 36px; }
+      .navigation .navbar-inverse .header-holder .logo-wrapper .logo {
+        background-position: 0 0;
+        width: 130px;
+        height: 28px;
+        margin-top: 2px;
+        margin-left: 0; }
+    .navigation .navbar-inverse .header-holder .menu-wrapper {
+      height: 36px;
+      left: 0; }
+      .navigation .navbar-inverse .header-holder .menu-wrapper .navbar-nav > li > a {
+        padding: 11px 15px; }
+    .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings > li > a {
+      padding: 9px 10px 11px;
+      color: #D98C15; }
+      .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings > li > a.current-task .glyphicon {
+        top: 2px; }
+      .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings > li > a.icon-button {
+        padding: 4px 10px; }
+        .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings > li > a.icon-button span.ion {
+          font-size: 28px; }
+        .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings > li > a.icon-button .glyphicon {
+          top: -2px; }
+    .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings ul.dropdown-menu {
+      background-color: #333333;
+      border-radius: 0;
+      border: none; }
+      .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings ul.dropdown-menu li a {
+        color: #D98C15;
+        font-size: 13px;
+        font-family: "Open Sans", sans-serif; }
+      .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings ul.dropdown-menu li:hover a, .navigation .navbar-inverse .header-holder ul.navbar-nav.nav-settings ul.dropdown-menu li.active a {
+        background-color: #D98C15 !important;
+        color: #333333; }

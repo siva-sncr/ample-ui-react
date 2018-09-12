@@ -8,14 +8,30 @@ import * as treeBuilderActions from '../actions/index';
 import Search from '../components/searchComponent';
 import axios from '../../services/index';
 import withErrorHandler from '../../hoc/withErrorHandler';
+import * as treeMethods from './treeMethods';
 
 class Tree extends Component {
 
   state = {
     searchString: null,
     searchFocusIndex: 0,
-    searchFoundCount: 0
+    searchFoundCount: 0,
+    tree: null,
+    clickedNode: null
   };
+
+  componentDidMount () {
+    this.setState({
+      tree: this.props.tree
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      tree: nextProps.tree
+    })
+    //treeMethods.findCurrentRouteActions (this.props.currentRoute);
+  }
 
   setStateselectPrevMatch = () =>
     this.setState({
@@ -51,13 +67,14 @@ class Tree extends Component {
 
         <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
           <SortableTree
-            treeData={this.props.tree}
-            onChange={treeData => this.props.onDropTree(treeData)}
+            treeData={this.state.tree}
+            onChange={treeData => {
+              this.props.onDropTree(treeData)}
+            }
             theme={FileExplorerTheme}
             searchQuery={this.state.searchString}
             searchFocusOffset={this.state.searchFocusIndex}
             canDrag={(clickedNode) => this.disableOrEnableDrag(clickedNode)}
-            onClick={(clickedNode) => { this.props.onExpandNode(clickedNode) }}
             searchFinishCallback={matches =>
               this.setState({
                 searchFoundCount: matches.length,
@@ -65,7 +82,9 @@ class Tree extends Component {
               })
             }
             generateNodeProps={clickedNode => ({
-              onClick: () => this.props.onExpandNode(clickedNode),
+              onClick: (event) => { 
+                this.props.onExpandNode(clickedNode, this.props.routeParams);
+              },
             })}
           />
         </div>
@@ -77,14 +96,16 @@ class Tree extends Component {
 
 const mapStateToProps = state => {
   return {
-    tree: state.treeviewData.tree
+    tree: state.treeviewData.tree,
+    routeParams: state.treeviewData.routeParams,
+    currentRoute: state.headerData.currentRoute
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     onDropTree: (tree) => dispatch(treeBuilderActions.dropTree(tree)),
-    onExpandNode: (clickedNode) => dispatch(treeBuilderActions.expandNode(clickedNode))
+    onExpandNode: (clickedNode, routeParams) => dispatch(treeBuilderActions.expandNode(clickedNode, routeParams))
   }
 }
 

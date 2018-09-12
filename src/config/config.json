@@ -14,6 +14,33 @@
             "resetpassword": "ample/rest/usermanagement/changepassword",
             "userinfo": "ample/rest/usermanagement/profile/details",
             "timezonelist": "ample/rest/usermanagement/timezones/list"
+        },
+        "devicemanagement": {
+            "ROOTNODE": {
+                "data": "${ROOTNODE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "exportData": "${ROOTNODE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            }
+        },
+        "groupmanagement": {
+            "CUSTOMERNODE": {
+                "nodes": "orgDetails"
+            },
+            "ROOTNODE": {
+                "nodes": "$${ROOTNODE}/regions",
+                "details": "${ROOTNODE}/details",
+                "addNode": "${ROOTNODE}/regions/add",
+                "editNode": "renamerootnode",
+                "referenceSensors": "${ROOTNODE}/referenceSensors"
+            },
+            "REGION": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations",
+                "details": "${ROOTNODE}/regions/${REGION}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/delete",
+                "referenceSensors": "${ROOTNODE}/regions/${REGION}/referenceSensors",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/enableDeviceGPS"
+            }
         }
     }
 }

@@ -20,3 +20,15 @@ export const tableOptions = {
         text: 'All', value: null
     }]
 }
+
+export const payload = {
+    commTypes: [],
+    deviceTypes: [],
+    fwUpgradeStatuses: [],
+    networkGroupNames: [],
+    profileStatuses: [],
+    searchPattern: "",
+    softwareVersions: [],
+    states: [],
+    statuses: []
+}

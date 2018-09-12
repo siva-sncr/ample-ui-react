@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
-import "../css/login.css";
 import * as actionBuilder from "../actions";
 import FormComponent from '../components/loginFormComponent';
 import { getURL } from '../../providers/configProvider';

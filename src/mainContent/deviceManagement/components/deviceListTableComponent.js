@@ -10,14 +10,14 @@ const deviceListTable = (props) => {
                 data={props.deviceData}
                 pagination
                 hover >
-                <TableHeaderColumn dataField='Id' dataSort={true} isKey>Id</TableHeaderColumn>
-                <TableHeaderColumn dataField='SerialNumber' dataSort={true}>SerialNumber</TableHeaderColumn>
-                <TableHeaderColumn dataField='Phase' dataSort={true}>Phase</TableHeaderColumn>
-                <TableHeaderColumn dataField='DeviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
-                <TableHeaderColumn dataField='DeviceState' dataSort={true}>DeviceState</TableHeaderColumn>
+                <TableHeaderColumn dataField='id' dataSort={true} isKey>Id</TableHeaderColumn>
+                <TableHeaderColumn dataField='serialNumber' dataSort={true}>SerialNumber</TableHeaderColumn>
+                <TableHeaderColumn dataField='phase' dataSort={true}>Phase</TableHeaderColumn>
+                <TableHeaderColumn dataField='deviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
+                <TableHeaderColumn dataField='deviceState' dataSort={true}>DeviceState</TableHeaderColumn>
                 <TableHeaderColumn dataField='fwVersion' dataSort={true}>fwVersion</TableHeaderColumn>
-                <TableHeaderColumn dataField='CommunicationType' dataSort={true}>CommunicationType</TableHeaderColumn>
-                <TableHeaderColumn dataField='NetworkGroup' dataSort={true}>NetworkGroup</TableHeaderColumn>
+                <TableHeaderColumn dataField='communicationType' dataSort={true}>CommunicationType</TableHeaderColumn>
+                <TableHeaderColumn dataField='networkGroup' dataSort={true}>NetworkGroup</TableHeaderColumn>
             </BootstrapTable></div>
     )
 }

@@ -38,6 +38,7 @@ export const getURL = (page, entityType, params, ignoreContextPath) => {
     catch(err) {
         return false;
     }
+
     let keys = Object.keys(params);
     if(typeof(params) !== undefined && params) {
       for(let i = 0; i < keys.length; i++){
