@@ -10,5 +10,8 @@ export const setSession = () => {
                 }
                 dispatch(homeDispatch.setSession(response));
             })
+            .catch(function (error) {
+                dispatch(homeDispatch.setSession(error));
+            });
     };
 }

@@ -16,7 +16,6 @@ export const dropTree = (tree) => {
 };
 
 export const expandNode = (clickedNode, routeParams) => {
-    routeParams.push(clickedNode.node)
     let paramsObj = groupRouteParams({}, routeParams);
 
     return dispatch => {

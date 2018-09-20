@@ -30,7 +30,6 @@ class Tree extends Component {
     this.setState({
       tree: nextProps.tree
     })
-    //treeMethods.findCurrentRouteActions (this.props.currentRoute);
   }
 
   setStateselectPrevMatch = () =>
@@ -51,6 +50,11 @@ class Tree extends Component {
 
   disableOrEnableDrag = (data) => {
     return data.node.type === 'REGION'
+  }
+
+  loadNextLevel = (clickedNode) => {
+    let routeParams = treeMethods.updateRouteParams(this.props.routeParams, clickedNode, this.props.tree)
+    this.props.onExpandNode(clickedNode, routeParams);
   }
 
   render() {
@@ -83,7 +87,7 @@ class Tree extends Component {
             }
             generateNodeProps={clickedNode => ({
               onClick: (event) => { 
-                this.props.onExpandNode(clickedNode, this.props.routeParams);
+                this.loadNextLevel (clickedNode);
               },
             })}
           />

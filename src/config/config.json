@@ -40,6 +40,43 @@
                 "deleteNode": "${ROOTNODE}/regions/${REGION}/delete",
                 "referenceSensors": "${ROOTNODE}/regions/${REGION}/referenceSensors",
                 "enablegps": "${ROOTNODE}/regions/${REGION}/enableDeviceGPS"
+            },
+            "SUBSTATION": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/delete",
+                "referenceSensors": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/referenceSensors",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/enableDeviceGPS"
+            },
+            "FEEDER": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/childnodes",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/add",
+                "addLateral": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/delete",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/enableDeviceGPS"
+            },
+            "LATERAL": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/delete"
+            },
+            "LATERAL_SITE": {
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/details",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/delete"
+            },
+            "SITE": {
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/device/add",
+                "editDevice": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/device/{DEVICEID}/update",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/details",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/delete"
             }
         }
     }
