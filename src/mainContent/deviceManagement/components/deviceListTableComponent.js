@@ -10,8 +10,7 @@ const deviceListTable = (props) => {
                 data={props.deviceData}
                 pagination
                 hover >
-                <TableHeaderColumn dataField='id' dataSort={true} isKey>Id</TableHeaderColumn>
-                <TableHeaderColumn dataField='serialNumber' dataSort={true}>SerialNumber</TableHeaderColumn>
+                <TableHeaderColumn dataField='serialNumber' isKey={true}>SerialNumber</TableHeaderColumn>
                 <TableHeaderColumn dataField='phase' dataSort={true}>Phase</TableHeaderColumn>
                 <TableHeaderColumn dataField='deviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
                 <TableHeaderColumn dataField='deviceState' dataSort={true}>DeviceState</TableHeaderColumn>

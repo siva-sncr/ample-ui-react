@@ -42,6 +42,7 @@ export const onExpandNode = (nextLevelNodes, clickedNode, routeParams) => {
     return {
         type: actionTypes.EXPAND_NODE,
         updatedNode: [updatedNode],
-        routeParams: routeParams
+        routeParams: routeParams,
+        clickedNode: clickedNode
     }
 }

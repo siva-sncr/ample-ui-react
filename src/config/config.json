@@ -19,6 +19,35 @@
             "ROOTNODE": {
                 "data": "${ROOTNODE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
                 "exportData": "${ROOTNODE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "REGION": {
+                "data": "${ROOTNODE}/regions/${REGION}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "exportData": "${ROOTNODE}/regions/${REGION}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "SUBSTATION": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "FEEDER": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "SITE": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/feederSite/${SITE}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "LATERAL": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/lateral/${LATERAL}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "LATERAL_SITE": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/lateral/${LATERAL}/lateralsite/${LATERAL_SITE}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
             }
         },
         "groupmanagement": {

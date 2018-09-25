@@ -5,10 +5,6 @@ const initialState = {
     routeParams: []
 };
 
-let levelStart = 3;
-let childHierarchy = [];
-let treeState = [];
-
 const treeviewReducer = function (currentState = initialState, action) {
     switch (action.type) {
         case actionTypes.LOAD_INITIAL_TREE:
@@ -22,7 +18,7 @@ const treeviewReducer = function (currentState = initialState, action) {
                 tree: action.tree
             }
         case actionTypes.EXPAND_NODE:
-            const newNode = updateTree(currentState.tree, action.updatedNode, action.routeParams);
+            const newNode = updateTree(currentState.tree, action.updatedNode, action.clickedNode);
             return {
                 ...currentState,
                 tree: Object.assign([], currentState.tree, newNode),
@@ -34,36 +30,25 @@ const treeviewReducer = function (currentState = initialState, action) {
     }
 }
 
-const updateTree = (currentState, updatedNode, routeParams) => {
-    treeState = currentState[0];
-    let newNode = currentState[0];
-    levelStart = 3;
-    childHierarchy = [];
+const updateTree = (currentState, updatedNode, clickedNode) => {
     if (updatedNode[0].type !== 'ROOTNODE') {
-        return updateNode(newNode, updatedNode, routeParams)
+        return updateNode(currentState[0], updatedNode, clickedNode)
     }
     return updatedNode;
 };
 
-const updateNode = (newNode, updatedNode, routeParams) => {
-    newNode.children.map((node, index) => {
-        if (node.name === routeParams[levelStart].name) {
-            childHierarchy.unshift(index);
-            if (levelStart === routeParams.length - 1) {
-                let updatingNode = "treeState"
-                for (let i = 0; i < childHierarchy.length; i++) {
-                    updatingNode = updatingNode + ".children[" + childHierarchy[i] + "]"
-                    if (i === childHierarchy.length - 1) {
-                        updatingNode = updatingNode + " = updatedNode[0]";
-                    }
-                }
-                return [eval(updatingNode)];
-            } else {
-                levelStart = levelStart + 2;
-                updateNode(node, updatedNode, routeParams)
-            }
+const updateNode = (newNode, updatedNode, clickedNode) => {
+    const lowerSiblings = clickedNode.lowerSiblingCounts;
+    let parent = "newNode";
+
+    for (let i = 1; i < lowerSiblings.length; i++) {
+        let index = eval(parent).children.length - (lowerSiblings[i] + 1);
+        parent = parent + ".children[" + index + "]"
+        if (i === lowerSiblings.length - 1) {
+            parent = parent + " = updatedNode[0]";
         }
-    })
+    }
+    return eval(parent)
 }
 
 export default treeviewReducer;

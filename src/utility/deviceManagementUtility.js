@@ -1,7 +1,6 @@
 
 export const tableOptions = {
     paginationSize: 4,
-    pageStartIndex: 0,
     firstPageText: 'First',
     prePageText: 'Back',
     nextPageText: 'Next',

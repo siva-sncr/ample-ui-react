@@ -12,28 +12,24 @@ class Datatable extends Component {
   state = {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
-    selectRowProp: {
-      mode: 'checkbox',
-      onSelectAll: this.onSelectAll
-    },
     payload: deviceManagementUtility.payload,
     routeParams: null
   }
 
   componentWillReceiveProps(newProps) {
-    // if (this.state.routeParams != newProps.routeParams) {
-    //   let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
-    //   let params = groupRouteParams(requestParams, newProps.routeParams);
-    //   this.props.getNodeData(params, this.state.payload)
-    //   this.setState({
-    //     routeParams: newProps.routeParams
-    //   })     
-    // }
-    // if (newProps.devices && newProps.devices.length > 0) {
-    //   this.setState({
-    //     dataObject: newProps.devices
-    //   })
-    // }
+    if (this.props.routeParams != newProps.routeParams) {
+      let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
+      let params = groupRouteParams(requestParams, newProps.routeParams);
+      this.props.getNodeData(params, this.state.payload)
+      this.setState({
+        routeParams: newProps.routeParams
+      })     
+    }
+    if (newProps.devices && newProps.devices.length > 0) {
+      this.setState({
+        dataObject: newProps.devices
+      })
+    }
   }
 
   render() {

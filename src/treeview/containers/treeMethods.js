@@ -1,12 +1,25 @@
-export const updateRouteParams = (currentRouteParams, clickedNode, tree) => {
-    deleteExisting(currentRouteParams, clickedNode);
-    currentRouteParams.push(clickedNode.node.type);
-    currentRouteParams.push(clickedNode.node);
-    return currentRouteParams;
+export const updateRouteParams = (clickedNode, tree) => {
+    let routePrams = [];
+    let parent = {};
+    const lowerSiblings = clickedNode.lowerSiblingCounts;
+
+    for (let i in lowerSiblings) {
+        if (i == 0) {
+            parent = tree[tree.length - (lowerSiblings[i] + 1)];
+        } else {
+            parent = parent.children[parent.children.length - (lowerSiblings[i] + 1)]
+        }
+        routePrams.push(parent.type);
+        routePrams.push(putRoute(parent));
+    }
+    return routePrams;
 }
 
-const deleteExisting = (route, clickedNode) => {
-    if (clickedNode.node.type === route[route.length - 2]) {
-        route.splice(route.length - 2, 2)
-    }
+const putRoute = (parent) => {
+    let route = {};
+    route["id"] = parent.id;
+    route["name"] = parent.name;
+    route["type"] = parent.type;
+    route["title"] = parent.title;
+    return route;
 }

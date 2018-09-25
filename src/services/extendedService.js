@@ -12,15 +12,20 @@ export const requestPOST = (url, params) => {
                 return data;
             }
         })
+        .catch(err => {
+            return err;
+        })
 }
 
 export const requestGET = (url) => {
-    console.log(url);
     return axios.get(url)
         .then(response => {
             if (typeof response.data === 'object') {
                 var data = response.data.data ? response.data.data : response.data;
                 return data;
             }
+        })
+        .catch(err => {
+            return err;
         })
 }

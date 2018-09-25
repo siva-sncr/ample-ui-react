@@ -53,7 +53,7 @@ class Tree extends Component {
   }
 
   loadNextLevel = (clickedNode) => {
-    let routeParams = treeMethods.updateRouteParams(this.props.routeParams, clickedNode, this.props.tree)
+    let routeParams = treeMethods.updateRouteParams(clickedNode, this.props.tree)
     this.props.onExpandNode(clickedNode, routeParams);
   }
 
