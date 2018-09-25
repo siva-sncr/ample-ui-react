@@ -17,7 +17,7 @@ class Datatable extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.routeParams != newProps.routeParams) {
+    if (this.props.routeParams !== newProps.routeParams) {
       let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
       let params = groupRouteParams(requestParams, newProps.routeParams);
       this.props.getNodeData(params, this.state.payload)
@@ -40,7 +40,7 @@ class Datatable extends Component {
       deviceListTable = <div>No Data available</div>
     }
     return (
-      [deviceListTable]
+      deviceListTable
     );
   }
 }

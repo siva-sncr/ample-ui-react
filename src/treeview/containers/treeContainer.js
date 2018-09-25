@@ -16,11 +16,11 @@ class Tree extends Component {
     searchString: null,
     searchFocusIndex: 0,
     searchFoundCount: 0,
-    tree: null,
+    tree: [],
     clickedNode: null
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.setState({
       tree: this.props.tree
     })
@@ -73,7 +73,8 @@ class Tree extends Component {
           <SortableTree
             treeData={this.state.tree}
             onChange={treeData => {
-              this.props.onDropTree(treeData)}
+              this.props.onDropTree(treeData)
+            }
             }
             theme={FileExplorerTheme}
             searchQuery={this.state.searchString}
@@ -86,8 +87,8 @@ class Tree extends Component {
               })
             }
             generateNodeProps={clickedNode => ({
-              onClick: (event) => { 
-                this.loadNextLevel (clickedNode);
+              onClick: (event) => {
+                this.loadNextLevel(clickedNode);
               },
             })}
           />

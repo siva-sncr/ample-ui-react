@@ -4,7 +4,7 @@ export const updateRouteParams = (clickedNode, tree) => {
     const lowerSiblings = clickedNode.lowerSiblingCounts;
 
     for (let i in lowerSiblings) {
-        if (i == 0) {
+        if (parseInt(i, 10) === 0) {
             parent = tree[tree.length - (lowerSiblings[i] + 1)];
         } else {
             parent = parent.children[parent.children.length - (lowerSiblings[i] + 1)]

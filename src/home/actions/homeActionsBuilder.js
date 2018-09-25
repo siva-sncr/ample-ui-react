@@ -5,7 +5,7 @@ export const setSession = () => {
     return dispatch => {
         checkSession()
             .then(response => {
-                if(response.data.data != undefined) {
+                if(response.data.data !== undefined) {
                     response['loggedIn'] = true;
                 }
                 dispatch(homeDispatch.setSession(response));

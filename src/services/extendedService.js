@@ -1,9 +1,5 @@
 import axios from './index';
 
-const reqConfig = {
-    timeout : 180000	// 3 * 60 * 1000 - 3 minutes in milliseconds
-};
-
 export const requestPOST = (url, params) => {
     return axios.post(url, params)
         .then(response => {

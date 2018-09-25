@@ -2,7 +2,8 @@ import * as actionTypes from '../treeview/actions/treeViewActionTypes';
 
 const initialState = {
     tree: [],
-    routeParams: []
+    routeParams: [],
+    currentNode: 'ROOTNODE'
 };
 
 const treeviewReducer = function (currentState = initialState, action) {
@@ -22,7 +23,8 @@ const treeviewReducer = function (currentState = initialState, action) {
             return {
                 ...currentState,
                 tree: Object.assign([], currentState.tree, newNode),
-                routeParams: action.routeParams
+                routeParams: action.routeParams,
+                currentNode: action.clickedNode.node.type
             }
 
         default:
@@ -40,15 +42,18 @@ const updateTree = (currentState, updatedNode, clickedNode) => {
 const updateNode = (newNode, updatedNode, clickedNode) => {
     const lowerSiblings = clickedNode.lowerSiblingCounts;
     let parent = "newNode";
-
-    for (let i = 1; i < lowerSiblings.length; i++) {
-        let index = eval(parent).children.length - (lowerSiblings[i] + 1);
-        parent = parent + ".children[" + index + "]"
-        if (i === lowerSiblings.length - 1) {
-            parent = parent + " = updatedNode[0]";
+    if (clickedNode.node.type.indexOf('SITE') === -1) {
+        for (let i = 1; i < lowerSiblings.length; i++) {
+            let index = eval(parent).children.length - (lowerSiblings[i] + 1);
+            parent = parent + ".children[" + index + "]"
+            if (i === lowerSiblings.length - 1) {
+                parent = parent + " = updatedNode[0]";
+            }
         }
+        return eval(parent)
+    } else {
+        return [];
     }
-    return eval(parent)
 }
 
 export default treeviewReducer;
