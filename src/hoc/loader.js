@@ -1,7 +1,7 @@
 import React from 'react';
 
 const loader = () => (
-    <div>Loading...</div>
+    <div className="ajax-loader"></div>
 );
 
 export default loader;
