@@ -20,18 +20,21 @@ class Datatable extends Component {
     this.prepareCall();
   }
 
-  prepareCall = () => {
+  prepareCall = (routeParams) => {
+    if(!routeParams) {
+      routeParams = this.props.routeParams;
+    }
     let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
-    let params = groupRouteParams(requestParams, this.props.routeParams);
+    let params = groupRouteParams(requestParams, routeParams);
     this.props.getNodeData(params, this.state.payload)
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.routeParams !== newProps.routeParams) {
-      this.prepareCall();
       this.setState({
         routeParams: newProps.routeParams
       })
+      this.prepareCall(newProps.routeParams);
     }
     if (newProps.devices && newProps.devices.length > 0) {
       this.setState({

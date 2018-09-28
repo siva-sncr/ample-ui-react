@@ -5,7 +5,7 @@ export const buildNodeData = (params, payload) => {
     return dispatch => {
         getNodeData(params, payload)
             .then(response => {
-                dispatch(dispatchDeviceManagement.dispatchNodeData(response.devices));
+                dispatch(dispatchDeviceManagement.dispatchNodeData(Array.isArray(response) ? response : response.devices));
             })
     }
 }
