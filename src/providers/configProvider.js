@@ -38,12 +38,13 @@ export const getURL = (page, entityType, params, ignoreContextPath) => {
     catch(err) {
         return false;
     }
+
     let keys = Object.keys(params);
     if(typeof(params) !== undefined && params) {
       for(let i = 0; i < keys.length; i++){
           var id;
-          if(params[keys[i]] && typeof(params[keys[i]]) == 'object'){
-              id = ((params[keys[i]]['type'] == "REGION") || (params[keys[i]]['type'] == "SUBSTATION") || (params[keys[i]]['type'] == "FEEDER") || (params[keys[i]]['type'] == "SITE") || (params[keys[i]]['type'] == "LATERAL") || (params[keys[i]]['type'] == "LATERAL_SITE"))? params[keys[i]]["name"]:params[keys[i]]["id"];
+          if(params[keys[i]] && typeof(params[keys[i]]) === 'object'){
+              id = ((params[keys[i]]['type'] === "REGION") || (params[keys[i]]['type'] === "SUBSTATION") || (params[keys[i]]['type'] === "FEEDER") || (params[keys[i]]['type'] === "SITE") || (params[keys[i]]['type'] === "LATERAL") || (params[keys[i]]['type'] === "LATERAL_SITE"))? params[keys[i]]["name"]:params[keys[i]]["id"];
           }else{
               id = params[keys[i]];	
           }

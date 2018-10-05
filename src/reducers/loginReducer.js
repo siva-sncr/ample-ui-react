@@ -3,7 +3,8 @@ import * as actionTypes from '../login/actions/loginActionTypes';
 const intialState = {
     loggedIn: false,
     sessionData: null,
-    loginData: null
+    loginData: null,
+    loading: true
 }
 
 const loginReducer = function (currentState = intialState, action) {
@@ -18,7 +19,8 @@ const loginReducer = function (currentState = intialState, action) {
             return {
                 ...currentState,
                 loggedIn: action.sessionData.loggedIn,
-                sessionData: action.sessionData
+                sessionData: action.sessionData,
+                loading: false
             }
         default:
             return currentState

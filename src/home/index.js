@@ -10,6 +10,7 @@ import MainContent from '../mainContent';
 import Login from '../login';
 import * as actionBuilder from "./actions";
 import * as treeBuilderActions from '../treeview/actions';
+import Loader from '../hoc/loader'
 
 
 class HomeComponent extends Component {
@@ -25,7 +26,9 @@ class HomeComponent extends Component {
 
     render() {
         let content = null;
-        if (this.props.loggedIn) {
+        if (this.props.loading) {
+            content = <Loader />
+        } else if (this.props.loggedIn) {
             content =
                 <Grid fluid={true}>
                     <Row><Col sm={12}><Header /></Col></Row>
@@ -48,7 +51,8 @@ class HomeComponent extends Component {
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.loginData.loggedIn,
-        sessionData: state.loginData.sessionData
+        sessionData: state.loginData.sessionData,
+        loading: state.loginData.loading
     }
 }
 

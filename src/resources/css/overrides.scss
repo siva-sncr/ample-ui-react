@@ -1,0 +1,187 @@
+// imports
+@import './variables.scss';
+@import './mixins.scss';
+
+// common style overrides
+.tooltip {
+    word-wrap:break-word;
+}
+.toggle-switch {
+    width: 100%;
+    border-color: #ccc;
+}
+.toggle-switch .switch-left {
+    background: $clr-orange;
+    color: $clr-gray;
+}
+.device-management .table > tbody > tr > td.action-column {
+    padding-right: 0px;
+}
+.angular-google-map-container { height: 400px; }
+.container, .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.pagination {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.row {
+    margin-right: -10px;
+    margin-left: -10px;
+    position: relative;
+    top: 0px;
+}
+.btn {
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    .caret {
+        margin-top: -1px;
+    }
+}
+.table {
+    margin-bottom: 0;
+}
+.table-footer {
+    margin: 10px 0;
+
+    .pager-options {
+        padding: 5px 2px;
+        
+        div .pages-btn {
+            float: right;	
+        }
+    }
+}
+.ng-table-counts{
+    display:none;
+}
+
+// modal window
+.modal-dialog{
+    margin-top:10%;
+    .modal-title{
+        width: 95%;
+        display: inline-block;
+    }
+    .close-icon{
+        float: right;
+        font-size: 20px;
+        color:#8B8989;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    
+    .modal-body{
+
+        min-height:200px;
+
+        &:focus{
+            outline-style: none !important;
+        }
+        .form-control{
+            &:focus{
+                outline-style: none !important;
+            }
+        }
+
+        .node-details-content{
+            background: #F5F5F5;
+            
+            .details-items{
+                border-bottom: solid 1px #E5E5E5;
+                padding: 3px;
+            }
+        }
+    
+        .node-detail-loader-wrapper{
+            height:200px;
+        }
+
+        .add-node-fields{
+            margin:15px 0px;
+        }
+
+        .profile-form{
+            width: 100%;
+            float: left;
+            padding-bottom: 10px;
+
+            label{
+                line-height: 30px;
+            }
+
+            .profile-list{
+                width:25%;
+                float: left;
+                margin-left: 15px;
+            }
+
+            .device-form-action{
+                float: right;
+            }
+        }
+
+        .tab-content{
+            min-height: 350px;
+            height:350px;
+            overflow-y: scroll;
+            
+            .tab-pane{
+                height:100%;
+            }
+        }
+        .section-label{
+            display: block;
+            width:100%;
+            /* background: $wrapper-header-bg; */
+            background:#989898;
+            color: #000000;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        /* .odd-row{
+            background: #F5F5F5;
+        }
+
+        .even-row{
+            background: #EFEFEF;
+        } */
+
+        .section-key, .section-value{
+            display: -webkit-inline-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            width:45%;
+            padding: 2px 5px;
+            vertical-align: middle;
+        }
+    }
+    .modal-body-min {
+        min-height: 150px;
+        height: 150px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+}
+
+.form-horizontal .form-group{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.sub-holder{
+    margin-top: 55px;
+    float: left;
+    width:100%;
+}
+.datepicker .form-control{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    height: 30px;
+}

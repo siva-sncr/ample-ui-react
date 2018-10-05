@@ -1,9 +1,14 @@
-import axios from '../../services/index';
 
-export const initialTree = () => {
-    return axios.get('/org.json');
-}
+import { requestGET } from '../../services/extendedService';
+import { getURL } from '../../providers/configProvider';
 
-export const initRegions = () => {
-    return axios.get('/region.json');
+
+export const loadNextLevel = (params) => {
+    let url = '';
+    if (params.apiType.indexOf('SITE') >= 0) {
+        url = getURL('deviceManagement', 'data', params);
+    } else {
+        url = getURL('groupManagement', 'nodes', params);
+    }
+    return requestGET(url);
 }

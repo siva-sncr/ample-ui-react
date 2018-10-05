@@ -1,7 +1,6 @@
 
 export const tableOptions = {
     paginationSize: 4,
-    pageStartIndex: 0,
     firstPageText: 'First',
     prePageText: 'Back',
     nextPageText: 'Next',
@@ -19,4 +18,16 @@ export const tableOptions = {
     }, {
         text: 'All', value: null
     }]
+}
+
+export const payload = {
+    commTypes: [],
+    deviceTypes: [],
+    fwUpgradeStatuses: [],
+    networkGroupNames: [],
+    profileStatuses: [],
+    searchPattern: "",
+    softwareVersions: [],
+    states: [],
+    statuses: []
 }

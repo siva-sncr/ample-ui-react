@@ -1,6 +1,7 @@
 
-import { initRegions } from '../services/treeService';
+import { loadNextLevel } from '../services/treeService';
 import { setTree, onDropTree, onExpandNode, fetchTreeFailed } from './treeViewActionDispatch';
+import { groupRouteParams } from '../../services/utilityService';
 
 export const initTree = (data) => {
     return dispatch => {
@@ -14,14 +15,18 @@ export const dropTree = (tree) => {
     };
 };
 
-export const expandNode = (clickedNode) => {
+export const expandNode = (clickedNode, routeParams) => {
+    let paramsObj = groupRouteParams({}, routeParams);
+
     return dispatch => {
-        initRegions(clickedNode)
+        loadNextLevel(paramsObj)
             .then(response => {
-                dispatch(onExpandNode(response.data.data, clickedNode));
+                dispatch(onExpandNode(response, clickedNode, routeParams));
             })
             .catch(error => {
                 dispatch(fetchTreeFailed());
             });
     };
 };
+
+

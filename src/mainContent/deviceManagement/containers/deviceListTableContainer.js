@@ -1,35 +1,47 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 import DeviceListTable from '../components/deviceListTableComponent';
-import deviceService from '../services/deviceService';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
+import * as deviceManagementAction from '../actions';
+import { groupRouteParams } from '../../../services/utilityService';
 
 class Datatable extends Component {
 
   state = {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
-    selectRowProp: {
-      mode: 'checkbox',
-      onSelectAll: this.onSelectAll
+    payload: deviceManagementUtility.payload,
+    routeParams: null
+  }
+
+  componentDidMount() {
+    this.prepareCall();
+  }
+
+  prepareCall = (routeParams) => {
+    if(!routeParams) {
+      routeParams = this.props.routeParams;
+    }
+    let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
+    let params = groupRouteParams(requestParams, routeParams);
+    this.props.getNodeData(params, this.state.payload)
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.routeParams !== newProps.routeParams) {
+      this.setState({
+        routeParams: newProps.routeParams
+      })
+      this.prepareCall(newProps.routeParams);
+    }
+    if (newProps.devices && newProps.devices.length > 0) {
+      this.setState({
+        dataObject: newProps.devices
+      })
     }
   }
-
-  componentWillMount() {
-    let deviceList = null;
-    deviceService()
-      .then(response => {
-        deviceList = response.data.data;
-        this.setState({
-          dataObject: deviceList
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
 
   render() {
     let deviceListTable = null;
@@ -39,8 +51,24 @@ class Datatable extends Component {
       deviceListTable = <div>No Data available</div>
     }
     return (
-      [ deviceListTable ]
+      deviceListTable
     );
   }
 }
-export default withRouter(Datatable)
+
+
+const mapStateToProps = (state) => {
+  return {
+    devices: state.deviceManagementData.devices,
+    routeParams: state.treeviewData.routeParams,
+    tree: state.treeviewData.tree
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getNodeData: (params, payload) => dispatch(deviceManagementAction.buildNodeData(params, payload))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Datatable))

@@ -14,6 +14,99 @@
             "resetpassword": "ample/rest/usermanagement/changepassword",
             "userinfo": "ample/rest/usermanagement/profile/details",
             "timezonelist": "ample/rest/usermanagement/timezones/list"
+        },
+        "devicemanagement": {
+            "ROOTNODE": {
+                "data": "${ROOTNODE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "exportData": "${ROOTNODE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "REGION": {
+                "data": "${ROOTNODE}/regions/${REGION}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "exportData": "${ROOTNODE}/regions/${REGION}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "SUBSTATION": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "FEEDER": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "SITE": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/feederSite/${SITE}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "LATERAL": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/lateral/${LATERAL}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "LATERAL_SITE": {
+                "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
+                "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/lateral/${LATERAL}/lateralsite/${LATERAL_SITE}/devicesbyfirmwareandconfigdetails",
+                "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            }
+        },
+        "groupmanagement": {
+            "CUSTOMERNODE": {
+                "nodes": "orgDetails"
+            },
+            "ROOTNODE": {
+                "nodes": "$${ROOTNODE}/regions",
+                "details": "${ROOTNODE}/details",
+                "addNode": "${ROOTNODE}/regions/add",
+                "editNode": "renamerootnode",
+                "referenceSensors": "${ROOTNODE}/referenceSensors"
+            },
+            "REGION": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations",
+                "details": "${ROOTNODE}/regions/${REGION}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/delete",
+                "referenceSensors": "${ROOTNODE}/regions/${REGION}/referenceSensors",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/enableDeviceGPS"
+            },
+            "SUBSTATION": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/delete",
+                "referenceSensors": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/referenceSensors",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/enableDeviceGPS"
+            },
+            "FEEDER": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/childnodes",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/add",
+                "addLateral": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/delete",
+                "enablegps": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/enableDeviceGPS"
+            },
+            "LATERAL": {
+                "nodes": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/details",
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/add",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/delete"
+            },
+            "LATERAL_SITE": {
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/details",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/delete"
+            },
+            "SITE": {
+                "addNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/device/add",
+                "editDevice": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/device/{DEVICEID}/update",
+                "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/details",
+                "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/update",
+                "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/delete"
+            }
         }
     }
 }

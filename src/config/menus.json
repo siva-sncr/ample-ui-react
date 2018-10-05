@@ -6,13 +6,5 @@
     {
         "link": "device-management",
         "value": "Device Management"
-    },
-    {
-        "link": "line-monitoring",
-        "value": "Line Monitoring"
-    },
-    {
-        "link": "reports",
-        "value": "Reports"
     }
 ]
