@@ -1,0 +1,76 @@
+// imports
+@import '../resources/css/variables.scss';
+@import '../resources/css/mixins.scss';
+
+/* utilities */
+.nav-dropdown-menu{
+	a{
+		padding: 6px 10px !important;
+
+		.glyphicon{
+			font-size: 19px;
+		}
+		.caret{
+			border-top-width: 8px;
+			border-left-width: 6px;
+			border-right-width: 6px;
+		}
+	}
+	&:first-child > a{
+		padding: 8px 10px !important;
+	}
+	&:hover > a, &.open > a, a:focus{
+		background: #080808 !important;
+		color: $main-nav-font !important;
+	}
+	ul.dropdown-menu{
+		background-color: $main-nav-bg;
+		border-radius: 0;
+		border: none;
+
+		li{
+			a{
+				color: $main-nav-font;
+				font-size: 13px;
+				font-family: "Open Sans", sans-serif;
+
+				&:hover{
+					background: $main-nav-active-bg;
+					color: $main-nav-active-font;
+				}
+			}
+		}
+	}
+}
+
+/* overrides */
+body{
+	padding-top: 46px;
+}
+.navbar{
+	min-height: 36px;
+	height: 36px;
+	background: $main-nav-bg;
+	border: transparent;
+
+	.navbar-nav > li > {
+		a{
+			padding: 8px 10px;
+			color: $main-nav-font;
+			font-weight: bold;
+			text-shadow: none;
+		}
+		&:hover a, & a:focus, &.active a{
+			background: $main-nav-active-bg;
+			color: $main-nav-active-font;
+		}
+	}
+	.logo{
+		background-image: url($imagesPath + "logo.png");
+		width: 130px;
+		height: 28px;
+		background-size: 100% 100%;
+		background-position: 0,0;
+		margin: 2px 15px 0 0 !important;
+	}
+}

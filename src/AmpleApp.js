@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Home from './home';
 import ampleStore from './store';
-import './resources/css/_common.scss';
+import './resources/css/helpers.scss';
+import './resources/css/overrides.scss';
 
 class AmpleApp extends Component {
     render() {
