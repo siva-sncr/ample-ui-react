@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 
-import '../resources/css/style.css'
 import Treeview from '../treeview';
 import Routes from '../routes';
 import * as headerActions from '../header/actions';

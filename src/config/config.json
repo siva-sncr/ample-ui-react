@@ -1,6 +1,6 @@
 {
     "restapi": {
-        "host": "172.18.2.121",
+        "host": "172.20.4.90",
         "protocol": "https",
         "contextPath": "em/rest/"
     },
