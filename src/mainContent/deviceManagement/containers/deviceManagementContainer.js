@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import DeviceListTable from '../components/deviceListTableComponent';
+import DeviceListTable from './deviceListTableContainer';
+import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
+import { Tabs,Tab } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
 import { groupRouteParams } from '../../../services/utilityService';
 
-class Datatable extends Component {
+class DeviceManagementComponent extends Component {
 
   state = {
     options: deviceManagementUtility.tableOptions,
@@ -43,14 +45,19 @@ class Datatable extends Component {
   }
 
   render() {
-    let deviceListTable = null;
-    if (this.state.dataObject) {
-      deviceListTable = <DeviceListTable deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
-    } else {
-      deviceListTable = <div>No Data available</div>
-    }
+      
     return (
-      deviceListTable
+        <div>
+          <DeviceFiltersComponent />
+          <Tabs defaultActiveKey={1}>
+              <Tab eventKey={1} title="Tab 1">
+                  <DeviceListTable />
+              </Tab>
+              <Tab eventKey={2} title="Tab 2">
+                  Tab 2 content
+              </Tab>
+          </Tabs>
+        </div>
     );
   }
 }
@@ -70,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Datatable))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeviceManagementComponent))

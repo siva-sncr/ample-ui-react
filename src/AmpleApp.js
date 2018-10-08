@@ -6,6 +6,7 @@ import Home from './home';
 import ampleStore from './store';
 import './resources/css/helpers.scss';
 import './resources/css/overrides.scss';
+import './resources/css/bootstrap-multiselect.css';
 
 class AmpleApp extends Component {
     render() {
