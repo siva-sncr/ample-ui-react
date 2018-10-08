@@ -1,12 +1,27 @@
 import React from 'react';
 import MultiSelectComponent from '../../../hoc/multiSelectDropdownComponent';
-import { Panel, Row, Col, FormGroup,Button } from 'react-bootstrap';
+import { Panel, Row, Col, FormGroup,Button ,FormControl } from 'react-bootstrap';
 
 const DeviceFiltersComponent  = (props) => {
-        let devices = [
-            {value:'Offline', selected:true},
-            {value:'Online'}
-          ];
+    
+    let filters = {
+        statuses : [],
+        commTypes : [],
+        deviceType : [],
+        fwUpgradeStatus : [],
+        networkGroupNames : [],
+        profileStatus : [],
+        softwareVersions : [],
+        state : []
+    }; 
+    
+    Object.keys(filters).map(function(filter, index) {
+        props.filtersData[filter].map((item) => {
+            filters[filter].push ({ value:item })
+        })
+     });
+    
+        
         return (
             <Panel>
                 <Row className="show-grid">
@@ -18,27 +33,29 @@ const DeviceFiltersComponent  = (props) => {
                                         Device Status
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.statuses} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                        Device Type
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.deviceType} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                         Serial Number
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                    <FormControl
+                                        type="text"
+                                    />
                                     </Col>
                                 </FormGroup>
                             </Col>
@@ -48,30 +65,30 @@ const DeviceFiltersComponent  = (props) => {
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                         Device State
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.state} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                         Profile Status
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.profileStatus} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                         FW Upgrade Status
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.fwUpgradeStatus} />
                                     </Col>
                                 </FormGroup>
                             </Col>
@@ -82,35 +99,35 @@ const DeviceFiltersComponent  = (props) => {
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                        FW Version
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.softwareVersions} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                       Communication Type
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.commTypes} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col  xs={6} md={6}>
-                                        Device Status
+                                         Network Group
                                     </Col>
                                     <Col xs={6} md={6}>
-                                        <MultiSelectComponent data={devices} />
+                                        <MultiSelectComponent data={filters.networkGroupNames} />
                                     </Col>
                                 </FormGroup>
                             </Col>
                         </Row>
-                        
+
                         </Col>
                         <Col xs={1} md={1}>
                         <FormGroup>

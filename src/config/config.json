@@ -48,6 +48,9 @@
                 "data": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices?pageNo=${PAGENO}&pageSize=${PAGESIZE}",
                 "devicesbyfirmware": "${ROOTNODE}/region/${REGION}/substation/${SUBSTATION}/feeder/${FEEDER}/lateral/${LATERAL}/lateralsite/${LATERAL_SITE}/devicesbyfirmwareandconfigdetails",
                 "exportData": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/laterals/${LATERAL}/lateralsites/${LATERAL_SITE}/devices/export/${FORMAT}?timezone=${TIMEZONE}"
+            },
+            "DEVICE":{
+                "getfilters": "devices/filters/${MODULE}"
             }
         },
         "groupmanagement": {

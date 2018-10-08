@@ -3,10 +3,12 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import DeviceListTable from './deviceListTableContainer';
 import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
+import DeviceSummaryComponent from '../components/deviceSummaryComponent';
 import { Tabs,Tab } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
 import { groupRouteParams } from '../../../services/utilityService';
+import  * as deviceService  from '../services/deviceService';
 
 class DeviceManagementComponent extends Component {
 
@@ -14,11 +16,20 @@ class DeviceManagementComponent extends Component {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
     payload: deviceManagementUtility.payload,
-    routeParams: null
+    routeParams: null,
+    filters:null
   }
 
   componentDidMount() {
     this.prepareCall();
+   
+    deviceService.getFilters('managedevices')
+    .then((response) => {
+      this.setState({
+        filters: response.data.data
+      });
+    })
+
   }
 
   prepareCall = (routeParams) => {
@@ -48,13 +59,13 @@ class DeviceManagementComponent extends Component {
       
     return (
         <div>
-          <DeviceFiltersComponent />
+          {this.state.filters ? <DeviceFiltersComponent  filtersData={this.state.filters}/> : null}
           <Tabs defaultActiveKey={1}>
-              <Tab eventKey={1} title="Tab 1">
+              <Tab eventKey={1} title="Device List">
                   <DeviceListTable />
               </Tab>
-              <Tab eventKey={2} title="Tab 2">
-                  Tab 2 content
+              <Tab eventKey={2} title="Device Summary">
+                  <DeviceSummaryComponent />
               </Tab>
           </Tabs>
         </div>
