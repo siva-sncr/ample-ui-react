@@ -8,7 +8,6 @@ class DeviceManagement extends Component{
     render(){
         return(
             <div>
-                <h2>I am Device Management</h2>
                 <DeviceManagementComponent />
             </div>
         );

@@ -65,7 +65,7 @@ class DeviceManagementComponent extends Component {
                   <DeviceListTable />
               </Tab>
               <Tab eventKey={2} title="Device Summary">
-                  <DeviceSummaryComponent />
+                 {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
               </Tab>
           </Tabs>
         </div>
@@ -76,7 +76,8 @@ class DeviceManagementComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    devices: state.deviceManagementData.devices,
+    summary: state.deviceManagementData.devicesData.summary,
+    devices: state.deviceManagementData.devicesData.devices,
     routeParams: state.treeviewData.routeParams,
     tree: state.treeviewData.tree
   }

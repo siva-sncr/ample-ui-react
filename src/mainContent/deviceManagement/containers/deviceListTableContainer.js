@@ -58,7 +58,7 @@ class Datatable extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    devices: state.deviceManagementData.devices,
+    devices: state.deviceManagementData.devicesData.devices,
     routeParams: state.treeviewData.routeParams,
     tree: state.treeviewData.tree
   }

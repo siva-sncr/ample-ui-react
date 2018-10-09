@@ -1,37 +1,42 @@
-import React , {Component} from 'react';
-import { Table, Grid, Col, Row } from 'react-bootstrap';
+import React from 'react';
+import { Table, Col, Row } from 'react-bootstrap';
+
+
+const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
+    return (
+            <tbody>
+                <tr>
+                    <td>{key}</td>
+                    <td>{value}</td>
+                </tr>
+            </tbody>
+    )
+});
 
 const deviceSummaryComponent = (props) => {
+
+    const content = props.summaryData.map((summary) =>
+        <Col key={summary.type} xs={6} md={6}>
+            <div className="text-center">Device summary by {summary.type}</div>
+            <Table striped bordered condensed hover>
+                <thead>
+                    <tr>
+                        <th>{summary.type}</th>
+                        <th>Device Count</th>
+                    </tr>
+                </thead>
+                
+                <TabList tabData={summary.details} />
+            </Table>
+        </Col>
+    );
+
     return (
-        <Table striped bordered condensed hover>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</Table>
+        <Row className="show-grid">
+            <Col xs={12} md={12}>
+                {content}
+            </Col>
+        </Row>
     )
 }
 

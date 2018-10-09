@@ -94,7 +94,6 @@ const DeviceFiltersComponent  = (props) => {
                             </Col>
                         </Row>
 
-
                          <Row>
                             <Col xs={4} md={4}>
                                 <FormGroup controlId="formHorizontalEmail">
@@ -130,9 +129,9 @@ const DeviceFiltersComponent  = (props) => {
 
                         </Col>
                         <Col xs={1} md={1}>
-                        <FormGroup>
-                            <Button type="submit">Apply</Button>
-                        </FormGroup>
+                            <FormGroup>
+                                <Button type="submit">Apply</Button>
+                            </FormGroup>
                         </Col>
                 </Row>
             </Panel>  
