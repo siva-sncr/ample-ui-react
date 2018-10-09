@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DeviceListTable from './deviceListTableContainer';
 import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
 import DeviceSummaryComponent from '../components/deviceSummaryComponent';
+import DeviceActionsComponent from '../components/deviceActionsComponent';
 import { Tabs,Tab } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
@@ -17,9 +18,12 @@ class DeviceManagementComponent extends Component {
     dataObject: null,
     payload: deviceManagementUtility.payload,
     routeParams: null,
-    filters:null
+    filters:null,
+    
   }
-
+  setSerial(evt){
+    console.log(evt.target.value)
+  }
   componentDidMount() {
     this.prepareCall();
    
@@ -59,7 +63,8 @@ class DeviceManagementComponent extends Component {
       
     return (
         <div>
-          {this.state.filters ? <DeviceFiltersComponent  filtersData={this.state.filters}/> : null}
+          {this.state.filters ? <DeviceFiltersComponent getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters}/> : null}
+          <DeviceActionsComponent />
           <Tabs defaultActiveKey={1}>
               <Tab eventKey={1} title="Device List">
                   <DeviceListTable />
@@ -68,6 +73,8 @@ class DeviceManagementComponent extends Component {
                  {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
               </Tab>
           </Tabs>
+
+          
         </div>
     );
   }

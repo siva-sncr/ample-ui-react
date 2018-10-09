@@ -55,6 +55,7 @@ const DeviceFiltersComponent  = (props) => {
                                     <Col xs={6} md={6}>
                                     <FormControl
                                         type="text"
+                                        onChange={(evt) => props.getSerial(evt)}
                                     />
                                     </Col>
                                 </FormGroup>
