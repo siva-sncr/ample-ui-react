@@ -1,5 +1,13 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
+
+let columnVisiblity = deviceManagementUtility.tableOptions.visbleColumns;
+
+const selectRowProp = {
+    mode: 'checkbox',
+    selected: [0, 2, 4]
+}
 
 const deviceListTable = (props) => {
     return (
@@ -9,7 +17,7 @@ const deviceListTable = (props) => {
                 selectRow={props.selectRow}
                 data={props.deviceData}
                 pagination
-                hover >
+                hover selectRow={selectRowProp}>
                 <TableHeaderColumn dataField='serialNumber' isKey={true}>SerialNumber</TableHeaderColumn>
                 <TableHeaderColumn dataField='phase' dataSort={true}>Phase</TableHeaderColumn>
                 <TableHeaderColumn dataField='deviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
