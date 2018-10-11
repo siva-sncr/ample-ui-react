@@ -5,11 +5,11 @@ import DeviceListTable from './deviceListTableContainer';
 import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
 import DeviceSummaryComponent from '../components/deviceSummaryComponent';
 import DeviceActionsComponent from '../components/deviceActionsComponent';
-import { Tabs,Tab } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
 import { groupRouteParams } from '../../../services/utilityService';
-import  * as deviceService  from '../services/deviceService';
+import * as deviceService from '../services/deviceService';
 
 class DeviceManagementComponent extends Component {
 
@@ -18,26 +18,26 @@ class DeviceManagementComponent extends Component {
     dataObject: null,
     payload: deviceManagementUtility.payload,
     routeParams: null,
-    filters:null,
-    
+    filters: null,
+
   }
-  setSerial(evt){
+  setSerial(evt) {
     console.log(evt.target.value)
   }
   componentDidMount() {
     this.prepareCall();
-   
+
     deviceService.getFilters('managedevices')
-    .then((response) => {
-      this.setState({
-        filters: response.data.data
-      });
-    })
+      .then((response) => {
+        this.setState({
+          filters: response.data.data
+        });
+      })
 
   }
 
   prepareCall = (routeParams) => {
-    if(!routeParams) {
+    if (!routeParams) {
       routeParams = this.props.routeParams;
     }
     let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
@@ -60,22 +60,20 @@ class DeviceManagementComponent extends Component {
   }
 
   render() {
-      
-    return (
-        <div>
-          {this.state.filters ? <DeviceFiltersComponent getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters}/> : null}
-          <DeviceActionsComponent />
-          <Tabs defaultActiveKey={1}>
-              <Tab eventKey={1} title="Device List">
-                  <DeviceListTable />
-              </Tab>
-              <Tab eventKey={2} title="Device Summary">
-                 {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
-              </Tab>
-          </Tabs>
 
-          
-        </div>
+    return (
+      <div>
+        {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
+        <DeviceActionsComponent />
+        <Tabs defaultActiveKey={1}>
+          <Tab eventKey={1} title="Device List">
+            <DeviceListTable />
+          </Tab>
+          <Tab eventKey={2} title="Device Summary">
+            {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
+          </Tab>
+        </Tabs>
+      </div>
     );
   }
 }

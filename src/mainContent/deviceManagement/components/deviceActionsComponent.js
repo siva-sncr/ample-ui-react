@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonToolbar,ButtonGroup,Button, Glyphicon } from 'react-bootstrap';
+import { ButtonToolbar, ButtonGroup, Button, Glyphicon, Dropdown, MenuItem,Checkbox } from 'react-bootstrap';
 
 const DeviceActionsComponent = (props) => {
     return (
@@ -30,9 +30,20 @@ const DeviceActionsComponent = (props) => {
             </ButtonGroup>
 
             <ButtonGroup>
-                <Button>
+                {/* <Button>
                     <Glyphicon glyph="th" />
-                </Button>
+                </Button> */}
+                <Dropdown id="dropdown-custom-1" >
+                    <Dropdown.Toggle noCaret>
+                        <Glyphicon glyph="th"/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu >
+                        <Checkbox> Region</Checkbox>
+                        <Checkbox> Substation</Checkbox>
+                        <Checkbox> Feeder</Checkbox>
+                        <Checkbox> Lateral</Checkbox>
+                    </Dropdown.Menu>
+                </Dropdown>
             </ButtonGroup>
         </ButtonToolbar>
     );

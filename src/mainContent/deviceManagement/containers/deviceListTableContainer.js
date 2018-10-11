@@ -42,6 +42,8 @@ class Datatable extends Component {
     }
   }
 
+  
+
   render() {
     let deviceListTable = null;
     if (this.state.dataObject) {
