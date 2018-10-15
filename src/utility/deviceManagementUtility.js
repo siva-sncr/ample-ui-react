@@ -10,82 +10,82 @@ export const tableOptions = {
     firstPageTitle: 'Next page',
     lastPageTitle: 'Last page',
     showTotal: true,
-    visbleColumns: [
+    tableColumns: [
         {   
             name: 'region',
-            hidden: false
+            hidden: true
         }, {
             name: 'substation',
-            hidden: false
+            hidden: true
         }, {
             name: 'feeder',
-            hidden: false
+            hidden: true
         }, {
             name: 'lateral',
-            hidden: false
+            hidden: true
         }, {
             name: 'site',
-            hidden: false
+            hidden: true
         }, {
             name: 'serialNumber',
-            hidden: true
+            hidden: false
         }, {
             name: 'phase',
-            hidden: true
+            hidden: false
         }, {
             name: 'status',
-            hidden: true
+            hidden: false
         }, {
             name: 'deviceType',
-            hidden: true
+            hidden: false
         }, {
             name: 'deviceState',
-            hidden: true
+            hidden: false
         }, {
             name: 'softwareVersion',
-            hidden: true
+            hidden: false
         }, {
             name: 'communicationType',
-            hidden: true
+            hidden: false
         }, {
             name: 'profileName',
-            hidden: false
+            hidden: true
         }, {
             name: 'configStatus',
-            hidden: false
+            hidden: true
         }, {
             name: 'otapStatus',
-            hidden: false
+            hidden: true
         }, {
             name: 'siteLocation',
-            hidden: false
+            hidden: true
         }, {
             name: 'dnp3PointMapVersion',
-            hidden: false
+            hidden: true
         }, {
             name: 'dnpAddress',
-            hidden: false
+            hidden: true
         }, {
             name: 'ipAddress',
-            hidden: false
+            hidden: true
         }, {
             name: 'description',
-            hidden: false
+            hidden: true
         }, {
             name: 'fieldNotes',
-            hidden: false
+            hidden: true
         }, {
             name: 'commServerName',
-            hidden: false
+            hidden: true
         }, {
             name: 'networkGroupName',
-            hidden: false
+            hidden: true
         }, {
             name: 'gpsCoordinates',
-            hidden: false
+            hidden: true
         }, {
             name: 'lastSuccess',
-            hidden: false
+            hidden: true
         }
     ],
     paginationTotalRenderer: this.customTotal,

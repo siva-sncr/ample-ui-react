@@ -2,7 +2,7 @@ import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 
-let columnVisiblity = deviceManagementUtility.tableOptions.visbleColumns;
+let columnVisiblity = deviceManagementUtility.tableOptions.tableColumns;
 
 const selectRowProp = {
     mode: 'checkbox',
@@ -10,6 +10,15 @@ const selectRowProp = {
 }
 
 const deviceListTable = (props) => {
+
+    const tableColumnsData = columnVisiblity.map((coulmn, index) =>
+        <TableHeaderColumn key={index}
+            dataField={coulmn.name}
+            hidden={coulmn.hidden} >
+            {coulmn.name}
+        </TableHeaderColumn>
+    );
+
     return (
         <div>
             <BootstrapTable striped
@@ -18,14 +27,10 @@ const deviceListTable = (props) => {
                 data={props.deviceData}
                 pagination
                 hover selectRow={selectRowProp}>
-                <TableHeaderColumn dataField='serialNumber' isKey={true}>SerialNumber</TableHeaderColumn>
-                <TableHeaderColumn dataField='phase' dataSort={true}>Phase</TableHeaderColumn>
-                <TableHeaderColumn dataField='deviceStatus' dataSort={true}>DeviceStatus</TableHeaderColumn>
-                <TableHeaderColumn dataField='deviceState' dataSort={true}>DeviceState</TableHeaderColumn>
-                <TableHeaderColumn dataField='fwVersion' dataSort={true}>fwVersion</TableHeaderColumn>
-                <TableHeaderColumn dataField='communicationType' dataSort={true}>CommunicationType</TableHeaderColumn>
-                <TableHeaderColumn dataField='networkGroup' dataSort={true}>NetworkGroup</TableHeaderColumn>
-            </BootstrapTable></div>
+                <TableHeaderColumn dataField='id' isKey={true} hidden>id</TableHeaderColumn>
+                {tableColumnsData}
+            </BootstrapTable>
+        </div>
     )
 }
 
