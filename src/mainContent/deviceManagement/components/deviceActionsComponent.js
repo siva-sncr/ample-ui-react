@@ -6,12 +6,14 @@ import * as deviceManagementUtility from '../../../utility/deviceManagementUtili
 const DeviceActionsComponent = (props) => {
     let columnTitles = deviceManagementUtility.tableOptions.tableColumns;
     const selectedColumns = columnTitles.map((column) =>
-        <label><input type="checkbox" name={column.name} onChange={(evt) => handleChangeChk(evt)} defaultChecked={column.hidden} />{column.name}</label>
+        <label><input type="checkbox" name={column.name} onChange={(evt) => props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
     );
 
     const handleChangeChk = function (evt) {
         console.log(evt.target.checked)
+        props.getEnabledColumn(evt);
     }
+
     return (
         <ButtonToolbar className="pull-right">
             <ButtonGroup>

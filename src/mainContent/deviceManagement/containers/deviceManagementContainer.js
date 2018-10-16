@@ -19,8 +19,15 @@ class DeviceManagementComponent extends Component {
     payload: deviceManagementUtility.payload,
     routeParams: null,
     filters: null,
-
+    column: null
   }
+
+  setColumnStatus(evt) {
+    this.setState({
+      column: { name: evt.target.name, checked: evt.target.checked }
+    })
+  }
+
   setSerial(evt) {
     console.log(evt.target.value)
   }
@@ -62,12 +69,12 @@ class DeviceManagementComponent extends Component {
   render() {
 
     return (
-      <div>
+      <div className="content-right col-xs-12 col-md-12">
         {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
-        <DeviceActionsComponent />
+        <DeviceActionsComponent getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
         <Tabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Device List">
-            <DeviceListTable />
+            <DeviceListTable setColumn={this.state.column} />
           </Tab>
           <Tab eventKey={2} title="Device Summary">
             {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}

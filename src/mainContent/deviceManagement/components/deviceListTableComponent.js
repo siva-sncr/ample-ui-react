@@ -1,6 +1,7 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
+import { ButtonToolbar, ButtonGroup, Button, Glyphicon } from 'react-bootstrap';
 
 let columnVisiblity = deviceManagementUtility.tableOptions.tableColumns;
 
@@ -10,6 +11,13 @@ const selectRowProp = {
 }
 
 const deviceListTable = (props) => {
+    if (props.updateColumn) {
+        columnVisiblity.map((coulmn) => {
+            if (coulmn.name == props.updateColumn.name) {
+                coulmn.hidden = props.updateColumn.checked
+            }
+        })
+    }
 
     const tableColumnsData = columnVisiblity.map((coulmn, index) =>
         <TableHeaderColumn key={index}
@@ -18,6 +26,24 @@ const deviceListTable = (props) => {
             {coulmn.name}
         </TableHeaderColumn>
     );
+
+    const getFlash = function (evt) {
+        console.log(evt)
+    }
+    function actionsFormatter() {
+        return (
+            <div>
+                <span name="edit" value="id" onClick={(evt) => getEdit(evt)}>
+                    <Glyphicon glyph="pencil" />
+                </span>
+                <span name="ping" value="id" onClick={(evt) => pingDevice(evt)}>
+                    <Glyphicon glyph="sort" />
+                </span>
+                <span name="falsh" value="flash" onClick={(evt) => flashDevice(evt)}>
+                    <Glyphicon glyph="lamp" />
+                </span>
+            </div>);
+    }
 
     return (
         <div>
@@ -29,6 +55,7 @@ const deviceListTable = (props) => {
                 hover selectRow={selectRowProp}>
                 <TableHeaderColumn dataField='id' isKey={true} hidden>id</TableHeaderColumn>
                 {tableColumnsData}
+                <TableHeaderColumn dataField="id" dataFormat={actionsFormatter}>Actions</TableHeaderColumn>
             </BootstrapTable>
         </div>
     )
