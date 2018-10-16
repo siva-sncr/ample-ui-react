@@ -1,3 +1,4 @@
 export {
-    buildNodeData
+    buildNodeData,
+    getFiltersData
 } from './deviceManagementActionBuilder';

@@ -1,26 +1,43 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import DeviceListTable from '../components/deviceListTableComponent';
+import DeviceListTable from './deviceListTableContainer';
+import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
+import DeviceSummaryComponent from '../components/deviceSummaryComponent';
+import DeviceActionsComponent from '../components/deviceActionsComponent';
+import { Tabs, Tab } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
 import { groupRouteParams } from '../../../services/utilityService';
+import * as deviceService from '../services/deviceService';
 
-class Datatable extends Component {
+class DeviceManagementComponent extends Component {
 
   state = {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
     payload: deviceManagementUtility.payload,
-    routeParams: null
-  }
+    routeParams: null,
+    filters: null,
 
+  }
+  setSerial(evt) {
+    console.log(evt.target.value)
+  }
   componentDidMount() {
     this.prepareCall();
+
+    deviceService.getFilters('managedevices')
+      .then((response) => {
+        this.setState({
+          filters: response.data.data
+        });
+      })
+
   }
 
   prepareCall = (routeParams) => {
-    if(!routeParams) {
+    if (!routeParams) {
       routeParams = this.props.routeParams;
     }
     let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
@@ -42,17 +59,21 @@ class Datatable extends Component {
     }
   }
 
-  
-
   render() {
-    let deviceListTable = null;
-    if (this.state.dataObject) {
-      deviceListTable = <DeviceListTable deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
-    } else {
-      deviceListTable = <div>No Data available</div>
-    }
+
     return (
-      deviceListTable
+      <div>
+        {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
+        <DeviceActionsComponent />
+        <Tabs defaultActiveKey={1}>
+          <Tab eventKey={1} title="Device List">
+            <DeviceListTable />
+          </Tab>
+          <Tab eventKey={2} title="Device Summary">
+            {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
+          </Tab>
+        </Tabs>
+      </div>
     );
   }
 }
@@ -60,6 +81,7 @@ class Datatable extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    summary: state.deviceManagementData.devicesData.summary,
     devices: state.deviceManagementData.devicesData.devices,
     routeParams: state.treeviewData.routeParams,
     tree: state.treeviewData.tree
@@ -72,4 +94,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Datatable))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeviceManagementComponent))
