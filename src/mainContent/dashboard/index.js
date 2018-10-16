@@ -8,7 +8,7 @@ class Dashboard extends Component {
     render() {
         return (
             <Router>
-                <div>
+                <div className="subnav-pg">
                     <DashboardNavigations />
                     <DashboardRoutes />
                 </div>

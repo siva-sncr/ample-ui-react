@@ -27,6 +27,9 @@
       background: #D98C15;
       color: #333333; }
 
+.subnav-pg {
+  padding-top: 26px; }
+
 /* overrides */
 body {
   padding-top: 46px; }
@@ -51,3 +54,16 @@ body {
     background-size: 100% 100%;
     background-position: 0,0;
     margin: 2px 15px 0 0 !important; }
+  .navbar.secondary-navbar {
+    top: 36px;
+    padding-left: 145px;
+    min-height: 26px;
+    height: 26px;
+    background: #E5E5E5;
+    border: transparent; }
+    .navbar.secondary-navbar .navbar-nav > li > a {
+      padding: 3px 10px;
+      color: #333333; }
+    .navbar.secondary-navbar .navbar-nav > li:hover > a, .navbar.secondary-navbar .navbar-nav > li > a:focus, .navbar.secondary-navbar .navbar-nav > li.active > a {
+      background: none;
+      box-shadow: 0px 0px 3px 2px #A8A6A6; }
