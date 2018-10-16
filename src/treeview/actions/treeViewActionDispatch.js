@@ -46,3 +46,15 @@ export const onExpandNode = (nextLevelNodes, clickedNode, routeParams) => {
         clickedNode: clickedNode
     }
 }
+
+export const onEditNode = (newNode, clickedNode, routeParams) => {
+    const updatedNode = clickedNode;
+    updatedNode.node.name = newNode;
+    updatedNode.node.title = newNode;
+    return {
+        type: actionTypes.EDIT_NODE,
+        newNode: [updatedNode.node],
+        routeParams: routeParams,
+        clickedNode: clickedNode
+    }
+}
