@@ -34,7 +34,7 @@ const DeviceActionsComponent = (props) => {
                 </Button>
             </ButtonGroup>
 
-            <ButtonGroup>
+            <ButtonGroup className="export-button">
                 <Button>
                     <Glyphicon glyph="share" />
                     <span class="caret"></span>
@@ -46,7 +46,7 @@ const DeviceActionsComponent = (props) => {
                     <Dropdown.Toggle noCaret>
                         <Glyphicon glyph="th" />
                     </Dropdown.Toggle>
-                    <Dropdown.Menu >
+                    <Dropdown.Menu className="dropdown-disable-autohide">
                       {selectedColumns}
                     </Dropdown.Menu>
                 </Dropdown>

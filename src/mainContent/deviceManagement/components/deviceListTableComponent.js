@@ -32,7 +32,7 @@ const deviceListTable = (props) => {
     }
     function actionsFormatter() {
         return (
-            <div>
+            <div className="row-actions">
                 <span name="edit" value="id" onClick={(evt) => getFlash(evt)}>
                     <Glyphicon glyph="pencil" />
                 </span>
@@ -46,7 +46,7 @@ const deviceListTable = (props) => {
     }
 
     return (
-        <div>
+        <div className="deviceList">
             <BootstrapTable striped
                 options={props.options}
                 selectRow={props.selectRow}

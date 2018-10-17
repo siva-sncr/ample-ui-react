@@ -40,6 +40,7 @@
         margin-top: -1px;
     }
 }
+
 .table {
     margin-bottom: 0;
 }
@@ -185,3 +186,33 @@
     padding-bottom: 4px;
     height: 30px;
 }
+
+
+/*device management*/
+a {
+    color: #BF7400;
+}
+.btn-default {
+    background: none;
+}
+.open>.dropdown-menu {
+    display: block;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+}
+.table > thead > tr > th {
+    background-color: #E5E5E5;
+    text-align: center !important;
+    font-size: 12px;
+    border: 1px solid #bdbbbb !important;
+}
+
+.table > tbody > tr > td {
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #bdbbbb;
+}
+/*device management*/

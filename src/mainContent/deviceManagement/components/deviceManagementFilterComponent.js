@@ -130,7 +130,7 @@ const DeviceFiltersComponent = (props) => {
                                 Network Group
                                     </span>
                         </Col>
-                            <Col className="padding-0" xs={6} md={6}>
+                            <Col className="padding-0 scrollable-multiselect-filter" xs={6} md={6}>
                                 <MultiSelectComponent handleChange={(evt) => setFilter(evt, 'networkGroupNames')} data={filters.networkGroupNames} />
                             </Col>
 
@@ -138,9 +138,9 @@ const DeviceFiltersComponent = (props) => {
                     </Row >
 
                 </Col >
-                <Col xs={1} md={1}>
+                <Col className="padding-0 pull-right" xs={1} md={1}>
 
-                    <Button type="submit" onClick={() => props.getDeviceData()} >Apply</Button>
+                    <Button className="filter-apply" type="submit" onClick={() => props.getDeviceData()} >Apply</Button>
 
                 </Col >
             </Row >

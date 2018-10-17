@@ -17,16 +17,16 @@ const deviceSummaryComponent = (props) => {
 
     const content = props.summaryData.map((summary) =>
         <Col key={summary.type} xs={6} md={6}>
-            <div className="text-center">Device summary by {summary.type}</div>
+            <div className="text-center summary-title ">Device summary by {summary.type}</div>
             <Table striped bordered condensed hover>
                 <thead>
                     <tr>
-                        <th>{summary.type}</th>
-                        <th>Device Count</th>
+                        <th className="text-bold">{summary.type}</th>
+                        <th className="text-bold">Device Count</th>
                     </tr>
                 </thead>
                 
-                <TabList tabData={summary.details} />
+                <TabList  tabData={summary.details} />
             </Table>
         </Col>
     );

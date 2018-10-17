@@ -73,7 +73,7 @@ class DeviceManagementComponent extends Component {
         {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
         <DeviceActionsComponent getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
         <Tabs defaultActiveKey={1}>
-          <Tab eventKey={1} title="Device List">
+          <Tab eventKey={1} title="Device List" className="apply-padding">
             <DeviceListTable setColumn={this.state.column} />
           </Tab>
           <Tab eventKey={2} title="Device Summary">

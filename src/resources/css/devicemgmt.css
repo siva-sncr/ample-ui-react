@@ -11,15 +11,16 @@
   width: calc(100% - 270px);
   float: left;
   padding: 0px;
-  height: 100%; }
+  height: 100%;
+  /* device summary*/ }
   .container-fluid .right-col .content-right {
     margin-bottom: 15px;
     width: 100%;
     height: 100%; }
-    .container-fluid .right-col .content-right .btn-group {
+    .container-fluid .right-col .content-right .multiselect-native-select .btn-group {
       display: inline-block;
       width: 100%; }
-      .container-fluid .right-col .content-right .btn-group .dropdown-toggle {
+      .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-toggle {
         display: inline-block;
         white-space: nowrap;
         overflow: hidden;
@@ -27,34 +28,96 @@
         text-align: left;
         height: 30px;
         width: 100%; }
-      .container-fluid .right-col .content-right .btn-group .dropdown-menu {
+        .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-toggle .caret {
+          float: right;
+          margin-top: 10px; }
+      .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu {
         overflow: visible !important;
         border-radius: 0;
         box-shadow: none;
         background: #e4e4e4;
         border: none;
-        min-width: 100%;
-        width: 100%; }
-        .container-fluid .right-col .content-right .btn-group .dropdown-menu li > a {
+        min-width: 100%; }
+        .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li > a {
           padding: 0 20px 0px 5px;
           width: 100%;
           text-align: left;
           background-color: transparent !important; }
-          .container-fluid .right-col .content-right .btn-group .dropdown-menu li > a > label {
+          .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li > a > label {
             padding: 3px 20px 3px 26px; }
-        .container-fluid .right-col .content-right .btn-group .dropdown-menu li:nth-child(1) a:not(.option) {
+        .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) a:not(.option) {
           font-weight: bold; }
-      .container-fluid .right-col .content-right .btn-group .dropdown-menu li:nth-child(1) {
+      .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) {
         position: absolute;
         bottom: -25px;
         width: 100%;
         height: 25px;
         background: #D98C15;
         border-bottom: solid 1px #ddd; }
-      .container-fluid .right-col .content-right .btn-group .dropdown-menu li {
+      .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li {
         padding: 2px 0;
         margin: 0;
         cursor: pointer; }
+    .container-fluid .right-col .content-right .scrollable-multiselect-filter .multiselect-native-select .dropdown-menu {
+      height: 160px !important;
+      overflow-y: auto !important;
+      padding-top: 0; }
+      .container-fluid .right-col .content-right .scrollable-multiselect-filter .multiselect-native-select .dropdown-menu li:nth-child(1) {
+        position: static !important;
+        bottom: 0 !important; }
+    .container-fluid .right-col .content-right .filter-apply {
+      margin-top: 10px;
+      margin-right: 10px;
+      float: right; }
+    .container-fluid .right-col .content-right .dropdown-disable-autohide {
+      position: absolute;
+      background: #EDEDED;
+      padding: 0px 12px 0px 30px;
+      right: 33px;
+      left: auto;
+      top: 0px;
+      z-index: 3;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      width: 170px; }
+      .container-fluid .right-col .content-right .dropdown-disable-autohide > label {
+        position: relative;
+        display: block;
+        margin-top: 5px;
+        font-weight: normal; }
+        .container-fluid .right-col .content-right .dropdown-disable-autohide > label > input[type=checkbox] {
+          position: absolute;
+          margin-left: -20px; }
+      .container-fluid .right-col .content-right .dropdown-disable-autohide > label:first-of-type {
+        margin-top: 10px; }
+      .container-fluid .right-col .content-right .dropdown-disable-autohide > label:last-of-type {
+        margin-bottom: 10px; }
+    .container-fluid .right-col .content-right .apply-padding .tab-content {
+      padding-bottom: 50px; }
+    .container-fluid .right-col .content-right .tab-content {
+      max-height: none;
+      position: relative;
+      padding: 10px;
+      top: 0px;
+      bottom: 0px;
+      height: calc(100% - 42px);
+      overflow: auto;
+      border: 1px solid #E7E4E4;
+      border-top: none;
+      min-height: 10px;
+      display: inline-table;
+      width: 100%; }
+    .container-fluid .right-col .content-right .export-button {
+      padding: 0px 12px; }
+    .container-fluid .right-col .content-right .table > tbody > tr > td {
+      vertical-align: middle !important;
+      text-align: center !important; }
+    .container-fluid .right-col .content-right .table > tbody > tr > td .row-actions {
+      width: 130px;
+      min-width: 130px; }
+      .container-fluid .right-col .content-right .table > tbody > tr > td .row-actions > span {
+        cursor: pointer;
+        margin: 0px 8px; }
   .container-fluid .right-col .panel {
     border-radius: 0px; }
   .container-fluid .right-col .row {
@@ -62,3 +125,11 @@
     margin-left: 0px;
     position: relative;
     top: 0px; }
+  .container-fluid .right-col .summary-title {
+    background: #ddd;
+    padding: 5px; }
+  .container-fluid .right-col .summary-widget {
+    position: relative;
+    padding: 0 0 10px 0;
+    max-height: 180px;
+    overflow-y: auto; }
