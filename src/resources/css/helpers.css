@@ -6,3 +6,29 @@
 
 .max-width-180 {
   max-width: 180px; }
+
+.height-30 {
+  height: 30px; }
+
+.padding-10-0 {
+  padding: 10px 0px; }
+
+.padding-side-10 {
+  padding: 0 10px; }
+
+.padding-l-5 {
+  padding-left: 5px; }
+
+.padding-0 {
+  padding: 0px; }
+
+.display-table {
+  display: table; }
+
+.middle-align {
+  display: table-cell;
+  vertical-align: middle !important;
+  text-align: center; }
+
+.text-left {
+  text-align: left !important; }

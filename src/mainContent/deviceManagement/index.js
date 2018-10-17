@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import '../../resources/css/devicemgmt.css';
+import '../../resources/css/helpers.css';
 import DeviceManagementComponent from './containers/deviceManagementContainer';
 
 

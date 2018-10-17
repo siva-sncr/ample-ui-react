@@ -93,7 +93,9 @@ class Tree extends Component {
   render() {
     return (
       <Aux>
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh',
+    border: 'solid 1px #DDDDDD',
+    marginTop: '10px' }}>
 
           <Search
             searchFoundCount={this.state.searchFoundCount}

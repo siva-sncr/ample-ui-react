@@ -33,13 +33,13 @@ const deviceListTable = (props) => {
     function actionsFormatter() {
         return (
             <div>
-                <span name="edit" value="id" onClick={(evt) => getEdit(evt)}>
+                <span name="edit" value="id" onClick={(evt) => getFlash(evt)}>
                     <Glyphicon glyph="pencil" />
                 </span>
-                <span name="ping" value="id" onClick={(evt) => pingDevice(evt)}>
+                <span name="ping" value="id" onClick={(evt) => getFlash(evt)}>
                     <Glyphicon glyph="sort" />
                 </span>
-                <span name="falsh" value="flash" onClick={(evt) => flashDevice(evt)}>
+                <span name="falsh" value="flash" onClick={(evt) => getFlash(evt)}>
                     <Glyphicon glyph="lamp" />
                 </span>
             </div>);
