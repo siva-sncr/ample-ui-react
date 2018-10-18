@@ -22,6 +22,7 @@ const deviceListTable = (props) => {
     const tableColumnsData = columnVisiblity.map((coulmn, index) =>
         <TableHeaderColumn key={index}
             dataField={coulmn.name}
+            dataSort={ true }
             hidden={coulmn.hidden} >
             {coulmn.name}
         </TableHeaderColumn>

@@ -16,7 +16,9 @@ const DeviceFiltersComponent = (props) => {
         state: []
     };
 
-    Object.keys(filters).map(function (filter, index) {
+    let serialNumber = deviceManagementUtility.payload.serialNumber;
+
+    Object.keys(filters).map(function (filter) {
         props.filtersData[filter].map((item) => {
             filters[filter].push({ value: item })
         })
@@ -31,6 +33,10 @@ const DeviceFiltersComponent = (props) => {
             }
         }
         deviceManagementUtility.payload[type] = selectedOptions;
+    }
+    
+    const setSerialNumber = (evt) => {
+        deviceManagementUtility.payload.searchPattern= evt.target.value;
     }
 
     return (
@@ -59,12 +65,13 @@ const DeviceFiltersComponent = (props) => {
                         <Col xs={4} md={4} className="padding-side-10"><Col className="padding-0 padding-l-5 display-table height-30" xs={6} md={6}>
                             <span className="middle-align text-left" >
                                 Serial Number
-                                    </span>
+                            </span>
                         </Col>
                             <Col className="padding-0" xs={6} md={6}>
                                 <FormControl
                                     type="text"
-                                    onChange={(evt) => props.getSerial(evt)}
+                                    value={serialNumber}
+                                    onChange={(evt) => setSerialNumber(evt)}
                                 />
                             </Col>
 
@@ -110,7 +117,7 @@ const DeviceFiltersComponent = (props) => {
                                 FW Version
                                     </span>
                         </Col>
-                            <Col className="padding-0" xs={6} md={6}>
+                            <Col className="padding-0 scrollable-multiselect-filter" xs={6} md={6}>
                                 <MultiSelectComponent handleChange={(evt) => setFilter(evt, 'softwareVersions')} data={filters.softwareVersions} />
                             </Col>
 
@@ -118,7 +125,7 @@ const DeviceFiltersComponent = (props) => {
                         <Col xs={4} md={4} className="padding-side-10"><Col className="padding-0 padding-l-5 display-table height-30" xs={6} md={6}>
                             <span className="middle-align text-left" >
                                 Communication Type
-                                    </span>
+                            </span>
                         </Col>
                             <Col className="padding-0" xs={6} md={6}>
                                 <MultiSelectComponent handleChange={(evt) => setFilter(evt, 'commTypes')} data={filters.commTypes} />

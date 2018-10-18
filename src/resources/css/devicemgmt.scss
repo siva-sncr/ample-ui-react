@@ -416,16 +416,20 @@
 						border: none;
 						min-width: 100%;
 						li > a {
-							padding: 0 20px 0px 5px;
+							//padding: 0 20px 0px 5px;
 							width: 100%;
 							text-align: left;
 							background-color: transparent !important;
 							> label {
-								padding: 3px 20px 3px 26px;
+								padding: 3px 16px 3px 26px;
 							}
 						}
 						li:nth-child(1) a:not(.option) {
 							font-weight: bold;
+						}
+						li:nth-child(1) {
+							position: static;
+							bottom: 0;
 						}
 					}
 					.dropdown-menu li:nth-child(1) {
@@ -546,15 +550,26 @@
 
 	/* device summary*/
 
-	.summary-title {
-		background: #ddd;
-		padding: 5px;
+	
+	.summary-table {
+		.summary-title {
+			background: #ddd;
+			padding: 5px;
+		}
+		.summary-widget {
+			padding-bottom: 10px;
+		}
+		.tableBodyScroll tbody {
+			display: block;
+			max-height: 180px;
+			overflow-y: auto;
+		  }
+		  
+		  .tableBodyScroll thead, tbody tr {
+			display: table;
+			width: 100%;
+			table-layout: fixed;
+		  }
 	}
-
-	.summary-widget {
-		position: relative;
-		padding: 0 0 10px 0;
-		max-height: 180px;
-		overflow-y: auto;
-	}
+	
 }

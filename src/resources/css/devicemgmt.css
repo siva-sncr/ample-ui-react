@@ -39,14 +39,16 @@
         border: none;
         min-width: 100%; }
         .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li > a {
-          padding: 0 20px 0px 5px;
           width: 100%;
           text-align: left;
           background-color: transparent !important; }
           .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li > a > label {
-            padding: 3px 20px 3px 26px; }
+            padding: 3px 16px 3px 26px; }
         .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) a:not(.option) {
           font-weight: bold; }
+        .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) {
+          position: static;
+          bottom: 0; }
       .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) {
         position: absolute;
         bottom: -25px;
@@ -125,11 +127,16 @@
     margin-left: 0px;
     position: relative;
     top: 0px; }
-  .container-fluid .right-col .summary-title {
+  .container-fluid .right-col .summary-table .summary-title {
     background: #ddd;
     padding: 5px; }
-  .container-fluid .right-col .summary-widget {
-    position: relative;
-    padding: 0 0 10px 0;
+  .container-fluid .right-col .summary-table .summary-widget {
+    padding-bottom: 10px; }
+  .container-fluid .right-col .summary-table .tableBodyScroll tbody {
+    display: block;
     max-height: 180px;
     overflow-y: auto; }
+  .container-fluid .right-col .summary-table .tableBodyScroll thead, .container-fluid .right-col .summary-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; }
