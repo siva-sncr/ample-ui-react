@@ -109,3 +109,11 @@ export const payload = {
     states: [],
     statuses: []
 }
+
+export const modelOptions = {
+    title: '',
+    show:false,
+    onHide:false,
+    size:'large',
+    content:'' 
+}
