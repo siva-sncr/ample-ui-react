@@ -26,6 +26,12 @@ const treeviewReducer = function (currentState = initialState, action) {
                 routeParams: action.routeParams,
                 currentNode: action.clickedNode.node.type
             }
+        case actionTypes.EDIT_NODE:
+            const editedTree = updateEditedTree(currentState.tree[0], action.newNode, action.clickedNode);
+            return {
+                ...currentState,
+                tree: Object.assign([], currentState.tree, editedTree),
+            }
 
         default:
             return currentState
@@ -38,6 +44,20 @@ const updateTree = (currentState, updatedNode, clickedNode) => {
     }
     return updatedNode;
 };
+
+const updateEditedTree = (newNode, updatedNode, clickedNode) => {
+    const lowerSiblings = clickedNode.lowerSiblingCounts;
+    let newVal = [];
+    let parent = "newNode";
+    for (let i = 1; i < lowerSiblings.length; i++) {
+        let index = eval(parent).children.length - (lowerSiblings[i] + 1);
+        parent = parent + ".children[" + index + "]"
+        if (i === lowerSiblings.length - 1) {
+            parent = parent + " = updatedNode[0]";
+        }
+    }
+    return eval(parent);
+}
 
 const updateNode = (newNode, updatedNode, clickedNode) => {
     const lowerSiblings = clickedNode.lowerSiblingCounts;

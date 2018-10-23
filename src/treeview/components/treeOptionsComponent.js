@@ -1,18 +1,34 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 const optionWindow = (props) => {
     return (
         <Modal.Dialog>
             <Modal.Header>
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Edit {props.clickedNode.node.type} : {props.clickedNode.node.name}</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>One fine body...</Modal.Body>
+            <Modal.Body>
+                <form>
+                    <FormGroup
+                        controlId="formBasicText"
+                        // validationState={this.getValidationState()}
+                    >
+                        <ControlLabel>{props.clickedNode.node.type} Name*</ControlLabel>
+                        <FormControl
+                            type="text"
+                            value={props.editedNode}
+                            onChange={(evt) => props.handleChange(evt)}
+                        />
+                        <FormControl.Feedback />
+                        {/* <HelpBlock>Validation is based on string length.</HelpBlock> */}
+                    </FormGroup>
+                </form>
+            </Modal.Body>
 
             <Modal.Footer>
-                <Button>Close</Button>
-                <Button bsStyle="primary">Save changes</Button>
+                <Button onClick={()=> props.closeModal()}>Close</Button>
+                <Button bsStyle="primary" onClick={() => props.editNode()}>Save changes</Button>
             </Modal.Footer>
         </Modal.Dialog>
     )
