@@ -3,6 +3,7 @@ import { Form, FormControl,Title, FormGroup, Col, Button, Modal} from 'react-boo
 import SingleSelectComponent from '../../../hoc/singleSelectDropdownComponent';
 
 const AddDeviceComponent = (props) => {
+    console.log(props.deviceTypes);
     let addDevice = {
         deviceTypes: [{ value: 'MM3' }, { value: 'ZM1' }, { value: 'UM3+' }]
     };

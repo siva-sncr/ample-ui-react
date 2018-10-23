@@ -1,7 +1,8 @@
 import * as actionTypes from '../mainContent/deviceManagement/actions/deviceManagementActionTypes';
 
 const intialState = {
-    devicesData: []
+    devicesData: [],
+    deviceTypes : []
 }
 
 const deviceManagementReducer = (currentState = intialState, action) => {
@@ -10,6 +11,11 @@ const deviceManagementReducer = (currentState = intialState, action) => {
             return {
                 ...currentState,
                 devicesData: action.devices
+            }
+        case actionTypes.GET_DEVICE_TYPES:
+            return {
+                ...currentState,
+                deviceTypes:action.deviceTypes
             }
         default:
             return currentState

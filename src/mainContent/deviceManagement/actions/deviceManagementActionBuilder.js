@@ -21,7 +21,7 @@ export const setDeviceTypes = () => {
    return dispatch => {
        deviceService.loadDeviceTypeList()
         .then(response => {
-            console.log(response);
+            dispatch(dispatchDeviceManagement.dispatchDeviceTypes(response));
         })
    }
 }

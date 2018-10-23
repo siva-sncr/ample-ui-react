@@ -6,3 +6,10 @@ export const dispatchNodeData = (devices) => {
         devices: devices
     }
 }
+
+export const dispatchDeviceTypes = (types) => {
+    return {
+        type: actiontypes.GET_DEVICE_TYPES,
+        deviceTypes: types
+    }
+}

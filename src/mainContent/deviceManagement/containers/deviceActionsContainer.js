@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ButtonToolbar, ButtonGroup, Button, Glyphicon, Dropdown, MenuItem, Checkbox } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import AddDeviceComponent from '../components/addDeviceComponent';
@@ -18,7 +19,7 @@ class DeviceActionsComponent extends Component {
     }
 
     addDevice() {
-        let deviceTypes = ["ZM1","MM3","MM2"];
+        let deviceTypes = this.props.deviceTypes;
         let deviceOptions = {
             title: 'Add Device',
             content: (<AddDeviceComponent deviceTypes={deviceTypes}/>)
@@ -88,9 +89,16 @@ class DeviceActionsComponent extends Component {
         );
     }
 }
+
 const mapDisaptchToProps = (dispatch) => {
     return {
         setDeviceTypes : () => dispatch(deviceManagementAction.setDeviceTypes())
     }
 }
-export default DeviceActionsComponent;
+
+const mapStateTpProps = (state) => {
+    return {
+        deviceTypes : state.deviceManagementData.deviceTypes
+    }
+}
+export default connect(mapStateTpProps, mapDisaptchToProps)(DeviceActionsComponent);
