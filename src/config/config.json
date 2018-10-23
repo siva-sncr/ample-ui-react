@@ -109,6 +109,9 @@
                 "details": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/details",
                 "editNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/update",
                 "deleteNode": "${ROOTNODE}/regions/${REGION}/substations/${SUBSTATION}/feeders/${FEEDER}/sites/${SITE}/delete"
+            },
+            "data": {
+                "productnamelist": "productname/list"
             }
         }
     }

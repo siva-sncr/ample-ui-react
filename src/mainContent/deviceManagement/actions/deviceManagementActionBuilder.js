@@ -16,3 +16,12 @@ export const getFiltersData = (params) => {
                 return response;
             })
 }
+
+export const setDeviceTypes = () => {
+   return dispatch => {
+       deviceService.loadDeviceTypeList()
+        .then(response => {
+            console.log(response);
+        })
+   }
+}

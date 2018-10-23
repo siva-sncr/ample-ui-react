@@ -1,1 +1,2 @@
 export const GET_NODE_DATA = "GET_NODE_DATA";
+export const GET_DEVICE_TYPES = "GET_DEVICE_TYPES";

@@ -4,6 +4,7 @@ import * as deviceManagementUtility from '../../../utility/deviceManagementUtili
 import AddDeviceComponent from '../components/addDeviceComponent';
 import MoveDevicesComponent from '../components/moveDevicesComponent';
 import ModalWindow from '../../../hoc/modelWindow';
+import * as deviceManagementAction from '../actions';
 
 class DeviceActionsComponent extends Component {
     
@@ -12,8 +13,11 @@ class DeviceActionsComponent extends Component {
         modelOptions: {}
     };
 
+    componentDidMount(){
+        this.props.setDeviceTypes();
+    }
 
-     addDevice() {
+    addDevice() {
         let deviceTypes = ["ZM1","MM3","MM2"];
         let deviceOptions = {
             title: 'Add Device',
@@ -84,5 +88,9 @@ class DeviceActionsComponent extends Component {
         );
     }
 }
-
+const mapDisaptchToProps = (dispatch) => {
+    return {
+        setDeviceTypes : () => dispatch(deviceManagementAction.setDeviceTypes())
+    }
+}
 export default DeviceActionsComponent;
