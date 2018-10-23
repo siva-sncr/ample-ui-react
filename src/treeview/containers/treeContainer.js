@@ -34,6 +34,20 @@ class Tree extends Component {
     this.setState({
       tree: this.props.tree
     })
+
+    document.addEventListener('mousedown', (evt) => {
+      if (evt.target.outerHTML.indexOf("<li>") !== 0) {
+        this.setState({
+          contextMenu: {
+            display: 'none'
+          }
+        })
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown');
   }
 
   componentWillReceiveProps(nextProps) {
@@ -59,7 +73,7 @@ class Tree extends Component {
     });
 
   disableOrEnableDrag = (data) => {
-    return data.node.type === 'REGION'
+    return data.node.type === 'SITE'
   }
 
   loadNextLevel = (clickedNode) => {
@@ -88,6 +102,10 @@ class Tree extends Component {
         display: 'none'
       }
     })
+  }
+
+  closeModal = () => {
+    this.setState({ openModal: false })
   }
 
   render() {
@@ -135,7 +153,7 @@ class Tree extends Component {
           </div>
         </div>
         <ContextMenu clicked={(action) => this.callRespectiveAction(action)} context={this.state.contextMenu} />
-        <TreeOptions show={this.state.openModal} clickedNode={this.state.clickedNode}/>
+        <TreeOptions show={this.state.openModal} clickedNode={this.state.clickedNode} closeModal={this.closeModal} />
       </Aux>
     );
   }

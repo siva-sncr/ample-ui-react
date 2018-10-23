@@ -1,5 +1,6 @@
 export {
     initTree,
     dropTree,
-    expandNode
+    expandNode,
+    onEditNode
 } from './treeViewActionBuilder';
