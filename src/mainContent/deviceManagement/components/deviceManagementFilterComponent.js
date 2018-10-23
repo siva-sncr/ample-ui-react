@@ -1,6 +1,6 @@
 import React from 'react';
 import MultiSelectComponent from '../../../hoc/multiSelectDropdownComponent';
-import { Panel, Row, Col, FormGroup, Button, FormControl } from 'react-bootstrap';
+import { Panel, Row, Col, Button, FormControl } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 
 const DeviceFiltersComponent = (props) => {
