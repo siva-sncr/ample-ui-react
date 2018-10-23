@@ -12,7 +12,6 @@ const ModalWindow = (props) => {
                 <Modal.Title id="contained-modal-title-sm">{props.modeldata.title}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>Wrapped Text</h4>
                 {props.modeldata.content}
             </Modal.Body>
             <Modal.Footer>

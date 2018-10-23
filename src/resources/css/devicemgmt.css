@@ -140,3 +140,20 @@
     display: table;
     width: 100%;
     table-layout: fixed; }
+
+/*  Add device */
+.full-width +
+.btn-group {
+  width: 100%; }
+  .full-width +
+.btn-group > .btn {
+    display: block;
+    text-align: left;
+    width: 100%; }
+    .full-width +
+.btn-group > .btn > .caret {
+      margin-top: 10px;
+      float: right; }
+  .full-width +
+.btn-group > .dropdown-menu {
+    width: 100%; }

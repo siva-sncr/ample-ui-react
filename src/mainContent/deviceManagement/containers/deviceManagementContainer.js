@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DeviceListTable from './deviceListTableContainer';
 import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
 import DeviceSummaryComponent from '../components/deviceSummaryComponent';
-import DeviceActionsComponent from '../components/deviceActionsComponent';
+import DeviceActionsComponent from './deviceActionsContainer';
 import { Tabs, Tab,Col } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';

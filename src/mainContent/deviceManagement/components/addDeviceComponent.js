@@ -1,37 +1,36 @@
 import React from 'react';
 import { Form,FormControl, FormGroup, Col, Button, Checkbox  } from 'react-bootstrap';
+import SingleSelectComponent from '../../../hoc/singleSelectDropdownComponent';
 
 const AddDeviceComponent = (props) => {
+    console.log(props.deviceTypes);
+    let addDevice = {
+        deviceTypes: [{ value: 'MM3' },{ value: 'ZM1' },{ value: 'UM3+' }]
+    };
+
+    const setDeviceType = (evt, type) => {
+        console.log(evt);
+    }
+
+
     return (
         <div>
             <Form horizontal>
-                <FormGroup controlId="formHorizontalEmail">
-                    <Col  sm={2}>
-                        Email
+                <FormGroup>
+                    <Col sm={4} xs={4}>
+                        Device Type*
                     </Col>
-                    <Col sm={10}>
-                        <FormControl type="email" placeholder="Email" />
-                    </Col>
-                </FormGroup>
-
-                <FormGroup controlId="formHorizontalPassword">
-                    <Col  sm={2}>
-                        Password
-                    </Col>
-                    <Col sm={10}>
-                        <FormControl type="password" placeholder="Password" />
+                    <Col sm={8} xs={8}>
+                        <SingleSelectComponent label='Select College' handleChange={(evt) => setDeviceType(evt, 'deviceType')} data={addDevice.deviceTypes} />
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
-                    <Col smOffset={2} sm={10}>
-                        <Checkbox>Remember me</Checkbox>
+                    <Col sm={4} xs={4}>
+                        Device Type*
                     </Col>
-                </FormGroup>
-
-                <FormGroup>
-                    <Col smOffset={2} sm={10}>
-                        <Button type="submit">Sign in</Button>
+                    <Col sm={8} xs={8}>
+                        <SingleSelectComponent label='Select College' handleChange={(evt) => setDeviceType(evt, 'deviceType')} data={addDevice.deviceTypes} />
                     </Col>
                 </FormGroup>
             </Form>

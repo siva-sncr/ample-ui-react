@@ -14,10 +14,10 @@ class DeviceActionsComponent extends Component {
 
 
      addDevice() {
+        let deviceTypes = ["ZM1","MM3","MM2"];
         let deviceOptions = {
             title: 'Add Device',
-            size: 'large',
-            content: (<AddDeviceComponent/>)
+            content: (<AddDeviceComponent deviceTypes={deviceTypes}/>)
         };
         this.setState({ modelShow: true, modelOptions: deviceOptions });
     }

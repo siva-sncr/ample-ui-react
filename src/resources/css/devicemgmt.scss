@@ -573,3 +573,23 @@
 	}
 	
 }
+
+
+/*  Add device */
+
+.full-width + 
+	.btn-group {
+		width: 100%;
+		> .btn {
+			display: block;
+			text-align: left;
+			width: 100%;
+			> .caret {
+				margin-top: 10px;
+				float: right;
+			}
+		}
+		> .dropdown-menu{
+			width: 100%;
+		}
+	}
