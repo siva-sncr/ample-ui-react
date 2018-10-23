@@ -2,5 +2,7 @@ export {
     initTree,
     dropTree,
     expandNode,
-    onEditNode
+    onEditNode,
+    onCloseNode,
+    setRouteParams
 } from './treeViewActionBuilder';

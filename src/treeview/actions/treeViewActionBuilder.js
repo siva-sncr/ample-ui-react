@@ -1,6 +1,6 @@
 
 import * as services from '../services/treeService';
-import * as actionDispatch  from './treeViewActionDispatch';
+import * as actionDispatch from './treeViewActionDispatch';
 import { groupRouteParams } from '../../services/utilityService';
 
 export const initTree = (data) => {
@@ -18,6 +18,12 @@ export const dropTree = (tree) => {
 export const expandNode = (clickedNode, routeParams) => {
     let paramsObj = groupRouteParams({}, routeParams);
 
+    if (clickedNode.node.type.indexOf('SITE') > -1) {
+        return dispatch => {
+            dispatch(actionDispatch.setRouteParams(routeParams));
+        }
+    }
+
     return dispatch => {
         services.loadNextLevel(paramsObj)
             .then(response => {
@@ -32,14 +38,11 @@ export const expandNode = (clickedNode, routeParams) => {
 export const onEditNode = (newNode, clickedNode, routeParams) => {
     let paramsObj = groupRouteParams({}, routeParams);
     paramsObj[clickedNode.node.type] = {
-        id: null,
-        name: clickedNode.node.title,
-        title: clickedNode.node.title,
-        type: clickedNode.node.type
+        id: null, name: clickedNode.node.title, title: clickedNode.node.title, type: clickedNode.node.type
     }
     paramsObj['apiType'] = clickedNode.node.type;
     return dispatch => {
-        services.editNode(paramsObj, {name: newNode, type: clickedNode.node.type})
+        services.editNode(paramsObj, { name: newNode, type: clickedNode.node.type })
             .then(response => {
                 dispatch(actionDispatch.onEditNode(newNode, clickedNode, routeParams));
             })
@@ -47,6 +50,13 @@ export const onEditNode = (newNode, clickedNode, routeParams) => {
                 dispatch(actionDispatch.fetchTreeFailed());
             });
     };
+};
+
+
+export const onCloseNode = (clickedNode) => {
+    return dispatch => {
+        dispatch(actionDispatch.onCloseNode(clickedNode));
+    }
 };
 
 
