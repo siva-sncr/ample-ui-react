@@ -39,7 +39,7 @@ class DeviceActionsComponent extends Component {
     render() {
         let columnTitles = deviceManagementUtility.tableOptions.tableColumns;
         const selectedColumns = columnTitles.map((column) =>
-            <label><input type="checkbox" name={column.name} onChange={(evt) => this.props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
+            <label key={column.name}><input type="checkbox" name={column.name} onChange={(evt) => this.props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
         );
 
         let modelClose = () => this.setState({ modelShow: false });
@@ -70,7 +70,7 @@ class DeviceActionsComponent extends Component {
                 <ButtonGroup className="export-button">
                     <Button>
                         <Glyphicon glyph="share" />
-                        <span class="caret"></span>
+                        <span className="caret"></span>
                     </Button>
                 </ButtonGroup>
 

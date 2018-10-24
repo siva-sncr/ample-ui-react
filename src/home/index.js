@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
-
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Header from '../header';
