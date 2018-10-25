@@ -57,6 +57,7 @@ body {
   .navbar.secondary-navbar {
     top: 36px;
     padding-left: 145px;
+    z-index: inherit;
     min-height: 26px;
     height: 26px;
     background: #E5E5E5;

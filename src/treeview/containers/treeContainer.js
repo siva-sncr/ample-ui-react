@@ -21,11 +21,7 @@ class Tree extends Component {
     searchFoundCount: 0,
     tree: [],
     clickedNode: null,
-    contextMenu: {
-      display: "none",
-      top: 0,
-      left: 0
-    },
+    contextMenu: { display: "none", top: 0, left: 0 },
     openModal: false,
     action: ""
   };
@@ -36,36 +32,50 @@ class Tree extends Component {
     })
   }
 
+  componentWillMount() {
+    document.addEventListener('mousedown', (evt) => {
+      if (evt.target.outerHTML.indexOf("<li>") !== 0) {
+        this.setState({
+          contextMenu: {
+            display: 'none'
+          }
+        })
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown');
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
       tree: nextProps.tree
     })
   }
 
-  setStateselectPrevMatch = () =>
+  setStateselectPrevMatch = () => {
     this.setState({
-      searchFocusIndex:
-        this.state.searchFocusIndex !== null
-          ? (this.state.searchFoundCount + this.state.searchFocusIndex - 1) % this.state.searchFoundCount
-          : this.state.searchFoundCount - 1,
+      searchFocusIndex: this.state.searchFocusIndex !== null ? (this.state.searchFoundCount + this.state.searchFocusIndex - 1) % this.state.searchFoundCount : this.state.searchFoundCount - 1,
     });
+  }
 
-  selectNextMatch = () =>
+  selectNextMatch = () => {
     this.setState({
-      searchFocusIndex:
-        this.state.searchFocusIndex !== null
-          ? (this.state.searchFocusIndex + 1) % this.state.searchFoundCount
-          : 0,
+      searchFocusIndex: this.state.searchFocusIndex !== null ? (this.state.searchFocusIndex + 1) % this.state.searchFoundCount : 0,
     });
+  }
 
   disableOrEnableDrag = (data) => {
-    return data.node.type === 'REGION'
+    return data.node.type === 'SITE'
   }
 
   loadNextLevel = (clickedNode) => {
     if (!clickedNode.node.expanded) {
       let routeParams = treeMethods.updateRouteParams(clickedNode, this.props.tree)
       this.props.onExpandNode(clickedNode, routeParams);
+    } else {
+      this.props.onCloseNode(clickedNode);
     }
   }
 
@@ -90,6 +100,10 @@ class Tree extends Component {
     })
   }
 
+  closeModal = () => {
+    this.setState({ openModal: false })
+  }
+
   render() {
     return (
       <Aux>
@@ -108,34 +122,28 @@ class Tree extends Component {
           <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
             <SortableTree
               treeData={this.state.tree}
-              onChange={treeData => {
-                this.props.onDropTree(treeData)
-              }
-              }
+              onChange={treeData => { this.props.onDropTree(treeData) }}
               theme={FileExplorerTheme}
               searchQuery={this.state.searchString}
               searchFocusOffset={this.state.searchFocusIndex}
               canDrag={(clickedNode) => this.disableOrEnableDrag(clickedNode)}
-              searchFinishCallback={matches =>
-                this.setState({
-                  searchFoundCount: matches.length,
-                  searchFocusIndex: matches.length > 0 ? this.state.searchFocusIndex % matches.length : 0
-                })
-              }
+              searchFinishCallback={matches => this.setState({
+                searchFoundCount: matches.length,
+                searchFocusIndex: matches.length > 0 ? this.state.searchFocusIndex % matches.length : 0
+              })}
               generateNodeProps={clickedNode => ({
-                onClick: (event) => {
-                  this.loadNextLevel(clickedNode);
-                },
+                onClick: (event) => { this.loadNextLevel(clickedNode) },
                 onContextMenu: (event) => {
                   event.preventDefault();
                   this.openContextMenu(event, clickedNode)
-                }
+                },
+                className: clickedNode.node.arrow === 'right' ? 'glyphicon glyphicon-menu-right' : (clickedNode.node.arrow === 'down' ? 'glyphicon glyphicon-menu-down' : '')
               })}
             />
           </div>
         </div>
         <ContextMenu clicked={(action) => this.callRespectiveAction(action)} context={this.state.contextMenu} />
-        <TreeOptions show={this.state.openModal} clickedNode={this.state.clickedNode}/>
+        <TreeOptions show={this.state.openModal} clickedNode={this.state.clickedNode} closeModal={this.closeModal} />
       </Aux>
     );
   }
@@ -152,7 +160,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onDropTree: (tree) => dispatch(treeBuilderActions.dropTree(tree)),
-    onExpandNode: (clickedNode, routeParams) => dispatch(treeBuilderActions.expandNode(clickedNode, routeParams))
+    onExpandNode: (clickedNode, routeParams) => dispatch(treeBuilderActions.expandNode(clickedNode, routeParams)),
+    onCloseNode: (clickedNode) => dispatch(treeBuilderActions.onCloseNode(clickedNode))
   }
 }
 
