@@ -10,8 +10,6 @@ import Login from '../login';
 import * as actionBuilder from "./actions";
 import * as treeBuilderActions from '../treeview/actions';
 import Loader from '../hoc/loader';
-import '../resources/css/helpers.css';
-import '../resources/css/overrides.css';
 
 class HomeComponent extends Component {
 
