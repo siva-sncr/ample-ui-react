@@ -1,11 +1,7 @@
-
-.contextMenu{
+.contextMenu {
     position: absolute;
     z-index: 10000;
-    width: 100px;
     height: 35px;
-    padding: 5px 0;
-    margin: 2px 0 0;
     font-size: 14px;
     text-align: left;
     list-style: none;
@@ -14,10 +10,17 @@
     background-clip: padding-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    li {
-        list-style: none;
-        cursor: pointer;
-    }
-}
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+    .contextMenu ul {
+      padding: 5px 5px 2px 5px; }
+    .contextMenu li {
+      list-style: none;
+      cursor: pointer; }
+  
+  .rstcustom__collapseButton, .rstcustom__expandButton {
+    display: none; }
+  
+  .glyphicon {
+    display: flex !important; }
+  
