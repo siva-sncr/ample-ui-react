@@ -1,7 +1,7 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
-import { ButtonToolbar, ButtonGroup, Button, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
 
 let columnVisiblity = deviceManagementUtility.tableOptions.tableColumns;
 

@@ -10,16 +10,12 @@ export const updateRouteParams = (clickedNode, tree) => {
             parent = parent.children[parent.children.length - (lowerSiblings[i] + 1)]
         }
         routePrams.push(parent.type);
-        routePrams.push(putRoute(parent));
+        routePrams.push(setRoute(parent));
     }
     return routePrams;
 }
 
-const putRoute = (parent) => {
-    let route = {};
-    route["id"] = parent.id;
-    route["name"] = parent.name;
-    route["type"] = parent.type;
-    route["title"] = parent.title;
-    return route;
+const setRoute = (parent) => {
+    let { id, name, type, title } = parent;
+    return { id, name, type, title };
 }
