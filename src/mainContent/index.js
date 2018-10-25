@@ -21,10 +21,10 @@ class MainContent extends Component {
     render() {
         return (
             <Row>
-                <Col style={(this.props.location.pathname === '/' || this.props.location.pathname === '/dashboard') ? { display: 'none' } : null} sm={3}>
+                <Col className="left-col" style={(this.props.location.pathname === '/' || this.props.location.pathname === '/dashboard') ? { display: 'none' } : null} sm={3}>
                     <Treeview />
                 </Col>
-                <Col sm={(this.props.location.pathname === '/' || this.props.location.pathname === '/dashboard') ? 12 : 9}>
+                <Col className="right-col" sm={(this.props.location.pathname === '/' || this.props.location.pathname === '/dashboard') ? 12 : 9}>
                     <Routes />
                 </Col>
             </Row>

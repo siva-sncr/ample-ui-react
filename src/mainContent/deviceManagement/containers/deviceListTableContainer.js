@@ -12,7 +12,8 @@ class Datatable extends Component {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
     payload: deviceManagementUtility.payload,
-    routeParams: null
+    routeParams: null,
+    newColumn:this.props.setColumn
   }
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class Datatable extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+
     if (this.props.routeParams !== newProps.routeParams) {
       this.setState({
         routeParams: newProps.routeParams
@@ -47,7 +49,7 @@ class Datatable extends Component {
   render() {
     let deviceListTable = null;
     if (this.state.dataObject) {
-      deviceListTable = <DeviceListTable deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
+      deviceListTable = <DeviceListTable updateColumn={this.props.setColumn} deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
     } else {
       deviceListTable = <div>No Data available</div>
     }
