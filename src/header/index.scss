@@ -79,6 +79,7 @@ body{
 	&.secondary-navbar{
 		top: $main-nav-height;
 		padding-left: 145px;
+		z-index: inherit;
 		min-height: $sub-nav-height;
 		height: $sub-nav-height;
 		background: $sub-nav-bg;
