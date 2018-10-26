@@ -94,7 +94,9 @@ export const tableOptions = {
     }, {
         text: '10', value: 10
     }, {
-        text: 'All', value: null
+        text: '100', value: 100
+    }, {
+        text: '250', value: 250
     }]
 }
 

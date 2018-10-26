@@ -12,7 +12,7 @@ const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
 });
 
 const deviceSummaryComponent = (props) => {
-
+    console.log(props.summaryData[0].details.length);
     const content = props.summaryData.map((summary) =>
         <Col className="summary-widget" key={summary.type} xs={6} md={6}>
             <div className="text-center summary-title ">Device summary by {summary.type}</div>

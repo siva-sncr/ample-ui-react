@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import DeviceListTable from './deviceListTableContainer';
-import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
+import DeviceFiltersComponent from '../components/deviceFiltersComponent';
 import DeviceSummaryComponent from '../components/deviceSummaryComponent';
 import DeviceActionsComponent from './deviceActionsContainer';
 import { Tabs, Tab,Col } from 'react-bootstrap';
@@ -59,7 +59,7 @@ class DeviceManagementComponent extends Component {
       })
       this.prepareCall(newProps.routeParams);
     }
-    if (newProps.devices && newProps.devices.length > 0) {
+    if (newProps.devices) {
       this.setState({
         dataObject: newProps.devices
       })
@@ -74,7 +74,7 @@ class DeviceManagementComponent extends Component {
         <DeviceActionsComponent getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
         <Tabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Device List" className="apply-padding">
-            <DeviceListTable setColumn={this.state.column} />
+            <DeviceListTable devices={this.state.dataObject} setColumn={this.state.column} />
           </Tab>
           <Tab eventKey={2} title="Device Summary">
             {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}

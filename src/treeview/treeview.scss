@@ -21,6 +21,9 @@
   .rstcustom__collapseButton, .rstcustom__expandButton {
     display: none; }
   
-  .glyphicon {
-    display: flex !important; }
+  .left-col {
+    .glyphicon {
+    display: flex !important;
+   }
+  }
   
