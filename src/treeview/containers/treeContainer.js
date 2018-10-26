@@ -12,6 +12,7 @@ import axios from '../../services/index';
 import withErrorHandler from '../../hoc/withErrorHandler';
 import * as treeMethods from './treeMethods';
 import TreeOptions from './treeOptionsContainer';
+import * as treeViewUtility from '../../utility/treeViewUtility';
 
 class Tree extends Component {
 
@@ -104,10 +105,14 @@ class Tree extends Component {
     this.setState({ openModal: false })
   }
 
+  selectFontIcon = (node) => {
+    
+  }
+
   render() {
     return (
       <Aux>
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
 
           <Search
             searchFoundCount={this.state.searchFoundCount}
@@ -117,7 +122,7 @@ class Tree extends Component {
             inputChangedHandler={evt => this.setState({ searchString: evt.target.value })}
           />
 
-          <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
+          <div className="tree" style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
             <SortableTree
               treeData={this.state.tree}
               onChange={treeData => { this.props.onDropTree(treeData) }}
@@ -135,9 +140,11 @@ class Tree extends Component {
                   event.preventDefault();
                   this.openContextMenu(event, clickedNode)
                 },
-                className: clickedNode.node.arrow === 'right' ? 'glyphicon glyphicon-menu-right' : (clickedNode.node.arrow === 'down' ? 'glyphicon glyphicon-menu-down' : '')
+                buttons: [<span>{treeViewUtility.fontIcon[clickedNode.node.type]}</span>],
+                className: clickedNode.node.arrow === 'right' ? `glyphicon glyphicon-menu-right` : (clickedNode.node.arrow === 'down' ? `glyphicon glyphicon-menu-down` : ''),
               })}
             />
+           
           </div>
         </div>
         <ContextMenu clicked={(action) => this.callRespectiveAction(action)} context={this.state.contextMenu} />
