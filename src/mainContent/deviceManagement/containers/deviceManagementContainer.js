@@ -71,13 +71,13 @@ class DeviceManagementComponent extends Component {
     return (
       <Col className="content-right" xs={12} md={12}>
         {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
-        <DeviceActionsComponent getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
+        <DeviceActionsComponent devices={this.props.devices} getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
         <Tabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Device List" className="apply-padding">
             <DeviceListTable devices={this.state.dataObject} setColumn={this.state.column} />
           </Tab>
           <Tab eventKey={2} title="Device Summary">
-            {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
+            <DeviceSummaryComponent summaryData={this.props.summary} />
           </Tab>
         </Tabs>
       </Col>

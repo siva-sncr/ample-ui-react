@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DeviceListTable from '../components/deviceListTableComponent';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
+import NoDataAvailableComponent from '../../../hoc/noDataAvailable.Component';
 
 class Datatable extends Component {
 
@@ -28,7 +29,7 @@ class Datatable extends Component {
     if (this.state.dataObject && this.state.dataObject.length > 0) {
       deviceListTable = <DeviceListTable updateColumn={this.props.setColumn} deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
     } else {
-      deviceListTable = <div>No Data available</div>
+      deviceListTable = <NoDataAvailableComponent />
     }
     return (
       deviceListTable
