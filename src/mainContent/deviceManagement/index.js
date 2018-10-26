@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
+import '../../resources/css/devicemgmt.css';
 import DeviceManagementComponent from './containers/deviceManagementContainer';
-import DeviceListTable from './containers/deviceListTableContainer';
 
 
-class DeviceManagement extends Component{
-    render(){
-        return(
-            <div>
+class DeviceManagement extends Component {
+    render() {
+        return (
+            <div className="device-management">
                 <DeviceManagementComponent />
             </div>
         );

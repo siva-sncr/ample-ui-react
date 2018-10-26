@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import DeviceListTable from './deviceListTableContainer';
 import DeviceFiltersComponent from '../components/deviceManagementFilterComponent';
 import DeviceSummaryComponent from '../components/deviceSummaryComponent';
-import DeviceActionsComponent from '../components/deviceActionsComponent';
-import { Tabs, Tab } from 'react-bootstrap';
+import DeviceActionsComponent from './deviceActionsContainer';
+import { Tabs, Tab,Col } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
 import { groupRouteParams } from '../../../services/utilityService';
@@ -19,8 +19,15 @@ class DeviceManagementComponent extends Component {
     payload: deviceManagementUtility.payload,
     routeParams: null,
     filters: null,
-
+    column: null
   }
+
+  setColumnStatus(evt) {
+    this.setState({
+      column: { name: evt.target.name, checked: evt.target.checked }
+    })
+  }
+
   setSerial(evt) {
     console.log(evt.target.value)
   }
@@ -62,18 +69,18 @@ class DeviceManagementComponent extends Component {
   render() {
 
     return (
-      <div>
+      <Col className="content-right" xs={12} md={12}>
         {this.state.filters ? <DeviceFiltersComponent getDeviceData={() => this.prepareCall()} getSerial={(evt) => this.setSerial(evt)} filtersData={this.state.filters} /> : null}
-        <DeviceActionsComponent />
+        <DeviceActionsComponent getEnabledColumn={(evt) => this.setColumnStatus(evt)} />
         <Tabs defaultActiveKey={1}>
-          <Tab eventKey={1} title="Device List">
-            <DeviceListTable />
+          <Tab eventKey={1} title="Device List" className="apply-padding">
+            <DeviceListTable setColumn={this.state.column} />
           </Tab>
           <Tab eventKey={2} title="Device Summary">
             {this.props.summary ? <DeviceSummaryComponent summaryData={this.props.summary} /> : null}
           </Tab>
         </Tabs>
-      </div>
+      </Col>
     );
   }
 }

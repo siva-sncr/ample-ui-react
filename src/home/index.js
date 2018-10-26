@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
@@ -10,8 +9,7 @@ import MainContent from '../mainContent';
 import Login from '../login';
 import * as actionBuilder from "./actions";
 import * as treeBuilderActions from '../treeview/actions';
-import Loader from '../hoc/loader'
-
+import Loader from '../hoc/loader';
 
 class HomeComponent extends Component {
 

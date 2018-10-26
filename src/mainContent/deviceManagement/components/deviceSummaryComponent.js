@@ -4,35 +4,34 @@ import { Table, Col, Row } from 'react-bootstrap';
 
 const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
     return (
-            <tbody>
-                <tr>
-                    <td>{key}</td>
-                    <td>{value}</td>
-                </tr>
-            </tbody>
+        <tr>
+            <td>{key}</td>
+            <td>{value}</td>
+        </tr>
     )
 });
 
 const deviceSummaryComponent = (props) => {
 
     const content = props.summaryData.map((summary) =>
-        <Col key={summary.type} xs={6} md={6}>
-            <div className="text-center">Device summary by {summary.type}</div>
-            <Table striped bordered condensed hover>
+        <Col className="summary-widget" key={summary.type} xs={6} md={6}>
+            <div className="text-center summary-title ">Device summary by {summary.type}</div>
+            <Table className="tableBodyScroll" striped bordered condensed hover >
                 <thead>
                     <tr>
-                        <th>{summary.type}</th>
-                        <th>Device Count</th>
+                        <th className="text-bold">{summary.type}</th>
+                        <th className="text-bold">Device Count</th>
                     </tr>
                 </thead>
-                
-                <TabList tabData={summary.details} />
+                <tbody>
+                    <TabList tabData={summary.details} />
+                </tbody>
             </Table>
         </Col>
     );
 
     return (
-        <Row className="show-grid">
+        <Row className="show-grid summary-table">
             <Col xs={12} md={12}>
                 {content}
             </Col>
