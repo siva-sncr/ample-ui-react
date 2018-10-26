@@ -20,26 +20,6 @@
   list-style: none;
   cursor: pointer; }
 
-.rstcustom__collapseButton, .rstcustom__expandButton {
-  display: none; }
-
-.glyphicon {
-  display: flex !important; }
-
-.rstcustom__rowLabel {
-  position: absolute;
-  padding-left: 22px; }
-
-.svg-node {
-  height: 15px;
-  width: 15px; }
-
-.glyphicon-menu-right:before, .glyphicon-menu-down:before {
-  padding-right: 6px; }
-
-.col-sm-3 {
-  width: 21% !important; }
-
 .tree {
   flex: '1 0 50%';
   padding: 5px 0px 0px 15px;
@@ -47,3 +27,15 @@
   margin-top: 7px; }
   .tree .rst__tree {
     margin-left: -36px; }
+  .tree .rstcustom__collapseButton, .tree .rstcustom__expandButton {
+    display: none; }
+  .tree .glyphicon {
+    display: flex !important; }
+  .tree .rstcustom__rowLabel {
+    position: absolute;
+    padding-left: 22px; }
+  .tree .svg-node {
+    height: 15px;
+    width: 15px; }
+  .tree .glyphicon-menu-right:before, .tree .glyphicon-menu-down:before {
+    padding-right: 6px; }
