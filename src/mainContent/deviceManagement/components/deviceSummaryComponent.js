@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table, Col, Row } from 'react-bootstrap';
 import NoDataAvailableComponent from '../../../hoc/noDataAvailable.Component';
-;
 const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
     return (
         <tr>
