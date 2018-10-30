@@ -4,54 +4,32 @@ import { connect } from 'react-redux';
 import DeviceListTable from '../components/deviceListTableComponent';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import * as deviceManagementAction from '../actions';
-import { groupRouteParams } from '../../../services/utilityService';
+import NoDataAvailableComponent from '../../../hoc/noDataAvailable.Component';
 
 class Datatable extends Component {
+
 
   state = {
     options: deviceManagementUtility.tableOptions,
     dataObject: null,
-    payload: deviceManagementUtility.payload,
-    routeParams: null,
-    newColumn:this.props.setColumn
+    newColumn: this.props.setColumn
   }
 
-  componentDidMount() {
-    this.prepareCall();
-  }
-
-  prepareCall = (routeParams) => {
-    if(!routeParams) {
-      routeParams = this.props.routeParams;
-    }
-    let requestParams = { 'PAGENO': 1, 'PAGESIZE': 10 };
-    let params = groupRouteParams(requestParams, routeParams);
-    this.props.getNodeData(params, this.state.payload)
-  }
 
   componentWillReceiveProps(newProps) {
-
-    if (this.props.routeParams !== newProps.routeParams) {
-      this.setState({
-        routeParams: newProps.routeParams
-      })
-      this.prepareCall(newProps.routeParams);
-    }
-    if (newProps.devices && newProps.devices.length > 0) {
-      this.setState({
-        dataObject: newProps.devices
-      })
-    }
+    this.setState({
+      dataObject: newProps.devices
+    })
   }
 
-  
+
 
   render() {
     let deviceListTable = null;
-    if (this.state.dataObject) {
+    if (this.state.dataObject && this.state.dataObject.length > 0) {
       deviceListTable = <DeviceListTable updateColumn={this.props.setColumn} deviceData={this.state.dataObject} options={this.state.options} selectRow={this.state.selectRow} />
     } else {
-      deviceListTable = <div>No Data available</div>
+      deviceListTable = <NoDataAvailableComponent />
     }
     return (
       deviceListTable
@@ -62,7 +40,6 @@ class Datatable extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    devices: state.deviceManagementData.devicesData.devices,
     routeParams: state.treeviewData.routeParams,
     tree: state.treeviewData.tree
   }

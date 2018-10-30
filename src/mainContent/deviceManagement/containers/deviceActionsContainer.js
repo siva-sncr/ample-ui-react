@@ -6,32 +6,33 @@ import MoveDevicesComponent from '../components/moveDevicesComponent';
 import ModalWindow from '../../../hoc/modelWindow';
 
 class DeviceActionsComponent extends Component {
-    
+
     state = {
         modelShow: false,
         modelOptions: {}
     };
 
 
-     addDevice() {
-        let deviceTypes = ["ZM1","MM3","MM2"];
+    addDevice() {
+        let deviceTypes = ["ZM1", "MM3", "MM2"];
         let deviceOptions = {
             title: 'Add Device',
-            content: (<AddDeviceComponent deviceTypes={deviceTypes}/>)
+            content: (<AddDeviceComponent deviceTypes={deviceTypes} />)
         };
         this.setState({ modelShow: true, modelOptions: deviceOptions });
     }
 
     moveDevices(type) {
-        let  moveOptions = {
+        let moveOptions = {
             title: 'Move Devices',
             size: 'large',
-            content: (<MoveDevicesComponent/>)
+            content: (<MoveDevicesComponent />)
         };
         this.setState({ modelShow: true, modelOptions: moveOptions });
     }
 
     render() {
+        console.log(this.state.disable);
         let columnTitles = deviceManagementUtility.tableOptions.tableColumns;
         const selectedColumns = columnTitles.map((column) =>
             <label><input type="checkbox" name={column.name} onChange={(evt) => this.props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
@@ -39,7 +40,7 @@ class DeviceActionsComponent extends Component {
 
         let modelClose = () => this.setState({ modelShow: false });
 
-      
+
 
         return (
             <ButtonToolbar className="pull-right">
@@ -48,29 +49,29 @@ class DeviceActionsComponent extends Component {
                     <Button onClick={() => this.addDevice()}>
                         <Glyphicon glyph="plus" />
                     </Button>
-                    <Button onClick={() =>this.moveDevices("move")}>
+                    <Button onClick={() => this.moveDevices("move")} disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="random" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="cog" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="save" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="trash" />
                     </Button>
                 </ButtonGroup>
 
                 <ButtonGroup className="export-button">
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="share" />
                         <span class="caret"></span>
                     </Button>
                 </ButtonGroup>
 
-                <ButtonGroup>
-                    <Dropdown id="dropdown-custom-1" >
+                <ButtonGroup >
+                    <Dropdown disabled={!this.props.devices || this.props.devices==0} id="dropdown-custom-1" >
                         <Dropdown.Toggle noCaret>
                             <Glyphicon glyph="th" />
                         </Dropdown.Toggle>

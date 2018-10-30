@@ -42,7 +42,7 @@
           text-align: left;
           background-color: transparent !important; }
           .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li > a > label {
-            padding: 3px 16px 3px 26px; }
+            padding: 0px 16px 0px 26px; }
         .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) a:not(.option) {
           font-weight: bold; }
         .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) {
@@ -55,6 +55,8 @@
         height: 25px;
         background: #D98C15;
         border-bottom: solid 1px #ddd; }
+      .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li:nth-child(1) a label:hover {
+        background: #D98C15; }
       .container-fluid .right-col .content-right .multiselect-native-select .btn-group .dropdown-menu li {
         padding: 2px 0;
         margin: 0;

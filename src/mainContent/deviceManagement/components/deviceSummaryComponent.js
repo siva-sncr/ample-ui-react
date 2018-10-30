@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table, Col, Row } from 'react-bootstrap';
-
-
+import NoDataAvailableComponent from '../../../hoc/noDataAvailable.Component';
 const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
     return (
         <tr>
@@ -10,10 +9,10 @@ const TabList = (props) => Object.entries(props.tabData).map(([key, value]) => {
         </tr>
     )
 });
-
+let content;
 const deviceSummaryComponent = (props) => {
-
-    const content = props.summaryData.map((summary) =>
+    if(props.summaryData && Object.keys(props.summaryData[0].details).length !=0){
+        content = props.summaryData.map((summary) =>
         <Col className="summary-widget" key={summary.type} xs={6} md={6}>
             <div className="text-center summary-title ">Device summary by {summary.type}</div>
             <Table className="tableBodyScroll" striped bordered condensed hover >
@@ -29,7 +28,10 @@ const deviceSummaryComponent = (props) => {
             </Table>
         </Col>
     );
-
+    } else {
+        content =  <NoDataAvailableComponent />
+    }
+     
     return (
         <Row className="show-grid summary-table">
             <Col xs={12} md={12}>
