@@ -1,7 +1,6 @@
 .contextMenu {
-    position: absolute;
+    position: fixed;
     z-index: 10000;
-    height: 35px;
     font-size: 14px;
     text-align: left;
     list-style: none;
@@ -16,14 +15,60 @@
       padding: 5px 5px 2px 5px; }
     .contextMenu li {
       list-style: none;
-      cursor: pointer; }
+      cursor: pointer; 
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: 400;
+      line-height: 1.42857143;
+      color: #333;
+      white-space: nowrap;
+      font-family: 'Open Sans', sans-serif !important;
+    }
   
   .rstcustom__collapseButton, .rstcustom__expandButton {
     display: none; }
-  
-  .left-col {
+    
+.tree {
+    flex: '1 0 50%';
+    padding: 5px 0px 0px 15px;
+    border: 1px solid lightgray;
+    margin-top: 7px;
+
+    .rst__tree {
+        margin-left: -36px;
+    }
+
     .glyphicon {
-    display: flex !important;
-   }
-  }
-  
+        display: flex !important; }
+    
+    .rstcustom__rowLabel {
+        position: absolute;
+        padding-left: 22px;
+        span {
+            cursor: pointer;
+        }
+    }
+    .svg-node {
+        height: 15px;
+        width: 15px;
+    } 
+    .glyphicon-menu-right:before, .glyphicon-menu-down:before {
+        padding-right: 6px;
+        cursor: pointer;
+    }
+    .ReactVirtualized__Grid {
+        will-change: unset !important;
+    }
+    .rstcustom__rowWrapper:hover { opacity: 1}
+}
+
+.left-col .form-group .btn {
+    margin-left: 2px;
+    padding: 0px 3px;
+}
+
+.modal-dialog {
+    width: 600px;
+    height: 400px;
+}

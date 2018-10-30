@@ -12,6 +12,7 @@ import axios from '../../services/index';
 import withErrorHandler from '../../hoc/withErrorHandler';
 import * as treeMethods from './treeMethods';
 import TreeOptions from './treeOptionsContainer';
+import * as treeViewUtility from '../../utility/treeViewUtility';
 
 class Tree extends Component {
 
@@ -21,7 +22,7 @@ class Tree extends Component {
     searchFoundCount: 0,
     tree: [],
     clickedNode: null,
-    contextMenu: { display: "none", top: 0, left: 0 },
+    contextClass: "",
     openModal: false,
     action: ""
   };
@@ -36,9 +37,7 @@ class Tree extends Component {
     document.addEventListener('mousedown', (evt) => {
       if (evt.target.outerHTML.indexOf("<li>") !== 0) {
         this.setState({
-          contextMenu: {
-            display: 'none'
-          }
+          contextClass: ""
         })
       }
     });
@@ -82,21 +81,16 @@ class Tree extends Component {
   openContextMenu = (event, clickedNode) => {
     this.setState({
       clickedNode: clickedNode,
-      contextMenu: {
-        display: 'block',
-        top: event.target.offsetHeight + event.target.offsetTop + (clickedNode.treeIndex * 27) + 20,
-        left: event.target.offsetLeft + event.target.offsetWidth + (clickedNode.lowerSiblingCounts.length * 15) + 70
-      }
+      contextClass: "context" + clickedNode.node.type + clickedNode.node.name
     })
   }
 
-  callRespectiveAction = (action) => {
+  callRespectiveAction = (event, action) => {
+    event.stopPropagation();
     this.setState({
       action: action,
       openModal: true,
-      contextMenu: {
-        display: 'none'
-      }
+      contextClass: ""
     })
   }
 
@@ -104,12 +98,14 @@ class Tree extends Component {
     this.setState({ openModal: false })
   }
 
+  selectFontIcon = (node) => {
+
+  }
+
   render() {
     return (
       <Aux>
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh',
-    border: 'solid 1px #DDDDDD',
-    marginTop: '10px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
 
           <Search
             searchFoundCount={this.state.searchFoundCount}
@@ -119,7 +115,7 @@ class Tree extends Component {
             inputChangedHandler={evt => this.setState({ searchString: evt.target.value })}
           />
 
-          <div style={{ flex: '1 0 50%', padding: '0 0 0 15px' }}>
+          <div className="tree" style={{ flex: '1 0 50%', padding: '5px 0 0 15px' }}>
             <SortableTree
               treeData={this.state.tree}
               onChange={treeData => { this.props.onDropTree(treeData) }}
@@ -137,12 +133,18 @@ class Tree extends Component {
                   event.preventDefault();
                   this.openContextMenu(event, clickedNode)
                 },
-                className: clickedNode.node.arrow === 'right' ? 'glyphicon glyphicon-menu-right' : (clickedNode.node.arrow === 'down' ? 'glyphicon glyphicon-menu-down' : '')
+                buttons: [
+                  <span>{treeViewUtility.fontIcon[clickedNode.node.type]}</span>,
+                  <div style={{ paddingLeft: (clickedNode.node.name.length * 6), display: this.state.contextClass === "context" + clickedNode.node.type + clickedNode.node.name ? 'block' : 'none' }}>
+                    <ContextMenu clicked={(event, action) => this.callRespectiveAction(event, action)} />
+                  </div>
+                ],
+                className: clickedNode.node.arrow === 'right' ? `glyphicon glyphicon-menu-right` : (clickedNode.node.arrow === 'down' ? `glyphicon glyphicon-menu-down` : ''),
               })}
             />
+
           </div>
         </div>
-        <ContextMenu clicked={(action) => this.callRespectiveAction(action)} context={this.state.contextMenu} />
         <TreeOptions show={this.state.openModal} clickedNode={this.state.clickedNode} closeModal={this.closeModal} />
       </Aux>
     );
