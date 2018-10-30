@@ -1,7 +1,7 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
-import { Glyphicon } from 'react-bootstrap';
+import { Glyphicon,Col } from 'react-bootstrap';
 
 let columnVisiblity = deviceManagementUtility.tableOptions.tableColumns;
 
@@ -11,10 +11,11 @@ const selectRowProp = {
 }
 
 const deviceListTable = (props) => {
+    
     if (props.updateColumn) {
         columnVisiblity.map((coulmn) => {
             if (coulmn.name == props.updateColumn.name) {
-                coulmn.hidden = props.updateColumn.checked
+                coulmn.hidden = !props.updateColumn.checked
             }
         })
     }
@@ -47,18 +48,18 @@ const deviceListTable = (props) => {
     }
 
     return (
-        <div className="deviceList">
+        <Col xs={12} md={12} className="deviceList">
             <BootstrapTable striped
                 options={props.options}
                 selectRow={props.selectRow}
                 data={props.deviceData}
                 pagination
-                hover selectRow={selectRowProp}>
+                hover selectRow={selectRowProp} >
                 <TableHeaderColumn dataField='id' isKey={true} hidden>id</TableHeaderColumn>
                 {tableColumnsData}
                 <TableHeaderColumn dataField="id" dataFormat={actionsFormatter}>Actions</TableHeaderColumn>
             </BootstrapTable>
-        </div>
+        </Col>
     )
 }
 
