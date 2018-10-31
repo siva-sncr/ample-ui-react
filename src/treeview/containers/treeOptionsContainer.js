@@ -29,18 +29,18 @@ class TreeOptions extends Component {
 
     render() {
         let TreeOptions;
-        if (this.props.show || this.state.show) {
-            TreeOptions = <OptionWindow closeModal={this.props.closeModal} editedNode={this.state.newNode.length > 0 ? this.state.newNode : this.props.clickedNode.node.name} 
+        //if (this.props.show || this.state.show) {
+            TreeOptions = <OptionWindow show={this.props.show} closeModal={this.props.closeModal} editedNode={this.state.newNode.length > 0 ? this.state.newNode : this.props.clickedNode ? this.props.clickedNode.node.name: null} 
             clickedNode={this.props.clickedNode}  editNode={this.editNode}  
             handleChange={(evt) => this.setState({newNode: evt.target.value})}/>
             return (
-                <div style={{ "display": this.props.show ? "Block" : "none" }} className="static-modal">
-                    {TreeOptions}
+                <div className="modal-container">
+                    {this.props.show ? TreeOptions : null}
                 </div>
             )
-        } else {
-            return null;
-        }
+        // } else {
+        //     return null;
+        // }
     }
 }
 

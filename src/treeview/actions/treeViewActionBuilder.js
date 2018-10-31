@@ -5,7 +5,7 @@ import { groupRouteParams } from '../../services/utilityService';
 
 export const initTree = (data) => {
     return dispatch => {
-        dispatch(actionDispatch.setTree(data.data));
+        dispatch(actionDispatch.setTree([data.data[0]])); // sending only orgnode
     };
 };
 
