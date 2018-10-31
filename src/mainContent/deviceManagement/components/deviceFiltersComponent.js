@@ -3,7 +3,7 @@ import MultiSelectComponent from '../../../hoc/multiSelectDropdownComponent';
 import { Panel, Row, Col, Button, FormControl } from 'react-bootstrap';
 import InputType from '../../../hoc/inputTextComponent';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
-
+import { FormattedMessage } from 'react-intl';
 const DeviceFiltersComponent = (props) => {
 
     let filters = {
@@ -69,7 +69,7 @@ const DeviceFiltersComponent = (props) => {
                     <Row className="padding-10-0">
                         <Col xs={4} md={4} className="padding-side-10">
                             <Col className="padding-0 padding-l-5 display-table height-30" xs={6} md={6}>
-                                <span className="middle-align text-left" >Device Status</span>
+                                <span className="middle-align text-left" ><FormattedMessage id='dm.column.status' /></span>
                             </Col>
                             <Col className="padding-0" xs={6} md={6}>
                                 <MultiSelectComponent handleChange={(evt) => setFilter(evt, 'statuses')} data={filters.statuses} selected={['OFFLINE', 'ONLINE']} />
@@ -77,7 +77,7 @@ const DeviceFiltersComponent = (props) => {
                         </Col>
                         <Col xs={4} md={4} className="padding-side-10"><Col className="padding-0 padding-l-5 display-table height-30" xs={6} md={6}>
                             <span className="middle-align text-left" >
-                                Device Type
+                                <FormattedMessage id='dm.column.deviceType' defaultMessage="Device Type" />
                             </span>
                         </Col>
                             <Col className="padding-0" xs={6} md={6}>
