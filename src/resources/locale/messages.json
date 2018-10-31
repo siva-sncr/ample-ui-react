@@ -1,0 +1,46 @@
+{
+    "_comment_": "loading all text messages in en block...",
+    
+    "en": {
+        "dm.column.serialNumber": "Serial Number",
+        "dm.column.phase": "Phase",
+        "dm.column.status": "Device Status",
+        "dm.column.deviceState": "Device State",
+        "dm.column.profileStatus": "Profile Status",
+        "dm.column.deviceStatus": "Device Status",
+        "dm.column.softwareVersion": "FW Version",
+        "dm.column.communicationType": "Communication Type",
+        "dm.column.networkGroupName": "Network Group",
+        "dm.column.site": "Site",
+        "dm.column.lateral": "Lateral",
+        "dm.column.feeder": "Feeder",
+        "dm.column.substation": "Substation",
+        "dm.column.region": "Region",
+        "dm.column.siteName": "Site",
+        "dm.column.feederName": "Feeder",
+        "dm.column.substationName": "Substation",
+        "dm.column.regionName": "Region",
+        "dm.column.profileName": "Profile Name",
+        "dm.column.configStatus": "Profile Status",
+        "dm.column.otapStatus": "FW Upgrade Status",
+        "dm.column.siteLocation": "Site Location",
+        "dm.column.dnp3PointMapVersion": "DNP Version",
+        "dm.column.dnpAddress": "DNP Address",
+        "dm.column.ipAddress": "IP Address",
+        "dm.column.description": "Description",
+        "dm.column.fieldNotes": "Field Notes",
+        "dm.column.commServerName": "Sensor Gateway",
+        "dm.column.sensorGatewayName": "Sensor Gateway",
+        "dm.column.gpsCoordinates": "GPS Coordinates",
+        "dm.column.lastSuccess": "Last Communication Time",
+        "dm.column.deviceType": "Device Type"
+    },
+
+
+
+
+
+    "te": {
+        "device.type": "పరికరం రకం"
+    }
+}

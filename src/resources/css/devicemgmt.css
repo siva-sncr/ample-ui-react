@@ -159,3 +159,13 @@
   .full-width +
 .btn-group > .dropdown-menu {
     width: 100%; }
+
+.react-bs-table table th {
+  overflow: unset;
+  white-space: unset;
+  text-overflow: unset; }
+
+.react-bs-table table td {
+  overflow: unset;
+  white-space: unset;
+  text-overflow: unset; }
