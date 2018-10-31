@@ -23,7 +23,7 @@ const deviceListTable = (props) => {
     const tableColumnsData = columnVisiblity.map((coulmn, index) =>
         <TableHeaderColumn key={index}
             dataField={coulmn.name}
-            dataSort={ true } tdStyle={ { whiteSpace: 'normal' } } thStyle={ { whiteSpace: 'normal' } }
+            dataSort={ true }
             hidden={coulmn.hidden} >
             {coulmn.name}
         </TableHeaderColumn>
@@ -50,10 +50,6 @@ const deviceListTable = (props) => {
     return (
         <Col xs={12} md={12} className="deviceList">
             <BootstrapTable striped
-                tableStyle={ { border: '#0000FF 2.5px solid' } }
-                containerStyle={ { border: '#FFBB73 2.5px solid' } }
-                headerStyle={ { border: 'red 1px solid' } }
-                bodyStyle={ { border: 'green 1px solid' } }
                 options={props.options}
                 selectRow={props.selectRow}
                 data={props.deviceData}
