@@ -70,9 +70,11 @@ class Tree extends Component {
   }
 
   loadNextLevel = (clickedNode) => {
+    treeMethods.removeShadow();
     if (!clickedNode.node.expanded) {
       let routeParams = treeMethods.updateRouteParams(clickedNode, this.props.tree)
       this.props.onExpandNode(clickedNode, routeParams);
+      treeMethods.updateShadow(clickedNode);
     } else {
       this.props.onCloseNode(clickedNode);
     }
@@ -98,14 +100,10 @@ class Tree extends Component {
     this.setState({ openModal: false })
   }
 
-  selectFontIcon = (node) => {
-
-  }
-
   render() {
     return (
       <Aux>
-        <div style={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
+        <div className="left-nav">
 
           <Search
             searchFoundCount={this.state.searchFoundCount}
@@ -115,7 +113,7 @@ class Tree extends Component {
             inputChangedHandler={evt => this.setState({ searchString: evt.target.value })}
           />
 
-          <div className="tree" style={{ flex: '1 0 50%', padding: '5px 0 0 15px' }}>
+          <div className="tree" >
             <SortableTree
               treeData={this.state.tree}
               onChange={treeData => { this.props.onDropTree(treeData) }}
@@ -139,7 +137,7 @@ class Tree extends Component {
                     <ContextMenu clicked={(event, action) => this.callRespectiveAction(event, action)} />
                   </div>
                 ],
-                className: clickedNode.node.arrow === 'right' ? `glyphicon glyphicon-menu-right` : (clickedNode.node.arrow === 'down' ? `glyphicon glyphicon-menu-down` : ''),
+                className: clickedNode.node.arrow === 'right' ? `glyphicon glyphicon-menu-right shadow${clickedNode.node.type + clickedNode.node.name.replace(/ /g,'')}` : (clickedNode.node.arrow === 'down' ? `glyphicon glyphicon-menu-down shadow${clickedNode.node.type + clickedNode.node.name.replace(/ /g,'')}` : ''),
               })}
             />
 

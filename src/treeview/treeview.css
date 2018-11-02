@@ -30,35 +30,45 @@
 .rstcustom__collapseButton, .rstcustom__expandButton {
   display: none; }
 
-.tree {
-  flex: '1 0 50%';
+.left-col .left-nav {
+  display: flex;
+  flex-direction: column;
+  height: 80vh; }
+
+.left-col .tree {
+  flex: 1 0 50%;
   padding: 5px 0px 0px 15px;
   border: 1px solid lightgray;
   margin-top: 7px; }
-  .tree .rst__tree {
+  .left-col .tree span {
+    font-family: 'Open Sans', sans-serif; }
+  .left-col .tree .rst__tree {
     margin-left: -36px; }
-  .tree .glyphicon {
+  .left-col .tree .glyphicon {
     display: flex !important; }
-  .tree .rstcustom__rowLabel {
+  .left-col .tree .rstcustom__rowLabel {
     position: absolute;
     padding-left: 22px; }
-    .tree .rstcustom__rowLabel span {
+    .left-col .tree .rstcustom__rowLabel span {
       cursor: pointer; }
-  .tree .svg-node {
+  .left-col .tree .svg-node {
     height: 15px;
     width: 15px; }
-  .tree .glyphicon-menu-right:before, .tree .glyphicon-menu-down:before {
+  .left-col .tree .glyphicon-menu-right:before, .left-col .tree .glyphicon-menu-down:before {
     padding-right: 6px;
     cursor: pointer; }
-  .tree .ReactVirtualized__Grid {
+  .left-col .tree .ReactVirtualized__Grid {
     will-change: unset !important; }
-  .tree .rstcustom__rowWrapper:hover {
+  .left-col .tree .rstcustom__rowWrapper:hover {
     opacity: 1; }
+  .left-col .tree .rstcustom__rowSearchFocus span, .left-col .tree .rstcustom__rowSearchMatch span {
+    box-shadow: 0px 0px 3px 3px #A8A6A6; }
 
 .left-col .form-group .btn {
   margin-left: 2px;
-  padding: 0px 3px; }
+  padding: 3px 3px 7px 2px; }
 
 .modal-dialog {
   width: 600px;
-  height: 400px; }
+  height: 400px;
+  margin-top: 30px !important; }
