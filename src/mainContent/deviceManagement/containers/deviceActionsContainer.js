@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { ButtonToolbar, ButtonGroup, Button, Glyphicon, Dropdown, MenuItem, Checkbox } from 'react-bootstrap';
 import * as deviceManagementUtility from '../../../utility/deviceManagementUtility';
 import AddDeviceComponent from '../components/addDeviceComponent';
 import MoveDevicesComponent from '../components/moveDevicesComponent';
 import ModalWindow from '../../../hoc/modelWindow';
-import * as deviceManagementAction from '../actions';
 
 class DeviceActionsComponent extends Component {
-    
+
     state = {
         modelShow: false,
         modelOptions: {}
     };
 
-    componentDidMount(){
-        this.props.setDeviceTypes();
-    }
 
     addDevice() {
-        let deviceTypes = this.props.deviceTypes;
+        let deviceTypes = ["ZM1", "MM3", "MM2"];
         let deviceOptions = {
             title: 'Add Device',
-            content: (<AddDeviceComponent deviceTypes={deviceTypes}/>)
+            content: (<AddDeviceComponent deviceTypes={deviceTypes} />)
         };
         this.setState({ modelShow: true, modelOptions: deviceOptions });
     }
 
     moveDevices(type) {
-        let  moveOptions = {
+        let moveOptions = {
             title: 'Move Devices',
             size: 'large',
-            content: (<MoveDevicesComponent/>)
+            content: (<MoveDevicesComponent />)
         };
         this.setState({ modelShow: true, modelOptions: moveOptions });
     }
 
     render() {
+        console.log(this.state.disable);
         let columnTitles = deviceManagementUtility.tableOptions.tableColumns;
         const selectedColumns = columnTitles.map((column) =>
-            <label key={column.name}><input type="checkbox" name={column.name} onChange={(evt) => this.props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
+            <label><input type="checkbox" name={column.name} onChange={(evt) => this.props.getEnabledColumn(evt)} defaultChecked={!column.hidden} />{column.name}</label>
         );
 
         let modelClose = () => this.setState({ modelShow: false });
 
-      
+
 
         return (
             <ButtonToolbar className="pull-right">
@@ -53,29 +49,29 @@ class DeviceActionsComponent extends Component {
                     <Button onClick={() => this.addDevice()}>
                         <Glyphicon glyph="plus" />
                     </Button>
-                    <Button onClick={() =>this.moveDevices("move")}>
+                    <Button onClick={() => this.moveDevices("move")} disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="random" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="cog" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="save" />
                     </Button>
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="trash" />
                     </Button>
                 </ButtonGroup>
 
                 <ButtonGroup className="export-button">
-                    <Button>
+                    <Button disabled={!this.props.devices || this.props.devices==0}>
                         <Glyphicon glyph="share" />
-                        <span className="caret"></span>
+                        <span class="caret"></span>
                     </Button>
                 </ButtonGroup>
 
-                <ButtonGroup>
-                    <Dropdown id="dropdown-custom-1" >
+                <ButtonGroup >
+                    <Dropdown disabled={!this.props.devices || this.props.devices==0} id="dropdown-custom-1" >
                         <Dropdown.Toggle noCaret>
                             <Glyphicon glyph="th" />
                         </Dropdown.Toggle>
@@ -90,15 +86,4 @@ class DeviceActionsComponent extends Component {
     }
 }
 
-const mapDisaptchToProps = (dispatch) => {
-    return {
-        setDeviceTypes : () => dispatch(deviceManagementAction.setDeviceTypes())
-    }
-}
-
-const mapStateTpProps = (state) => {
-    return {
-        deviceTypes : state.deviceManagementData.deviceTypes
-    }
-}
-export default connect(mapStateTpProps, mapDisaptchToProps)(DeviceActionsComponent);
+export default DeviceActionsComponent;

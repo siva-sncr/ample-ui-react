@@ -2,8 +2,13 @@ import React from 'react';
 
 const contextMenu = (props) => {
     return (
-        <div className="contextMenu" style={{ "left": props.context.left, "top": props.context.top, display: props.context.display }}>
-            <ul><li onClick={() => props.clicked("edit")}>Edit Node</li></ul>
+        <div className="contextMenu">
+            <ul>
+                <li onClick={(event) => props.clicked(event, "edit")}>Edit Node</li>
+                <li>Add Region</li>
+                <li>Add Device</li>
+                <li>Details</li>
+            </ul>
         </div>
     )
 }
