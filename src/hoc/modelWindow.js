@@ -8,15 +8,7 @@ const ModalWindow = (props) => {
             bsSize={props.modeldata.size}
             aria-labelledby="contained-modal-title-sm"
              >
-            <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-sm">{props.modeldata.title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                {props.modeldata.content}
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
-            </Modal.Footer>
+            {props.modeldata.content}
         </Modal>
     );
 

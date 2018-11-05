@@ -1,4 +1,5 @@
 export {
     buildNodeData,
-    getFiltersData
+    getFiltersData,
+    setDeviceTypes
 } from './deviceManagementActionBuilder';

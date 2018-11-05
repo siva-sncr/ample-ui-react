@@ -19,4 +19,8 @@ export const getFilters = (name) => {
          });
 }
 
+export const loadDeviceTypeList = () => {
+    let url = getURL('groupManagement', 'productnamelist', {'apiType':'data'});
+    return requestGET(url);
 
+}
