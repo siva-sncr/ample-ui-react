@@ -28,47 +28,62 @@
   
   .rstcustom__collapseButton, .rstcustom__expandButton {
     display: none; }
-    
-.tree {
-    flex: '1 0 50%';
-    padding: 5px 0px 0px 15px;
-    border: 1px solid lightgray;
-    margin-top: 7px;
 
-    .rst__tree {
-        margin-left: -36px;
+.left-col {
+    .left-nav {
+        display: flex;
+        flex-direction: column; 
+        height: 80vh;
     }
-
-    .glyphicon {
-        display: flex !important; }
+    .tree {
+        flex: 1 0 50%;
+        padding: 5px 0px 0px 15px;
+        border: 1px solid lightgray;
+        margin-top: 7px;
     
-    .rstcustom__rowLabel {
-        position: absolute;
-        padding-left: 22px;
         span {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .rst__tree {
+            margin-left: -36px;
+        }
+    
+        .glyphicon {
+            display: flex !important; }
+        
+        .rstcustom__rowLabel {
+            position: absolute;
+            padding-left: 22px;
+            span {
+                cursor: pointer;
+            }
+        }
+        .svg-node {
+            height: 15px;
+            width: 15px;
+        } 
+        .glyphicon-menu-right:before, .glyphicon-menu-down:before {
+            padding-right: 6px;
             cursor: pointer;
         }
-    }
-    .svg-node {
-        height: 15px;
-        width: 15px;
-    } 
-    .glyphicon-menu-right:before, .glyphicon-menu-down:before {
-        padding-right: 6px;
-        cursor: pointer;
-    }
-    .ReactVirtualized__Grid {
-        will-change: unset !important;
-    }
-    .rstcustom__rowWrapper:hover { opacity: 1}
-}
+        .ReactVirtualized__Grid {
+            will-change: unset !important;
+        }
+        .rstcustom__rowWrapper:hover { opacity: 1}
 
-.left-col .form-group .btn {
-    margin-left: 2px;
-    padding: 0px 3px;
+        .rstcustom__rowSearchFocus span, .rstcustom__rowSearchMatch span{
+            box-shadow: 0px 0px 3px 3px #A8A6A6;
+        }
+    }
+    .form-group .btn {
+        margin-left: 2px;
+        padding: 3px 3px 7px 2px;
+    }  
 }
 
 .modal-dialog {
     width: 600px;
     height: 400px;
+    margin-top: 30px !important;
 }

@@ -29,18 +29,14 @@ class TreeOptions extends Component {
 
     render() {
         let TreeOptions;
-        //if (this.props.show || this.state.show) {
-            TreeOptions = <OptionWindow show={this.props.show} closeModal={this.props.closeModal} editedNode={this.state.newNode.length > 0 ? this.state.newNode : this.props.clickedNode ? this.props.clickedNode.node.name: null} 
-            clickedNode={this.props.clickedNode}  editNode={this.editNode}  
-            handleChange={(evt) => this.setState({newNode: evt.target.value})}/>
-            return (
-                <div className="modal-container">
-                    {this.props.show ? TreeOptions : null}
-                </div>
-            )
-        // } else {
-        //     return null;
-        // }
+        TreeOptions = <OptionWindow show={this.props.show} closeModal={this.props.closeModal} editedNode={this.state.newNode.length > 0 ? this.state.newNode : this.props.clickedNode ? this.props.clickedNode.node.name: null} 
+        clickedNode={this.props.clickedNode}  editNode={this.editNode}  
+        handleChange={(evt) => this.setState({newNode: evt.target.value})}/>
+        return (
+            <div className="modal-container">
+                {this.props.show ? TreeOptions : null}
+            </div>
+        )
     }
 }
 
